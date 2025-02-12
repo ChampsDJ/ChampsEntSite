@@ -57,39 +57,51 @@
 		a:hover {
 			text-decoration: underline;
 		}
-
-		/* Desktop View - Ensure Horizontal Menu */
-		.navbar {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 15px;
-			padding: 10px 0;
-			background: rgba(0, 0, 0, 0.8);
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 1; /* Ensure navbar stays on top */
-		}
-
-		.navbar a {
-			display: inline-block; /* Ensures links stay in a row */
-			padding: 10px 15px;
-			font-size: 18px;
-			white-space: nowrap; /* Prevents text from breaking */
-		}
-
-		.navbar a:hover {
-			text-decoration: underline;
-		}
-		/* Desktop - Hide Hamburger */
-		.menu-toggle {
-			display: none;
-		}
 		
-		/* Mobile View - Hide Menu Initially */
+		/* Desktop View */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: justify; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 15px;
+				padding: 10px 0;
+				background: rgba(0, 0, 0, 0.8);
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 1; /* Ensure navbar stays on top */
+			}
+
+			.navbar a {
+				display: inline-block; /* Ensures links stay in a row */
+				padding: 10px 15px;
+				font-size: 18px;
+				white-space: nowrap; /* Prevents text from breaking */
+			}
+
+			.navbar a:hover {
+				text-decoration: underline;
+			}
+		}
+
+		/* Mobile View */
 		@media (max-width: 768px) {
+			/* Hide Menu Initially */
 			.navbar {
 				display: none;
 				flex-direction: column;
@@ -110,7 +122,7 @@
 				display: block;
 				padding: 10px;
 			}
-
+			/* Display Hamburger button */
 			.menu-toggle {
 				display: block !important;
 				position: fixed;
@@ -125,8 +137,17 @@
 				border-radius: 20%; /* Make it circular */
 				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
 			}
+			/* Add margin to prevent logo being pushed out of view */
 			img {
-				margin-top: 20px; /* Add margin to prevent logo being pushed out of view */
+				margin-top: 20px; 
+			}
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: justify; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
 			}
 		}
 
