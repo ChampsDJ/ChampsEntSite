@@ -96,7 +96,10 @@
 				text-align: center;
 				padding: 10px 0;
 			}
-
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
 			.navbar a {
 				display: block;
 				padding: 10px;
@@ -192,11 +195,7 @@
 	<script>
 		function toggleMenu() {
 			var navbar = document.querySelector(".navbar");
-			if (navbar.style.display === "flex") {
-				navbar.style.display = "none"; // Hide the menu
-			} else {
-				navbar.style.display = "flex"; // Show the menu
-			}
+			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
 </body>
