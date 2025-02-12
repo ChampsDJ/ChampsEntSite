@@ -4,39 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contact Champs Entertainment - Reach out for bookings, inquiries, or questions.">
-    <title>Contact Champs Entertainment</title>
-    <link rel="icon" type="image/png" href="Images/Champs_Ent_Logo_White_pfp.png">
+	<meta property="og:title" content="Champs Entertainment">
+	<meta property="og:description" content="Champs Entertainment - Pittsburgh PA's choice for live event DJing. We also offer recording, streaming & audio mastering services for your big day.">
+	<meta property="og:image" content="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_social.png">
+	<meta property="og:url" content="https://www.champsentertainment.com">
+	<meta property="og:type" content="website">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Champs Entertainment">
+	<meta name="twitter:description" content="Pittsburgh PA's choice for live event DJing. We also offer recording, streaming & audio mastering services for your big day.">
+	<meta name="twitter:image" content="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_social.png">
+    <title> Contact Champs Entertainment | Pittsburgh, PA</title>
+    <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png">
+	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Nunito', sans-serif;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        img {
-            max-width: 90%;
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-family: 'Nunito', sans-serif;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+		}
+		img {
+			max-width: 90%;
 			width: auto;
-            height: auto;
-            margin-bottom: 1px;
-        }
-        h1 {
-            font-weight: 700;
-            font-size: 32px;
-            margin-bottom: 1px;
-        }
-        p {
-            font-size: 18px;
-            margin-bottom: 1px;
-            max-width: 600px;
-        }
-        form {
+			height: auto;
+			margin-bottom: 20px;
+		}
+		h1 {
+			font-weight: 700;
+			font-size: 32px;
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+		
+		/* Remove 'display: block' for all links */
+		a {
+			color: white;
+			text-decoration: none;
+			font-size: 18px;
+			margin: 5px 0;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+
+		/* Desktop View - Ensure Horizontal Menu */
+		.navbar {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 15px;
+			padding: 10px 0;
+			background: rgba(0, 0, 0, 0.8);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+		.navbar a {
+			display: inline-block; /* Ensures links stay in a row */
+			padding: 10px 15px;
+			font-size: 18px;
+			white-space: nowrap; /* Prevents text from breaking */
+		}
+
+		.navbar a:hover {
+			text-decoration: underline;
+		}
+
+		/* Mobile View - Hide Menu Initially */
+		@media (max-width: 768px) {
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: absolute;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+			}
+
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+
+			.menu-toggle {
+				display: block;
+				position: fixed;
+				top: 10px;
+				right: 15px;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+			}
+		}
+
+		/* Desktop - Hide Hamburger */
+		.menu-toggle {
+			display: none;
+		}
+		form {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,55 +149,27 @@
         button:hover {
             background-color: gray;
         }
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            margin-top: 1px;
-            display: block;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-		.navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            text-align: center;
-			display: flex;
-			justify-content: center;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            font-size: 18px;
-        }
-        .navbar a:hover {
-            text-decoration: underline;
-		}
-    </style>
+	</style>
 </head>
 <body>
-	<nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="index.html">About</a> <!-- About -->
-        <a href="index.html">Services</a> <!-- Services -->
-        <a href="index.html">Reviews</a> <!-- Reviews -->
-        <a href="index.html">Gallery</a> <!-- Gallery -->
-        <a href="index.html">Music</a> <!-- Music -->
-        <a href="index.html">FAQ</a> <!-- FAQ -->
-        <a href="contact.html">Contact</a> <!-- About -->
-		<a href="index.html">Blog</a> <!-- Blog -->
-    </nav>
+    <div class="menu-container">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+		<nav class="navbar">
+			<a href="index.html">Home</a>
+			<a href="index.html">About</a><!-- About -->
+			<a href="index.html">Services</a><!-- Services -->
+			<a href="index.html">Reviews</a><!-- Reviews -->
+			<a href="index.html">Gallery</a><!-- Gallery -->
+			<a href="index.html">Music</a><!-- Music -->
+			<a href="index.html">FAQ</a><!-- FAQ -->
+			<a href="contact.html">Contact</a><!-- About -->
+			<a href="index.html">Blog</a><!-- Blog -->
+		</nav>
+	</div>
     <img src="Images/Champs_Ent_Logo_White_social.png" alt="Champs Entertainment Logo">
 
     <h1>Contact Us!</h1>
-    <p>Please use the form below to contact Champs Entertainment and we will get back to you shortly!  
-       Thank you for thinking of booking us for your big event!</p>
+    <p>Please use the form below to contact Champs Entertainment and we will get back to you shortly!<br>Thank you for thinking of booking us for your big event!</p>
 
     <form action="https://formsubmit.co/7b3cd2d73db63f3f76bc5bc0e693afe3" method="POST" />
         <input type="text" name="name" placeholder="Your Name" required>
@@ -128,6 +182,14 @@
     </form>
 
     <a href="index.html">⬅ Back to Home</a>
-
+	<script>
+		function toggleMenu() {
+			var navbar = document.querySelector(".navbar");
+			if (navbar.style.display === "flex") {
+				navbar.style.display = "none";
+		} else {
+			navbar.style.display = "flex";
+		}}
+	</script>
 </body>
 </html>
