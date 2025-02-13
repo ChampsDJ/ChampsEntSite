@@ -59,6 +59,50 @@
 		a:hover {
 			text-decoration: underline;
 		}
+		/* General Styles for the grid container */
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
+			gap: 20px;  /* Space between grid items */
+			margin-top: 20px;
+			padding: 0 15px;
+		}
+
+		/* Styling for each grid item */
+		.grid-item {
+			background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent dark background */
+			border-radius: 10px;
+			padding: 20px;
+			text-align: left;
+			transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+		}
+
+		/* Hover effect for grid items */
+		.grid-item:hover {
+			transform: translateY(-10px); /* Lifts the card on hover */
+		}
+
+		/* Styling for the titles of each package */
+		.grid-item h3 {
+			font-size: 24px;
+			margin-bottom: 10px;
+			color: #fff; /* White text for visibility */
+		}
+
+		/* Styling for the text within each grid item */
+		.grid-item p {
+			font-size: 18px;
+			color: #ccc; /* Light grey text for better readability */
+			margin-bottom: 10px;
+			margin-top: 10px;
+		}
+
+		/* Special styling for the 'Starting at' text */
+		.grid-item p strong {
+			color: #4CAF50; /* Green color to highlight the pricing text */
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
 		
 		/* Desktop View */
 		@media (min-width: 768px) {
@@ -203,7 +247,67 @@
     <img src="Images/Champs_Ent_Logo_White_social.png" alt="Champs Entertainment Logo">
     
     <h1>Services & Packages</h1>
-    <p>Coming Soon! Stay tuned for updates!</p>
+	<p>At Champs Entertainment, we offer a range of DJing, lighting, sound, livestreaming, recording, and equipment rental services tailored to your event's needs. Whether you're hosting an intimate gathering or a large celebration, we have packages to fit any occasion. Below are our core service offerings:</p>
+	
+
+    <div class="grid-container">
+	<div class="grid-item">
+        <h3>Just the DJ</h3>
+        <p>Perfect for birthday parties, mitzvahs, and other small private parties. No bells and whistles, just good music and vibes.</p>
+			<div><strong>Package Includes:</strong></div>
+			<div>✅ Professional DJ performance</div>
+			<div>✅ High-quality sound system</div>
+			<div>✅ Wireless microphone for speeches & announcements</div>
+		<p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+    <div class="grid-item">
+        <h3>DJ & Lighting Package</h3>
+        <p>Perfect for weddings, parties, and corporate events! This package includes everything you need for a fantastic event, from live music to atmospheric lighting.</p>
+			<div><strong>Package Includes:</strong></div>
+			<div>✅ Everything in the Just The DJ Package</div>
+			<div>✅ Basic event lighting (e.g., dance floor lighting, uplighting)</div>
+		<p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+    <div class="grid-item">
+        <h3>DJ & Livestreaming Package</h3>
+        <p>Looking to share your event with those who can't attend in person? Our Livestreaming Package brings your celebration to a global audience, with seamless streaming.</p>
+        <div><strong>Package Includes:</strong></div>
+		<div>✅ Everything in the DJ & Lighting Package</div>
+		<div>✅ Multi-camera livestream setup (covering the DJ and crowd)</div>
+		<div>✅ Live audio feed from the DJ booth for professional-quality sound</div>
+		<div>✅ Seamless streaming to the Champs Entertainment Twitch channel</div>
+		<p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+    <div class="grid-item">
+        <h3>DJ & Event Recording Package</h3>
+        <p>Want to relive the memories? This package captures your event in high-definition video and top-quality audio, with post-event editing available for an even more polished final product.</p>
+        <div><strong>Package Includes:</strong></div>
+		<div>✅ Everything in the DJ & Lighting Package</div>
+		<div>✅ Multi-angle HD video recording of the event</div>
+		<div>✅ Professional post-event audio & video editing (optional, but recommended)</div>
+		<p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+	<div class="grid-item">
+        <h3>The Total Package</h3>
+        <p>Want it all? This package is it. Our all-inclusive package that includes every service we offer, so that you can re-live your event time and time again. OUR MOST POPULAR PACKAGE!</p>
+		<div><strong>Package Includes:</strong></div>
+		<div>✅ EVERYTHING in all previous packages</div>
+		<div>✅ Includes advanced lighting: music responsive & moving lights, pin lights on the cake, head table, DJ booth, etc.</div>
+		<div>✅ Professional video & audio editing of your event, as well as, a fully mastered audio recording of the final hour of music!</div>
+        <p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+    <div class="grid-item">
+        <h3>Speaker & Equipment Rental</h3>
+        <p>If you're just looking for sound and lighting for your event without a DJ, we also offer equipment rental. From basic setups to advanced systems, we can provide the right tools for any event.</p>
+        <div><strong>Rental Options Include:</strong></div>
+		<div>✅ Basic Speaker Setup (2 speakers, no sub)</div>
+		<div>✅ Full Sound System (2 speakers + subwoofer)</div>
+		<div>✅ Wireless Microphone Rental</div>
+		<div>✅ Basic Event Lighting Setup</div>
+		<div>✅ Advanced Lighting Setup (including dance floor, uplighting, pin lights, movers, and music responsive lights)</div>
+		<p><strong>Starting at:</strong> <a href="contact.html">Contact us for a quote!</a></p>
+    </div>
+</div>
 	
 
 	<a href="index.html">⬅ Back to Home</a>
