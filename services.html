@@ -18,6 +18,7 @@
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 	
 	<style>
 		body {
@@ -52,7 +53,7 @@
 		a {
 			color: white;
 			text-decoration: none;
-			font-size: 18px;
+			font-size: 20px;
 			margin: 5px 0;
 		}
 		a:hover {
@@ -98,6 +99,14 @@
 			.navbar a:hover {
 				text-decoration: underline;
 			}
+			.social-icons a {
+				margin: 0 10px;
+				font-size: 50px;
+			}
+			.social-icons a:hover {
+			color: #ddd;
+			text-decoration: none;
+			}
 		}
 
 		/* Mobile View */
@@ -107,7 +116,7 @@
 				display: none;
 				flex-direction: column;
 				background: black;
-				position: absolute;
+				position: fixed;
 				width: 100%;
 				top: 50px;
 				left: 0;
@@ -150,6 +159,28 @@
 				text-align: justify; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
+			.social-icons a {
+				margin: 0 10px;
+				font-size: 50px;
+			}
+		}
+		footer {
+			background-color: black;
+			padding: 20px 0;
+			text-align: center;
+		}
+
+		.social-icons a {
+			color: white;
+			margin: 0 10px;
+			font-size: 50px;
+			transition: color 0.3s ease;
+			text-decoration: none;
+		}
+
+		.social-icons a:hover {
+			color: #ddd;
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -182,5 +213,22 @@
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
+	
+	<footer>
+		<div class="social-icons">
+			<a href="https://instagram.com/champs_entertainment" target="_blank" title="Instagram">
+				<i class="fab fa-instagram"></i>
+			</a>
+			<a href="https://www.facebook.com/champsentertainm3nt/" target="_blank" title="Facebook">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+			<a href="https://twitch.tv/champsentertainment" target="_blank" title="Linktree">
+				<i class="fab fa-twitch"></i>
+			</a>
+			<a href="https://www.youtube.com/@ChampsEntertainment" target="_blank" title="YouTube">
+				<i class="fab fa-youtube"></i>
+			</a>
+		</div>
+	</footer>
 </body>
 </html>
