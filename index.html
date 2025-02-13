@@ -18,7 +18,7 @@
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp.png">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
-	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 	<style>
 		body {
 			background-color: black;
@@ -52,7 +52,7 @@
 		a {
 			color: white;
 			text-decoration: none;
-			font-size: 18px;
+			font-size: 20px;
 			margin: 5px 0;
 		}
 		a:hover {
@@ -107,7 +107,7 @@
 				display: none;
 				flex-direction: column;
 				background: black;
-				position: absolute;
+				position: fixed;
 				width: 100%;
 				top: 50px;
 				left: 0;
@@ -150,6 +150,27 @@
 				text-align: justify; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
+			.social-icons a {
+				margin: 0 10px;
+				font-size: 25px;
+			}
+		footer {
+			background-color: black;
+			padding: 20px 0;
+			text-align: center;
+		}
+
+		.social-icons a {
+			color: white;
+			margin: 0 10px;
+			font-size: 50px;
+			transition: color 0.3s ease;
+			text-decoration: none;
+		}
+
+		.social-icons a:hover {
+			color: #ddd;
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -172,11 +193,13 @@
     <img src="Images/Champs_Ent_Logo_White_social.png" alt="Champs Entertainment Logo">
     
     <h1>Welcome to Champs Entertainment</h1>
-    <p>Pittsburgh PA's choice for live event DJing. We also offer recording engineering, streaming engineering & audio engineering services for your big day. We are under contruction right now so stop back soon for more content!</p>
-	
-	<a href="contact.html">✉️ Contact</a>
-    <a href="https://instagram.com/champsdj_" target="_blank">🎧 @champsdj</a>
-    <a href="https://instagram.com/champs_entertainment" target="_blank">🎵 @champs_entertainment</a>
+    <h2>THE Pittsburgh, PA area choice for live event DJing!</h2>
+	<img src="Images/resize/ddj1000controller_resize.png" alt="DDJ-1000 mixer">
+	<p>We service the following counties in Pennsylvania on a regular basis: Allegheny, Butler, Beaver, Washington, and Westmoreland.</p>
+	<img src="Images/resize/ddj1000mixing_resize_edit.png" alt="Mixing a track">
+	<p>Even if your event is outside of our general service area, <a href="contact.html">please reach out</a>. We would love to do your event as long as the fit is right! We also offer recording, streaming & audio engineering services for your big day.</p>
+	<p>Use the navigation at the top of the site to browse around. Get to know <a href="about.html">about our company</a>, check out the <a href="services.html">services and packages we offer</a>, <a href="reviews.html">look at our reviews</a>, <a href="music.html">check out our music</a>, <a href="contact.html">contact us for a quote</a>, and much more!</p>
+	<p>Thanks for stopping by!</p>
 	
 	<script>
 		function toggleMenu() {
@@ -184,5 +207,22 @@
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
+	
+	<footer>
+		<div class="social-icons">
+			<a href="https://instagram.com/champs_entertainment" target="_blank" title="Instagram">
+				<i class="fab fa-instagram"></i>
+			</a>
+			<a href="https://www.facebook.com/champsentertainm3nt/" target="_blank" title="Facebook">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+			<a href="https://twitch.tv/champsentertainment" target="_blank" title="Linktree">
+				<i class="fab fa-twitch"></i>
+			</a>
+			<a href="https://www.youtube.com/@ChampsEntertainment" target="_blank" title="YouTube">
+				<i class="fab fa-youtube"></i>
+			</a>
+		</div>
+	</footer>
 </body>
 </html>
