@@ -39,10 +39,41 @@
 			height: auto;
 			margin-bottom: 20px;
 		}
+		.faq-container {
+            width: 90%;
+            max-width: 700px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .faq-question {
+            background-color: #222;
+            padding: 15px;
+            cursor: pointer;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #333;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            border-left: 3px solid #007BFF;
+            background-color: #1a1a1a;
+            font-size: 18px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
 		h1 {
 			font-weight: 700;
 			font-size: 40px;
-			margin-bottom: 10px;
+			margin-bottom: 20px;
 		}
 		p {
 			font-size: 20px;
@@ -104,8 +135,8 @@
 				font-size: 50px;
 			}
 			.social-icons a:hover {
-			color: #ddd;
-			text-decoration: none;
+				color: #ddd;
+				text-decoration: none;
 			}
 		}
 
@@ -163,13 +194,39 @@
 				margin: 0 10px;
 				font-size: 50px;
 			}
+			
+            .faq-container {
+                width: 95%;
+            }
 		}
+		
+		.contact-prompt {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 22px;
+            width: 90%;
+            max-width: 700px;
+			margin-bottom: 20px;
+        }
+
+        .contact-prompt a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-prompt a:hover {
+            text-decoration: underline;
+        }
 		footer {
 			background-color: black;
 			padding: 20px 0;
 			text-align: center;
 		}
-
 		.social-icons a {
 			color: white;
 			margin: 0 10px;
@@ -202,9 +259,102 @@
 
     <img src="Images/Champs_Ent_Logo_White_social.png" alt="Champs Entertainment Logo">
     
-    <h1>FAQ</h1>
-    <p>Coming Soon! Stay tuned for updates!</p>
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-container">
+        <div class="faq-question">What genres of music do you play?</div>
+        <div class="faq-answer">
+            <p>We specialize in a wide range of genres, including house, trance, techno, dubstep, drum & bass, hip-hop, rock, top 40 and more. We tailor our sets to match the vibe and energy of your event, ensuring the perfect soundtrack for your celebration.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">Can we provide a list of songs we want to hear?</div>
+        <div class="faq-answer">
+            <p>Absolutely! We encourage clients to share their must-play songs, preferred genres, and even a "do-not-play" list. We’ll blend your selections with our professional expertise to keep the energy flowing all night.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">Do you take song requests from guests?</div>
+        <div class="faq-answer">
+            <p>Yes! We welcome song requests if they fit the event's overall vibe. If you'd prefer a curated playlist without requests, we can accommodate that as well.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">Do you provide your own sound and lighting equipment?</div>
+        <div class="faq-answer">
+            <p>Yes, we provide high-quality sound equipment and, if needed, lighting to enhance the atmosphere. Let us know the size of your venue, and we’ll ensure the setup fits perfectly.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">How long do you typically play for? Can you extend your set if the party is still going strong?</div>
+        <div class="faq-answer">
+            <p>We offer flexible set times based on your needs. Most weddings and events book us for 4-6 hours, but we can accommodate shorter or longer sets upon request. If the venue and event schedule allow, we're happy to extend our set for an additional fee. Just let us know in advance or during the event if you'd like to keep the party going!</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">How do you handle announcements and MC duties? Do you provide wireless microphones for speeches and toasts?</div>
+        <div class="faq-answer">
+            <p>We can handle MC duties, making professional and well-timed announcements as needed. If you prefer a more minimal approach, we can keep the focus on the music while coordinating with your event planner. We also provide high-quality wireless microphones for speeches, toasts, and announcements.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">Do you require a deposit, and what is your cancellation policy?</div>
+        <div class="faq-answer">
+            <p>Yes, we require a deposit and signed contract to secure your date. The remaining balance is due 30 days before the event. Cancellations made within a certain timeframe may result in a partial or full refund, depending on the terms of our agreement.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">What happens if something goes wrong with the equipment?</div>
+        <div class="faq-answer">
+            <p>We always bring backup equipment, including speakers, controllers, and cables, to ensure uninterrupted music. We also arrive early to test everything before guests arrive.</p>
+        </div>
+    </div>
+
+    <div class="faq-container">
+        <div class="faq-question">Have you DJ’d at our venue before?</div>
+        <div class="faq-answer">
+            <p>If we haven’t played at your venue, we’ll reach out to the venue staff beforehand to discuss logistics and do a site check if necessary. This ensures a smooth setup and performance on the day of your event.</p>
+        </div>
+    </div>
 	
+	<div class="faq-container">
+		<div class="faq-question">Can you mix different styles of music to suit a diverse crowd?</div>
+		<div class="faq-answer">
+			<p>Yes! We specialize in reading the crowd and blending different genres seamlessly to keep everyone engaged. Whether it’s a mix of classic hits, EDM, hip-hop, or rock, we ensure the music appeals to all guests.</p>
+		</div>
+	</div>
+
+	<div class="faq-container">
+		<div class="faq-question">How early do you arrive to set up?</div>
+		<div class="faq-answer">
+			<p>We typically arrive 1.5 to 2 hours before the event starts to set up equipment, test sound levels, and coordinate with the event planner or venue staff.</p>
+		</div>
+	</div>
+
+	<div class="faq-container">
+		<div class="faq-question">What do you wear when DJing events?</div>
+		<div class="faq-answer">
+			<p>Typically, we dress appropriately for the occasion—formal attire for weddings and corporate events, and a more casual but stylish look for private parties and club-style events. Let us know if you have specific dress code preferences.</p>
+		</div>
+	</div>
+	
+    <div class="faq-container">
+        <div class="faq-question">How do we book you, and when should we secure our date?</div>
+        <div class="faq-answer">
+            <p>Booking is simple! Contact us via email, phone, or our website to discuss your event details. A signed contract and deposit are required to lock in your date. Popular dates book quickly, so we recommend reserving as early as possible!</p>
+        </div>
+    </div>
+
+    <div class="contact-prompt">
+        <p>Still have questions? <a href="contact.html">Contact us here!</a></p>
+    </div>
 
 	<a href="index.html">⬅ Back to Home</a>
 	<script>
@@ -213,7 +363,23 @@
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
-	
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const questions = document.querySelectorAll(".faq-question");
+
+            questions.forEach(question => {
+                question.addEventListener("click", function () {
+                    const answer = this.nextElementSibling;
+                    if (answer.style.display === "block") {
+                        answer.style.display = "none";
+                    } else {
+                        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+                        answer.style.display = "block";
+                    }
+                });
+            });
+        });
+    </script>	
 	<footer>
 		<div class="social-icons">
 			<a href="https://instagram.com/champs_entertainment" target="_blank" title="Instagram">
