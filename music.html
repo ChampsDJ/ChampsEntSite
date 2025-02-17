@@ -104,6 +104,10 @@
 			.navbar a:hover {
 				text-decoration: underline;
 			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 700;
+			}
 			.social-icons a {
 				margin: 0 10px;
 				font-size: 50px;
@@ -148,6 +152,10 @@
 			.navbar a {
 				display: block;
 				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 700;
 			}
 			/* Display Hamburger button */
 			.menu-toggle {
@@ -217,15 +225,15 @@
     <div class="menu-container">
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 		<nav class="navbar">
-			<a href="index.html">Home</a>
-			<a href="about.html">About</a><!-- About -->
-			<a href="services.html">Services</a><!-- Services -->
-			<a href="reviews.html">Reviews</a><!-- Reviews -->
-			<a href="gallery.html">Gallery</a><!-- Gallery -->
-			<a href="music.html">Music</a><!-- Music -->
-			<a href="faq.html">FAQ</a><!-- FAQ -->
-			<a href="contact.html">Contact</a><!-- About -->
-			<a href="blog.html">Blog</a><!-- Blog -->
+			<a href="index.html">HOME</a>
+			<a href="about.html">ABOUT</a>
+			<a href="services.html">SERVICES</a>
+			<a href="reviews.html">REVIEWS</a>
+			<a href="gallery.html">GALLERY</a>
+			<a href="music.html" class="active">MUSIC</a>
+			<a href="faq.html">FAQ</a>
+			<a href="contact.html">CONTACT</a>
+			<a href="blog.html">BLOG</a>
 		</nav>
 	</div>
 
