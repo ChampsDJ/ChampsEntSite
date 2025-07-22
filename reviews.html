@@ -192,6 +192,10 @@
 			color: #ddd;
 			text-decoration: none;
 		}
+		.review {
+			margin-bottom: 1.5em;
+			font-family: sans-serif;
+		}
 	</style>
 </head>
 <body>
@@ -213,6 +217,42 @@
 	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
     
     <h1>REVIEWS & TESTIMONIALS</h1>
+	
+	<div id="google-reviews"></div>
+
+	<script>
+	  async function fetchGoogleReviews() {
+		const placeId = 'ChIJyZCVj1KEUIARZ5TFtzDJLmg'; 
+		const apiKey = 'AIzaSyAukATxrl_5UglctZ7ArR9lF-pW7gVZ-_8';   
+
+		const proxyUrl = 'https://corsproxy.io/?';
+
+		const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews,user_ratings_total&key=${apiKey}`;
+
+		try {
+		  const response = await fetch(proxyUrl + encodeURIComponent(url));
+		  const data = await response.json();
+
+		  if (data.result && data.result.reviews) {
+			const container = document.getElementById('google-reviews');
+			container.innerHTML = data.result.reviews.slice(0, 5).map(r => `
+			  <div class="review">
+				<strong>${r.author_name}</strong> (${r.rating}★)<br/>
+				<em>${new Date(r.time * 1000).toLocaleDateString()}</em><br/>
+				<p>${r.text}</p>
+				<hr/>
+			  </div>
+			`).join('');
+		  } else {
+			console.error('No reviews found');
+		  }
+		} catch (err) {
+		  console.error('Error fetching reviews:', err);
+		}
+	  }
+
+	  fetchGoogleReviews();
+	</script>
 	
     <h2>⭐⭐⭐⭐⭐</h2>
 	<p><i>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</i></p>
