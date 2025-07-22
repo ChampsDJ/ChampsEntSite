@@ -222,15 +222,10 @@
 
 	<script>
 	  async function fetchGoogleReviews() {
-		const placeId = 'ChIJyZCVj1KEUIARZ5TFtzDJLmg'; 
-		const apiKey = 'AIzaSyAukATxrl_5UglctZ7ArR9lF-pW7gVZ-_8';   
-
-		const proxyUrl = 'https://corsproxy.io/?';
-
-		const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,reviews,user_ratings_total&key=${apiKey}`;
+		const url = 'https://script.google.com/a/macros/champsentertainment.com/s/AKfycbx_PKlpo3MHJHU9IUnkQA2Ahlv19DEhk02Ym54QbJGqNbXL50l2QW1vdCIsge3bdhttjA/exec';
 
 		try {
-		  const response = await fetch(proxyUrl + encodeURIComponent(url));
+		  const response = await fetch(url);
 		  const data = await response.json();
 
 		  if (data.result && data.result.reviews) {
@@ -245,9 +240,11 @@
 			`).join('');
 		  } else {
 			console.error('No reviews found');
+			document.getElementById('google-reviews').innerHTML = '<p>No reviews found. Check back soon!</p>';
 		  }
 		} catch (err) {
 		  console.error('Error fetching reviews:', err);
+		  document.getElementById('google-reviews').innerHTML = '<p>Error loading reviews. Please try again later.</p>';
 		}
 	  }
 
