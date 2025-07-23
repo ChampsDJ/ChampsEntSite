@@ -271,7 +271,10 @@
 		  if (data.result && data.result.reviews) {
 			const container = document.getElementById('google-reviews');
 			container.innerHTML = data.result.reviews.slice(0, 5).map(r => {
-			  const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+			  const stars = [...Array(5)].map((_, i) => {
+				return `<i class="fa${i < r.rating ? 's' : 'r'} fa-star"></i>`;
+			  }).join('');
+
 			  return `
 				<div class="review">
 				  <strong>${r.author_name}</strong>
@@ -293,6 +296,7 @@
 
 	  fetchGoogleReviews();
 	</script>
+	<hr>
 	
 	<h2>Peerspace Reviews</h2>
     <h2>⭐⭐⭐⭐⭐</h2>
