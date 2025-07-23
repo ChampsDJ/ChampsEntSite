@@ -45,14 +45,14 @@
 		}
 		h2 {
 			font-weight: 700;
-			font-size: 30px;
+			font-size: 40px;
 			margin-bottom: 20px;
 			color: #C8A700; 
 		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
-			margin-bottom: 20px;
+			margin-bottom: 0px;
 		}
 		p {
 			font-size: 20px;
@@ -179,6 +179,15 @@
 				margin: 0 10px;
 				font-size: 50px;
 			}
+			.review {
+				max-width: 90%;
+				padding: 15px;
+				margin: 15px auto;
+				font-size: 0.95em;
+			}
+			.stars {
+				font-size: 1em;
+			}
 		}
 		footer {
 			background-color: #131314;
@@ -198,6 +207,9 @@
 			color: #ddd;
 			text-decoration: none;
 		}
+		.screenshot-link {
+			margin-top: 15px;
+		}
 		.review {
 			background-color: #1c1c1e;
 			border-left: 4px solid #C8A700;
@@ -210,30 +222,59 @@
 		}
 
 			.review strong {
-			  font-size: 1.2em;
-			  color: #C8A700;
+				font-size: 1.2em;
+				color: #C8A700;
 			}
 
 			.review em {
-			  display: block;
-			  font-size: 0.9em;
-			  color: #aaa;
-			  margin-top: 5px;
-			  margin-bottom: 10px;
+				display: block;
+				font-size: 0.9em;
+				color: #aaa;
+				margin-top: 5px;
+				margin-bottom: 10px;
 			}
 
 			.review p {
-			  font-size: 1em;
-			  line-height: 1.5em;
-			  margin: 0;
-			  color: #fff;
+				font-size: 1em;
+				line-height: 1.5em;
+				margin: 0;
+				color: #fff;
 			}
 
 			.stars {
-			  color: #C8A700;
-			  margin-bottom: 10px;
-			  font-size: 1.2em;
+				color: #C8A700;
+				margin-bottom: 10px;
+				font-size: 1.2em;
 			}
+			
+		.google-review-cta {
+			margin: 40px auto;
+			text-align: center;
+		}
+
+		.review-btn {
+			background-color: #C8A700;
+			color: #131314;
+			padding: 12px 24px;
+			border-radius: 6px;
+			font-weight: bold;
+			text-decoration: none;
+			display: inline-block;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		.review-btn:hover {
+			background-color: #fff;
+			color: #C8A700;
+		}
+
+		.review-link {
+			margin-top: 10px;
+			display: inline-block;
+			color: #C8A700;
+			font-size: 0.95em;
+			text-decoration: underline;
+		}
 
 	</style>
 </head>
@@ -259,7 +300,15 @@
 	
 	<h2>Google Reviews</h2>
 	<div id="google-reviews"></div>
-
+	<div class="google-review-cta">
+		<a href="https://g.page/r/CWeUxbcwyS5oEBM/review" target="_blank" class="review-btn">
+			<i class="fas fa-pen"></i> Leave us a Google Review
+		</a>
+		<br/>
+		<a href="https://www.google.com/maps/place/?q=place_id:ChIJyZCVj1KEUIARZ5TFtzDJLmg" target="_blank" class="review-link">
+		View all reviews on Google
+		</a>
+	</div>
 	<script>
 	  async function fetchGoogleReviews() {
 		const url = 'https://script.google.com/macros/s/AKfycbyCEmXnexRqXCwzV6ycrB5aKjwbaLcupEgigfJu4tNsdYr6TY_IzS_vjowG-nUdp67etQ/exec';
@@ -299,21 +348,51 @@
 	<hr>
 	
 	<h2>Peerspace Reviews</h2>
-    <h2>⭐⭐⭐⭐⭐</h2>
-	<p><i>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</i></p>
-	<p><strong><a href="Images/peerspace_reviews.png" data-fancybox="gallery" data-caption="Champs' Peerspace Reviews">-Phillip R., Owner, The Clement, Tarentum, PA</a></strong></p>
+
+	<div class="review">
+	  <strong>Phillip R.</strong>
+	  <div class="stars">
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+	  </div>
+	  <em>Owner, The Clement, Tarentum, PA</em>
+	  <p>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</p>
+	  <p><a href="Images/peerspace_reviews.png" data-fancybox="gallery" data-caption="Champs' Peerspace Reviews">View Screenshot</a></p>
+	</div>
+
+	<div class="review">
+	  <strong>Jeff M.</strong>
+	  <div class="stars">
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+	  </div>
+	  <em>Owner, THIS IS RED, Munhall, PA</em>
+	  <p>"Great guest!!! I would host again."</p>
+	  <p><a href="Images/peerspace_reviews.png">View Screenshot</a></p>
+	</div>
 	<hr>
-	
-	<h2>⭐⭐⭐⭐⭐</h2>
-	<p><i>"Great guest!!! I would host again."</i></p>
-	<p><strong><a href="Images/peerspace_reviews.png">-Jeff M., Owner, THIS IS RED, Munhall, PA</a></strong></p>
-	<hr>
-	
 	<h2>Instagram Reviews</h2>
-	<h2>⭐⭐⭐⭐⭐</h2>
-	<p><i>"Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!"</i></p>
-	<p><strong><a href="Images/insta_review.png">-Alynment, DJ/Producer, Instagram, Pittsburgh, PA</a></strong></p>
-	<hr>
+
+	<div class="review">
+	  <strong>Alynment</strong>
+	  <div class="stars">
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+		<i class="fas fa-star"></i>
+	  </div>
+	  <em>DJ/Producer, Pittsburgh, PA</em>
+	  <p>"Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!"</p>
+	  <p><a href="Images/insta_review.png">View Screenshot</a></p>
+	</div>
+
 	
 	<p><strong><a href="contact.html">CONTACT US</a></strong></p>
 	<p><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a></p>
