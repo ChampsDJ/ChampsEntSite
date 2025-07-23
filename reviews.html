@@ -69,6 +69,26 @@
 		a:hover {
 			text-decoration: underline;
 		}
+		#google-reviews {
+			max-height: 500px;
+			overflow-y: auto;
+			padding-right: 10px;
+			margin-bottom: 30px;
+			width: 100%;
+			scroll-behavior: smooth;
+		}
+
+		/* Optional: style the scrollbar for WebKit browsers */
+		#google-reviews::-webkit-scrollbar {
+			width: 6px;
+		}
+		#google-reviews::-webkit-scrollbar-thumb {
+			background-color: #C8A700;
+			border-radius: 3px;
+		}
+		#google-reviews::-webkit-scrollbar-track {
+			background: #1c1c1e;
+		}
 		/* Desktop View */
 		@media (min-width: 768px) {
 			/* Hide Hamburger */
@@ -179,8 +199,17 @@
 				margin: 0 10px;
 				font-size: 50px;
 			}
-			.review {
+			#google-reviews {
+				width: 90%;
 				max-width: 90%;
+				padding: 0 10px;
+				box-sizing: border-box;
+				margin: 0 auto 30px auto;
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+			.review {
+				max-width: 100%;
 				padding: 15px;
 				margin: 15px auto;
 				font-size: 0.95em;
@@ -245,27 +274,6 @@
 				color: #C8A700;
 				margin-bottom: 10px;
 				font-size: 1.2em;
-			}
-			#google-reviews {
-				max-height: 500px;
-				overflow-y: auto;
-				padding-right: 10px;
-				margin-bottom: 30px;
-				width: 100%;
-				max-width: 700px;
-				scroll-behavior: smooth;
-			}
-
-			/* Optional: style the scrollbar for WebKit browsers */
-			#google-reviews::-webkit-scrollbar {
-				width: 6px;
-			}
-			#google-reviews::-webkit-scrollbar-thumb {
-				background-color: #C8A700;
-				border-radius: 3px;
-			}
-			#google-reviews::-webkit-scrollbar-track {
-				background: #1c1c1e;
 			}
 			
 		.google-review-cta {
@@ -371,7 +379,7 @@
 	<h2>PEERSPACE REVIEWS</h2>
 
 	<div class="review">
-	  <strong>Phillip R.</strong>
+	  <strong>The Clement</strong>
 	  <div class="stars">
 		<i class="fas fa-star"></i>
 		<i class="fas fa-star"></i>
@@ -379,13 +387,13 @@
 		<i class="fas fa-star"></i>
 		<i class="fas fa-star"></i>
 	  </div>
-	  <em>Owner, The Clement, Tarentum, PA</em>
-	  <p>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</p>
+	  <em>Phillip R., Owner, Tarentum, PA</em>
+	  <p>Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience.</p>
 	  <p><a href="Images/peerspace_reviews.png" target="_blank">View Screenshot</a></p>
 	</div>
 
 	<div class="review">
-	  <strong>Jeff M.</strong>
+	  <strong>THIS IS RED</strong>
 	  <div class="stars">
 		<i class="fas fa-star"></i>
 		<i class="fas fa-star"></i>
@@ -393,8 +401,8 @@
 		<i class="fas fa-star"></i>
 		<i class="fas fa-star"></i>
 	  </div>
-	  <em>Owner, THIS IS RED, Munhall, PA</em>
-	  <p>"Great guest!!! I would host again."</p>
+	  <em>Jeff M., Owner, Munhall, PA</em>
+	  <p>Great guest!!! I would host again.</p>
 	  <p><a href="Images/peerspace_reviews.png" target="_blank">View Screenshot</a></p>
 	</div>
 	<hr>
@@ -410,7 +418,7 @@
 		<i class="fas fa-star"></i>
 	  </div>
 	  <em>DJ/Producer, Pittsburgh, PA</em>
-	  <p>"Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!"</p>
+	  <p>Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!</p>
 	  <p><a href="Images/insta_review.png" target="_blank">View Screenshot</a></p>
 	</div>
 
