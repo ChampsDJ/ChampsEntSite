@@ -43,6 +43,12 @@
 			font-size: 50px;
 			margin-bottom: 20px;
 		}
+		h2 {
+			font-weight: 700;
+			font-size: 30px;
+			margin-bottom: 20px;
+			color: #C8A700; 
+		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
@@ -193,9 +199,42 @@
 			text-decoration: none;
 		}
 		.review {
-			margin-bottom: 1.5em;
-			font-family: sans-serif;
+			background-color: #1c1c1e;
+			border-left: 4px solid #C8A700;
+			padding: 20px;
+			margin: 20px auto;
+			max-width: 700px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(200, 167, 0, 0.2);
+			text-align: left;
 		}
+
+			.review strong {
+			  font-size: 1.2em;
+			  color: #C8A700;
+			}
+
+			.review em {
+			  display: block;
+			  font-size: 0.9em;
+			  color: #aaa;
+			  margin-top: 5px;
+			  margin-bottom: 10px;
+			}
+
+			.review p {
+			  font-size: 1em;
+			  line-height: 1.5em;
+			  margin: 0;
+			  color: #fff;
+			}
+
+			.stars {
+			  color: #C8A700;
+			  margin-bottom: 10px;
+			  font-size: 1.2em;
+			}
+
 	</style>
 </head>
 <body>
@@ -218,6 +257,7 @@
     
     <h1>REVIEWS & TESTIMONIALS</h1>
 	
+	<h2>Google Reviews</h2>
 	<div id="google-reviews"></div>
 
 	<script>
@@ -230,14 +270,17 @@
 
 		  if (data.result && data.result.reviews) {
 			const container = document.getElementById('google-reviews');
-			container.innerHTML = data.result.reviews.slice(0, 5).map(r => `
-			  <div class="review">
-				<strong>${r.author_name}</strong> (${r.rating}★)<br/>
-				<em>${new Date(r.time * 1000).toLocaleDateString()}</em><br/>
-				<p>${r.text}</p>
-				<hr/>
-			  </div>
-			`).join('');
+			container.innerHTML = data.result.reviews.slice(0, 5).map(r => {
+			  const stars = '★'.repeat(r.rating) + '☆'.repeat(5 - r.rating);
+			  return `
+				<div class="review">
+				  <strong>${r.author_name}</strong>
+				  <div class="stars">${stars}</div>
+				  <em>${new Date(r.time * 1000).toLocaleDateString()}</em>
+				  <p>${r.text}</p>
+				</div>
+			  `;
+			}).join('');
 		  } else {
 			console.error('No reviews found');
 			document.getElementById('google-reviews').innerHTML = '<p>No reviews found. Check back soon!</p>';
@@ -251,6 +294,7 @@
 	  fetchGoogleReviews();
 	</script>
 	
+	<h2>Peerspace Reviews</h2>
     <h2>⭐⭐⭐⭐⭐</h2>
 	<p><i>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</i></p>
 	<p><strong><a href="Images/peerspace_reviews.png" data-fancybox="gallery" data-caption="Champs' Peerspace Reviews">-Phillip R., Owner, The Clement, Tarentum, PA</a></strong></p>
@@ -261,6 +305,7 @@
 	<p><strong><a href="Images/peerspace_reviews.png">-Jeff M., Owner, THIS IS RED, Munhall, PA</a></strong></p>
 	<hr>
 	
+	<h2>Instagram Reviews</h2>
 	<h2>⭐⭐⭐⭐⭐</h2>
 	<p><i>"Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!"</i></p>
 	<p><strong><a href="Images/insta_review.png">-Alynment, DJ/Producer, Instagram, Pittsburgh, PA</a></strong></p>
