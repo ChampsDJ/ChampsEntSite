@@ -46,6 +46,9 @@
         }
 
         .faq-question {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
             background-color: #000;
             padding: 15px;
             cursor: pointer;
@@ -60,16 +63,32 @@
         .faq-question:hover {
             background-color: #333;
         }
+		
+		.faq-icon {
+			transition: transform 0.3s ease;
+		}
+		
+		.faq-question.active .faq-icon {
+			transform: rotate(180deg);
+		}
+	
 
         .faq-answer {
-            display: none;
-            padding: 15px;
-            border-left: 3px solid #C8A700;
-            background-color: #1a1a1a;
-            font-size: 18px;
-            margin-top: 5px;
-            border-radius: 5px;
-        }
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.4s ease;
+			padding: 0 15px; /* keep padding but collapse vertically */
+			border-left: 3px solid #C8A700;
+			background-color: #1a1a1a;
+			font-size: 18px;
+			margin-top: 5px;
+			border-radius: 5px;
+		}
+		
+		.faq-answer.open {
+			padding: 15px;
+		}
+		
 		h1 {
 			font-weight: 700;
 			font-size: 50px;
@@ -278,103 +297,189 @@
 	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
     
     <h1>FREQUENTLY ASKED QUESTIONS</h1>
-
-    <div class="faq-container">
-        <div class="faq-question">What genres of music do you play?</div>
+	<p>Click each frequently asked question below to drop down our answers!</p>
+	<p>If you have any questions about something that isn't covered in our FAQ, fill out our <a href="contact.html">contact form</a> and we will get back to you ASAP!
+    
+	<div class="faq-container">
+	
+        <div class="faq-question">
+		<span>What genres of music do you play?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>We specialize in a wide range of genres, including house, trance, techno, dubstep, drum & bass, hip-hop, rock, top 40 and more. We tailor our sets to match the vibe and energy of your event, ensuring the perfect soundtrack for your celebration.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">Can we provide a list of songs we want to hear?</div>
+	
+        <div class="faq-question">
+		<span>Can we provide a list of songs we want to hear?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>Absolutely! We encourage clients to share their must-play songs, preferred genres, and even a "do-not-play" list. We’ll blend your selections with our professional expertise to keep the energy flowing all night.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">Do you take song requests from guests?</div>
+	
+        <div class="faq-question">
+		<span>Do you take song requests from guests?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>Yes! We welcome song requests if they fit the event's overall vibe. If you'd prefer a curated playlist without requests, we can accommodate that as well.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">Do you provide your own sound and lighting equipment?</div>
+	
+        <div class="faq-question">
+		<span>Do you provide your own sound and lighting equipment?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>Yes, we provide high-quality sound equipment and, if needed, lighting to enhance the atmosphere. Let us know the size of your venue, and we’ll ensure the setup fits perfectly.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">How long do you typically play for? Can you extend your set if the party is still going strong?</div>
+	
+        <div class="faq-question">
+		<span>How long do you typically play for? Can you extend your set if the party is still going strong?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>We offer flexible set times based on your needs. Most weddings and events book us for 4-6 hours, but we can accommodate shorter or longer sets upon request. If the venue and event schedule allow, we're happy to extend our set for an additional fee. Just let us know in advance or during the event if you'd like to keep the party going!</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">How do you handle announcements and MC duties? Do you provide wireless microphones for speeches and toasts?</div>
+	
+        <div class="faq-question">
+		<span>How do you handle announcements and MC duties? Do you provide wireless microphones for speeches and toasts?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>We can handle MC duties, making professional and well-timed announcements as needed. If you prefer a more minimal approach, we can keep the focus on the music while coordinating with your event planner. We also provide high-quality wireless microphones for speeches, toasts, and announcements.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">Do you require a deposit, and what is your cancellation policy?</div>
+	
+        <div class="faq-question">
+		</span>Do you require a deposit, and what is your cancellation policy?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>Yes, we require a deposit and signed contract to secure your date. The remaining balance is due 30 days before the event. Cancellations made within a certain timeframe may result in a partial or full refund, depending on the terms of our agreement.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">What happens if something goes wrong with the equipment?</div>
+	
+        <div class="faq-question">
+		<span>What happens if something goes wrong with the equipment?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>We always bring backup equipment, including speakers, controllers, and cables, to ensure uninterrupted music. We also arrive early to test everything before guests arrive.</p>
         </div>
+		
     </div>
 
     <div class="faq-container">
-        <div class="faq-question">Have you DJ’d at our venue before?</div>
+	
+        <div class="faq-question">
+		</span>Have you DJ’d at our venue before?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>If we haven’t played at your venue, we’ll reach out to the venue staff beforehand to discuss logistics and do a site check if necessary. This ensures a smooth setup and performance on the day of your event.</p>
         </div>
+		
     </div>
 	
 	<div class="faq-container">
-		<div class="faq-question">Can you mix different styles of music to suit a diverse crowd?</div>
+	
+		<div class="faq-question">
+		<span>Can you mix different styles of music to suit a diverse crowd?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
 		<div class="faq-answer">
 			<p>Yes! We specialize in reading the crowd and blending different genres seamlessly to keep everyone engaged. Whether it’s a mix of classic hits, EDM, hip-hop, country, or rock, we ensure the music appeals to all guests.</p>
 		</div>
+		
 	</div>
 
 	<div class="faq-container">
-		<div class="faq-question">How early do you arrive to set up?</div>
+	
+		<div class="faq-question">
+		<span>How early do you arrive to set up?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
 		<div class="faq-answer">
 			<p>We typically arrive 1.5 to 2 hours before the event starts to set up equipment, test sound levels, and coordinate with the event planner or venue staff.</p>
 		</div>
+		
 	</div>
 
 	<div class="faq-container">
-		<div class="faq-question">What do you wear when DJing events?</div>
+	
+		<div class="faq-question">
+		<span>What do you wear when DJing events?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
 		<div class="faq-answer">
 			<p>Typically, we dress appropriately for the occasion—formal attire for weddings and corporate events, and a more casual but stylish look for private parties and club-style events. Let us know if you have specific dress code preferences.</p>
 		</div>
+		
 	</div>
 	
 	<div class="faq-container">
-		<div class="faq-question">Why do you list pricing for weddings and events, but not your fee for clubs, private parties, etc?</div>
-		<div class="faq-answer">
-			<p>Clubs, bars, school functions, private parties and the like require different amounts of effort and coordination in comparison to weddings and events. Therefore, each event needs to be custom tailored to what the event organizer needs. If you would like to book us for a party other than a wedding or event, please note that on our contact form!</p>
+	
+		<div class="faq-question">
+		<span>Why do you list pricing for weddings and events, but not your fee for clubs, bars, etc?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
 		</div>
+		
+		<div class="faq-answer">
+			<p>Each event needs to be custom tailored to what the event organizer needs. If you would like to book us for a party other than a wedding or event, please note that on our contact form!</p>
+		</div>
+		
 	</div>
 	
     <div class="faq-container">
-        <div class="faq-question">How do we book you, and when should we secure our date?</div>
+	
+        <div class="faq-question">
+		<span>How do we book you, and when should we secure our date?</span>
+		<i class="fas fa-chevron-down faq-icon"></i>
+		</div>
+		
         <div class="faq-answer">
             <p>Booking is simple! Contact us via our website contact form to discuss your event details. A signed contract and deposit are required to lock in your date. Popular dates book quickly, so we recommend reserving as early as possible!</p>
         </div>
+		
     </div>
 
     <div class="contact-prompt">
@@ -390,21 +495,25 @@
 		}
 	</script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const questions = document.querySelectorAll(".faq-question");
+		document.addEventListener("DOMContentLoaded", function () {
+			const questions = document.querySelectorAll(".faq-question");
 
-            questions.forEach(question => {
-                question.addEventListener("click", function () {
-                    const answer = this.nextElementSibling;
-                    if (answer.style.display === "block") {
-                        answer.style.display = "none";
-                    } else {
-                        document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-                        answer.style.display = "block";
-                    }
-                });
-            });
-        });
+			questions.forEach(question => {
+				question.addEventListener("click", function () {
+					const answer = this.nextElementSibling;
+
+					if (answer.classList.contains("open")) {
+						answer.style.maxHeight = null;
+						answer.classList.remove("open");
+						this.classList.remove("active");
+					} else {
+						answer.style.maxHeight = answer.scrollHeight + "px";
+						answer.classList.add("open");
+						this.classList.add("active");
+					}
+				});
+			});
+		});
     </script>	
 	<footer>
 		<div class="social-icons">
