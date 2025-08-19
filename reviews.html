@@ -349,19 +349,25 @@
 		  const response = await fetch(url);
 		  const data = await response.json();
 
-		  if (data.result && data.result.reviews) {
+		  // v1 Places API puts reviews under data.reviews, not data.result.reviews
+		  if (data.reviews && data.reviews.length > 0) {
 			const container = document.getElementById('google-reviews');
-			container.innerHTML = data.result.reviews.slice(0, 5).map(r => {
+			container.innerHTML = data.reviews.slice(0, 5).map(r => {
 			  const stars = [...Array(5)].map((_, i) => {
-				return `<i class="fa${i < r.rating ? 's' : 'r'} fa-star"></i>`;
+				return `<i class="fa${i < (r.rating || 0) ? 's' : 'r'} fa-star"></i>`;
 			  }).join('');
+
+			  // publishTime looks like "2023-11-04T15:23:00Z"
+			  const date = r.publishTime
+				? new Date(r.publishTime).toLocaleDateString()
+				: '';
 
 			  return `
 				<div class="review">
-				  <strong>${r.author_name}</strong>
+				  <strong>${r.authorAttribution?.displayName || 'Anonymous'}</strong>
 				  <div class="stars">${stars}</div>
-				  <em>${new Date(r.time * 1000).toLocaleDateString()}</em>
-				  <p>${r.text}</p>
+				  <em>${date}</em>
+				  <p>${r.text?.text || ''}</p>
 				</div>
 			  `;
 			}).join('');
