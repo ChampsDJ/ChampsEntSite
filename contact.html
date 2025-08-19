@@ -259,12 +259,8 @@
 		<select id="event-type" name="event-type" required>
 			<option value="" disabled selected>Select Event Type</option>
 			<option value="Wedding/Reception">Wedding/Reception</option>
-			<option value="Birthday">Birthday</option>
-			<option value="Mitzvah/Quinceañera">Mitzvah/Quinceañera</option>
-			<option value="Prom/Dance">Prom/Dance</option>
 			<option value="Corporate Event">Corporate Event</option>
 			<option value="Private Party">Private Party</option>
-			<option value="Club/Bar/Festival">Club/Bar/Festival</option>
 			<option value="Other">Other</option>
 		</select>
 		<select id="contact-reason" name="contact-reason" required>
@@ -287,9 +283,8 @@
 		<input id="budget" type="text" name="budget" placeholder="Event Entertainment Budget" required>
 		<input id="date" type="text" name="date" placeholder="What Date Is Your Event?" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required>
 		<input id="hours" type="text" name="hours" placeholder="How Many Hours Of Service Are Needed?" required>
-		<input id="lighting" type="text" name="lighting" placeholder="Is Lighting Needed?" required>
 		<input id="nickname" type="text" name="nickname" style="display:none">
-        <textarea id="message" name="message" placeholder="Please include any additional details about your event - e.g. Is ceremony audio also needed? Is dinner in a different room?" required></textarea>
+        <textarea id="message" name="message" placeholder="Please include any additional details about your event - e.g. Is ceremony audio also needed? Is dinner in a different room? Is lighting also needed?" required></textarea>
         <div class="g-recaptcha" data-sitekey="6Lco_YwrAAAAAMHHaKYJmbcpfF8GSIxLqIbN9q9T"></div>
 		<button type="submit" id="submit-button">
 			<span id="button-text">Send Message</span>
