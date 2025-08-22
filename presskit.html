@@ -47,6 +47,71 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 .media-tabs {
   margin-bottom: 10px;
 }
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 200px;
+  text-align: center;
+  margin: 0 15px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.1);
+}
+
+.carousel-item p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  transition: color 0.3s;
+}
+
+.carousel-item:hover p {
+  color: #C8A700;
+}
+
+.carousel-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: background 0.3s;
+}
+
+.carousel-buttons button:hover {
+  background: #C8A700;
+  color: black;
+}
 footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
     .container {max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;}
@@ -78,7 +143,7 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 <section id="bio">
 <h2>Bio</h2>
-<p>Champs is a Pittsburgh-based DJ and producer known for high-energy sets blending house, techno, and trance. He has rocked stages at venues like Bottlerocket Social Hall, Spirit Lodge, and Hellbender Vinyl, and delivered guest mixes on Ibiza Stardust Radio, MSYH.FM, and Elevated Eclectica. His live performances and curated sets have earned him recognition across both streaming and live platforms. Whether spinning at clubs, radio, or virtual events, Champs crafts unforgettable experiences rooted in immersive sound and dynamic flow.</p>
+<p>Champs is a Pittsburgh-based DJ and producer known for high-energy sets blending house, techno, and trance. He has rocked stages at venues like Bottlerocket Social Hall, Spirit Lodge, and Hellbender Vinyl, and is currently or has been a resident DJ on Ibiza Stardust Radio, MSYH.FM, and Elevated Eclectica. His live performances and curated sets have earned him recognition across both streaming and live platforms. Whether spinning at clubs, radio, or virtual events, Champs crafts unforgettable experiences rooted in immersive sound and dynamic flow.</p>
 </section>
 
 
@@ -114,8 +179,8 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 <div class="media-block">
 <div class="media-tabs video-tabs">
 <button class="active" onclick="showVideo('promo')">House Set Live</button>
-<button onclick="showVideo('live')">Drum &amp; Bass Live</button>
-<button onclick="showVideo('radio')">MSYH.FM Live from Hellbender</button>
+<button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
+<button onclick="showVideo('radio')">MSYH.FM Radio Set Live from Hellbender</button>
 </div>
 <iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -124,9 +189,52 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 
 <section id="highlights">
-<h2>Notable Venues & Events</h2>
-<div class="placeholder">Venues Grid Placeholder</div>
-<div class="placeholder">Events Grid Placeholder</div>
+  <h2>Notable Venues & Events</h2>
+
+  <!-- Venues Carousel -->
+  <div class="carousel" id="venuesCarousel">
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <img src="Images/bottlerocket.jpg" alt="Bottlerocket Social Hall">
+        <p>Bottlerocket Social Hall</p>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/spirit.jpg" alt="Spirit Lodge">
+        <p>Spirit Hall</p>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/thisisred.jpg" alt="THIS IS RED">
+        <p>THIS IS RED</p>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/theclement.jpg" alt="The Clement">
+        <p>The Clement</p>
+      </div>
+      <div class="carousel-item">
+        <img src="Images/hellbender.jpg" alt="Hellbender Vinyl">
+        <p>Hellbender Vinyl</p>
+      </div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveCarousel('venuesCarousel', -1)">&#10094;</button>
+      <button onclick="moveCarousel('venuesCarousel', 1)">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Events Carousel -->
+  <div class="carousel" id="eventsCarousel">
+    <div class="carousel-track">
+      <div class="carousel-item"><p>Colombino</p></div>
+      <div class="carousel-item"><p>Spigolo</p></div>
+      <div class="carousel-item"><p>Pittsburgh Open Decks</p></div>
+      <div class="carousel-item"><p>EDC Discord Music Night</p></div>
+      <div class="carousel-item"><p>Techno Harbor</p></div>
+    </div>
+    <div class="carousel-buttons">
+      <button onclick="moveCarousel('eventsCarousel', -1)">&#10094;</button>
+      <button onclick="moveCarousel('eventsCarousel', 1)">&#10095;</button>
+    </div>
+  </div>
 </section>
 
 
@@ -177,6 +285,20 @@ buttons[1].classList.add('active');
 video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
 buttons[2].classList.add('active');
 }
+}
+</script>
+<script>
+function moveCarousel(carouselId, direction) {
+  const carousel = document.getElementById(carouselId);
+  const track = carousel.querySelector('.carousel-track');
+  const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 30; // 200px + margin
+  const maxScroll = (track.children.length * itemWidth) - carousel.offsetWidth;
+  let currentTransform = getComputedStyle(track).transform;
+  let matrixValues = currentTransform === 'none' ? 0 : parseFloat(currentTransform.split(',')[4]);
+  let newTransform = matrixValues - (direction * itemWidth);
+  if (newTransform > 0) newTransform = 0;
+  if (newTransform < -maxScroll) newTransform = -maxScroll;
+  track.style.transform = `translateX(${newTransform}px)`;
 }
 </script>
 </div></body>
