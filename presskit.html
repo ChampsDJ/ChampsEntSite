@@ -39,24 +39,18 @@ background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor
 }
 .media-tabs button:hover, .media-tabs button.active {background:#C8A700; color:black;}
 iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; border-radius:10px;}
+.media-block {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.media-tabs {
+  margin-bottom: 10px;
+}
 footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
     .container {max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;}
-    .media-container {display: flex; gap: 20px; justify-content: center; align-items: flex-start; margin-top: 20px;}
-    .media-container iframe {flex: 1; min-width: 45%; height: 300px; border-radius: 10px;}
-    @media (max-width: 768px) {
-        .media-container {flex-direction: column; align-items: center;}
-        .media-container iframe {width: 90%; margin-bottom: 20px;}
-    }
-    
-    .media-container iframe {
-        flex: 1;
-        min-width: 45%;
-        height: 320px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        background: #000;
-    }
+
 </style>
 </head>
 <body><div class="container">
@@ -104,22 +98,28 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 <section id="media">
 <h2>Featured Media</h2>
-<div class="media-tabs">
+
+
+<!-- Audio Player Block -->
+<div class="media-block">
+<div class="media-tabs audio-tabs">
 <button class="active" onclick="showAudio('house')">House Mix</button>
 <button onclick="showAudio('dnb')">Drum &amp; Bass Mix</button>
 <button onclick="showAudio('techno')">Techno Mix</button>
 </div>
-<div class="media-container">
 <iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
-<iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
 </div>
 
-
-<div class="media-tabs">
+<!-- Video Player Block -->
+<div class="media-block">
+<div class="media-tabs video-tabs">
 <button class="active" onclick="showVideo('promo')">House Set Live</button>
 <button onclick="showVideo('live')">Drum &amp; Bass Live</button>
 <button onclick="showVideo('radio')">MSYH.FM Live from Hellbender</button>
 </div>
+<iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
+</div>
+
 </section>
 
 
@@ -165,7 +165,7 @@ buttons[2].classList.add('active');
 }
 function showVideo(type) {
 const video = document.getElementById('videoPlayer');
-const buttons = document.querySelectorAll('#media .media-tabs + .media-tabs button');
+const buttons = document.querySelectorAll('.video-tabs button');
 buttons.forEach(btn => btn.classList.remove('active'));
 if(type === 'promo') {
 video.src = 'https://www.youtube.com/embed/azoQ-88LIl0';
