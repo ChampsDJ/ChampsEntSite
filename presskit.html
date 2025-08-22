@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive Press Kit for DJ Champs">
+<title>Press Kit | Champs Entertainment</title>
+<link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<style>
+body {background:#131314; color:white; font-family:'Nunito', sans-serif; margin:0; padding:0; text-align:center;}
+.navbar {display:flex; justify-content:center; align-items:center; gap:15px; padding:10px 0; background:rgba(0,0,0,0.8); position:fixed; top:0; left:0; width:100%; z-index:1000;}
+.navbar a {color:white; text-decoration:none; font-size:18px; padding:10px 15px;}
+.navbar a:hover {text-decoration:underline;}
+.navbar a.active {color:#C8A700; font-weight:900;}
+img.logo {max-width:90%; margin-top:70px;}
+header {padding:60px 20px;}
+header h1 {font-size:60px; color:#C8A700; margin-bottom:10px;}
+header p {font-size:20px;}
+section {padding:50px 20px;}
+h2 {color:#C8A700; font-size:30px; margin-bottom:20px;}
+.social-icons a {margin:0 10px; font-size:30px; color:white; transition:transform 0.3s, color 0.3s; display:inline-block;}
+.social-icons a:hover {color:#C8A700; transform:scale(1.2) rotate(5deg);}
+.media-tabs button {
+background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
+}
+.media-tabs button:hover, .media-tabs button.active {background:#C8A700; color:black;}
+iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; border-radius:10px;}
+footer {background:#131314; padding:20px; color:gray; font-size:14px;}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<a href="index.html">HOME</a>
+<a href="about.html">ABOUT</a>
+<a href="services.html">SERVICES</a>
+<a href="reviews.html">REVIEWS</a>
+<a href="gallery.html">GALLERY</a>
+<a href="music.html">MUSIC</a>
+<a href="faq.html">FAQ</a>
+<a href="contact.html">CONTACT</a>
+</nav>
+
+
+<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
+
+
+<header>
+<h1>CHAMPS</h1>
+<p>DJ | Producer | Entertainer</p>
+<button style="background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">Download PDF</button>
+</header>
+
+
+<section id="bio">
+<h2>Bio</h2>
+<p>Champs is a Pittsburgh-based DJ and producer known for high-energy sets blending house, techno, and trance. He has rocked stages at venues like Bottlerocket Social Hall, Spirit Lodge, and Hellbender Vinyl, and delivered guest mixes on Ibiza Stardust Radio, MSYH.FM, and Elevated Eclectica. His live performances and curated sets have earned him recognition across both streaming and live platforms. Whether spinning at clubs, radio, or virtual events, Champs crafts unforgettable experiences rooted in immersive sound and dynamic flow.</p>
+</section>
+
+
+<section id="social">
+<h2>Connect</h2>
+<div class="social-icons">
+<a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+<a href="https://twitch.tv/champsdj" target="_blank"><i class="fab fa-twitch"></i></a>
+<a href="https://www.youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="https://www.facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://www.tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://discord.gg/yourdiscordlink" target="_blank"><i class="fab fa-discord"></i></a>
+</div>
+</section>
+
+
+<section id="media">
+<h2>Featured Media</h2>
+<div class="media-tabs">
+<button class="active" onclick="showAudio('house')">House Mix</button>
+<button onclick="showAudio('dnb')">Drum & Bass Mix</button>
+<button onclick="showAudio('techno')">Techno Mix</button>
+</div>
+<iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
+
+
+<div class="media-tabs">
+<button class="active" onclick="showVideo('promo')">House Set Live</button>
+<button onclick="showVideo('live')">Drum & Bass Live</button>
+<button onclick="showVideo('radio')">MSYH.FM Live from Hellbender</button>
+</div>
+<iframe src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
+</section>
+
+
+<section id="highlights">
+<h2>Notable Venues & Events</h2>
+<div class="placeholder">Venues Grid Placeholder</div>
+<div class="placeholder">Events Grid Placeholder</div>
+</section>
+
+
+<section id="gallery">
+<h2>Gallery</h2>
+<div class="placeholder">Photo Gallery Placeholder</div>
+</section>
+
+
+<section id="contact">
+<h2>Booking</h2>
+<button style="background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">Contact for Bookings</button>
+</section>
+
+
+<footer>
+&copy; 2025 Champs Entertainment. All rights reserved.
+</footer>
+
+
+<script>
+function showAudio(type) {
+const audio = document.getElementById('audioPlayer');
+const buttons = document.querySelectorAll('.media-tabs button');
+buttons.forEach(btn => btn.classList.remove('active'));
+if(type === 'house') {
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
+buttons[0].classList.add('active');
+} else if(type === 'dnb') {
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
+buttons[1].classList.add('active');
+} else {
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
+buttons[2].classList.add('active');
+}
+}
+function showVideo(type) {
+const video = document.getElementById('videoPlayer');
+const buttons = document.querySelectorAll('#media .media-tabs + .media-tabs button');
+buttons.forEach(btn => btn.classList.remove('active'));
+if(type === 'promo') {
+video.src = 'https://www.youtube.com/watch?v=azoQ-88LIl0';
+buttons[0].classList.add('active');
+} else if(type === 'live') {
+video.src = 'https://www.youtube.com/watch?v=8_ZNC2AKryQ';
+buttons[1].classList.add('active');
+} else {
+video.src = 'https://www.youtube.com/watch?v=hxUK9zJjpnc';
+buttons[2].classList.add('active');
+}
+}
+</script>
+</body>
+</html>
