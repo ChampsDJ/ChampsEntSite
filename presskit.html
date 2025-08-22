@@ -195,6 +195,13 @@
 				margin: 0 10px;
 				font-size: 50px;
 			}
+			.carousel-track {
+				max-width: 90%;
+			}
+			.carousel-buttons button {
+				font-size: 24px; /* slightly smaller arrows */
+				padding: 5px;
+			}
 		}
 section {padding:20px 20px;}
 
@@ -228,12 +235,13 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 .carousel {
   display: flex;
   overflow: hidden;
-  max-width: 1000px;
+  max-width: 700px;
   margin: 0 auto 40px;
   position: relative;
 }
 
 .carousel-track {
+  max-width: 90%;
   display: flex;
   transition: transform 0.5s ease;
 }
@@ -273,9 +281,11 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  pointer-events: none; /* allow clicks through empty space */
 }
 
 .carousel-buttons button {
+  pointer-events: auto; /* keep buttons clickable */
   background: rgba(0, 0, 0, 0.6);
   border: none;
   color: white;
@@ -283,6 +293,7 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
   cursor: pointer;
   padding: 5px 10px;
   transition: background 0.3s;
+  z-index: 10; /* ensure buttons stay on top */
 }
 
 .carousel-buttons button:hover {
@@ -295,11 +306,11 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 			text-align: center;
 		}
 
-.container {max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;}
 
 </style>
 </head>
-<body><div class="container">
+<body>
+
 <nav class="navbar">
 <a href="index.html">HOME</a>
 <a href="about.html">ABOUT</a>
@@ -319,7 +330,10 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 <h1>CHAMPS</h1>
 <img src="Images/farout_headshot.png" alt="Champs Headshot">
 <p>DJ | Producer | Entertainer</p>
-<button style="background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">Download PDF</button>
+<a href="files/Champs_MediaKit2025.pdf" download
+   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
+   Download PDF
+</a>
 </header>
 
 <section id="social">
@@ -352,9 +366,12 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 <div class="media-block">
 <h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
 <div class="media-tabs audio-tabs">
-<button class="active" onclick="showAudio('house')">House Mix</button>
-<button onclick="showAudio('dnb')">Drum &amp; Bass Mix</button>
-<button onclick="showAudio('techno')">Techno Mix</button>
+<button class="active" onclick="showAudio('house')">House</button>
+<button onclick="showAudio('prog')">Progressive House</button>
+<button onclick="showAudio('dnb')">Drum &amp; Bass</button>
+<button onclick="showAudio('techno')">Techno</button>
+<button onclick="showAudio('trance')">Trance</button>
+<button onclick="showAudio('dubstep')">Melodic Dubstep</button>
 </div>
 <iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
 </div>
@@ -473,12 +490,21 @@ buttons.forEach(btn => btn.classList.remove('active'));
 if(type === 'house') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
 buttons[0].classList.add('active');
+} else if(type === 'prog') {
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-074-progressive-house-7';
+buttons[1].classList.add('active');
 } else if(type === 'dnb') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
-buttons[1].classList.add('active');
-} else {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
 buttons[2].classList.add('active');
+} else if(type === 'techno'){
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
+buttons[3].classList.add('active');
+} else if(type === 'trance'){
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-40-uplifting-trance-6';
+buttons[4].classList.add('active');
+} else {
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-072-melodic-dubstep-3;
+buttons[5].classList.add('active');
 }
 }
 function showVideo(type) {
@@ -511,5 +537,5 @@ function moveCarousel(carouselId, direction) {
   track.style.transform = `translateX(${newTransform}px)`;
 }
 </script>
-</div></body>
+</body>
 </html>
