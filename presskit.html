@@ -21,19 +21,196 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 <style>
-body {background:#131314; color:white; font-family:'Nunito', sans-serif; margin:0; padding:0; text-align:center;}
-.navbar {display:flex; justify-content:center; align-items:center; gap:15px; padding:10px 0; background:rgba(0,0,0,0.8); position:fixed; top:0; left:0; width:100%; z-index:1000;}
-.navbar a {color:white; text-decoration:none; font-size:18px; padding:10px 15px;}
-.navbar a:hover {text-decoration:underline;}
-.navbar a.active {color:#C8A700; font-weight:900;}
-img.logo {max-width:90%; margin-top:70px;}
-header {padding:60px 20px;}
-header h1 {font-size:60px; color:#C8A700; margin-bottom:10px;}
-header p {font-size:20px;}
-section {padding:50px 20px;}
-h2 {color:#C8A700; font-size:30px; margin-bottom:20px;}
-.social-icons a {margin:0 10px; font-size:30px; color:white; transition:transform 0.3s, color 0.3s; display:inline-block;}
-.social-icons a:hover {color:#C8A700; transform:scale(1.2) rotate(5deg);}
+		body {
+			background-color: #131314;
+			color: white;
+			font-family: 'Nunito', sans-serif;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			min-height: 100vh;
+			margin: 0;
+		}
+		img {
+			max-width: 90%;
+			width: auto;
+			height: auto;
+		}
+		h1 {
+			font-weight: 700;
+			font-size: 50px;
+			margin-bottom: 20px;
+		}
+		h2 {
+			font-weight: 700;
+			font-size: 40px;
+			margin-bottom: 10px;
+			color:#C8A700;
+		}
+		h3 {
+			font-weight: 700;
+			font-size: 35px;
+			margin-bottom: 10px;
+			margin-top: 0px;
+		}
+		hr {
+			min-width: 20%;
+			max-width: 20%;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 20px;
+			margin-bottom: 10px;
+		}
+		
+		/* Remove 'display: block' for all links */
+		a {
+			color: white;
+			text-decoration: none;
+			font-size: 20px;
+			margin: 5px 0;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		
+		/* Desktop View */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p  {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 950px;
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 15px;
+				padding: 10px 0;
+				background: rgba(0, 0, 0, 0.8);
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				z-index: 1; /* Ensure navbar stays on top */
+			}
+
+			.navbar a {
+				display: inline-block; /* Ensures links stay in a row */
+				padding: 10px 15px;
+				font-size: 18px;
+				white-space: nowrap; /* Prevents text from breaking */
+			}
+
+			.navbar a:hover {
+				text-decoration: underline;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 900;
+			}
+			.social-icons a {
+				margin: 0 10px;
+				font-size: 50px;
+			}
+			.social-icons a:hover {
+			color: #ddd;
+			text-decoration: none;
+			}
+		}
+
+		/* Mobile View */
+		@media (max-width: 768px) {
+			/* Hide Menu Initially */
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: fixed;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+				z-index: 999; /* Ensure navbar stays on top */
+			}
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 900;
+			}
+			/* Display Hamburger button */
+			.menu-toggle {
+				display: block !important;
+				position: fixed;
+				top: 10px;
+				right: 15px;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+				border: 1px solid white; /* Add border to make the hamburger more visible */
+				padding: 5px;
+				border-radius: 20%; /* Make it circular */
+				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			/* Add margin to prevent logo being pushed out of view */
+			img {
+				margin-top: 20px; 
+				max-width: 90%;
+			}
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			.social-icons a {
+				margin: 0 10px;
+				font-size: 50px;
+			}
+		}
+section {padding:20px 20px;}
+
+		.social-icons a {
+			color: white;
+			margin: 0 10px;
+			font-size: 50px;
+			transition: color 0.3s ease;
+			text-decoration: none;
+		}
+
+		.social-icons a:hover {
+			color:#C8A700; 
+			transform:scale(1.2) rotate(5deg);
+			text-decoration: none;
+		}
 .media-tabs button {
 background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
 }
@@ -112,9 +289,13 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
   background: #C8A700;
   color: black;
 }
-footer {background:#131314; padding:20px; color:gray; font-size:14px;}
+		footer {
+			background-color: #131314;
+			padding: 20px 0;
+			text-align: center;
+		}
 
-    .container {max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;}
+.container {max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;}
 
 </style>
 </head>
@@ -128,7 +309,7 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 <a href="music.html">MUSIC</a>
 <a href="faq.html">FAQ</a>
 <a href="contact.html">CONTACT</a>
-<a href="presskit.html">PRESS KIT</a>
+<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
 </nav>
 
 <img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
@@ -136,25 +317,25 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 <header>
 <h1>CHAMPS</h1>
+<img src="Images/farout_headshot.png" alt="Champs Headshot">
 <p>DJ | Producer | Entertainer</p>
 <button style="background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">Download PDF</button>
 </header>
 
 <section id="social">
-<h2>Connect</h2>
+<h2>CONNECT</h2>
 <div class="social-icons">
 <a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook-f"></i></a>
 <a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
-<a href="https://twitch.tv/champsdj" target="_blank"><i class="fab fa-twitch"></i></a>
-<a href="https://www.youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
-<a href="https://www.facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook"></i></a>
-<a href="https://www.tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
 </div>
 </section>
 
 
 <section id="bio">
-<h2>Bio</h2>
+<h2>BIO</h2>
 <p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
 
 <p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the area like Spirit Lodge, Bottlerocket Social Hall, THIS IS RED, and The Clement. He stays ahead of the curve by engaging with industry leaders, with his most recent event being the Pittsburgh DJ Summit in 2025. </p>
@@ -164,12 +345,12 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 
 <section id="media">
-<h2>Featured Media</h2>
+<h2>MEDIA</h2>
 
 
 <!-- Audio Player Block -->
 <div class="media-block">
-<h3 style="color:#C8A700; margin-bottom:10px;">SoundCloud Sets</h3>
+<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
 <div class="media-tabs audio-tabs">
 <button class="active" onclick="showAudio('house')">House Mix</button>
 <button onclick="showAudio('dnb')">Drum &amp; Bass Mix</button>
@@ -180,7 +361,7 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 <!-- Video Player Block -->
 <div class="media-block">
-<h3 style="color:#C8A700; margin-bottom:10px;">YouTube Sets</h3>
+<h3 style="margin-bottom:10px;">YOUTUBE</h3>
 <div class="media-tabs video-tabs">
 <button class="active" onclick="showVideo('promo')">House Set Live</button>
 <button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
@@ -193,10 +374,8 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 
 
 <section id="highlights">
-  <h2>Notable Venues & Events</h2>
-
   <!-- Venues Carousel -->
-  <h3 style="color:#C8A700; margin-bottom:10px;">Venues</h3>
+  <h3 style="color:#C8A700; margin-bottom:10px;">VENUES</h3>
   <div class="carousel" id="venuesCarousel">
     <div class="carousel-track">
       <div class="carousel-item">
@@ -235,7 +414,7 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
   </div>
 
   <!-- Events Carousel -->
-  <h3 style="color:#C8A700; margin-bottom:10px;">Events</h3>
+  <h3 style="color:#C8A700; margin-bottom:10px;">EVENTS</h3>
   <div class="carousel" id="eventsCarousel">
     <div class="carousel-track">
       <div class="carousel-item"><p>Pittsburgh's First Coffeeshop Party</p></div>
@@ -243,6 +422,7 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
       <div class="carousel-item"><p>Pittsburgh Open Decks</p></div>
       <div class="carousel-item"><p>EDC Discord Music Night</p></div>
       <div class="carousel-item"><p>Techno Harbor</p></div>
+	  <div class="carousel-item"><p>Pittsburgh VegFair</p></div>
     </div>
     <div class="carousel-buttons">
       <button onclick="moveCarousel('eventsCarousel', -1)">&#10094;</button>
@@ -263,9 +443,26 @@ footer {background:#131314; padding:20px; color:gray; font-size:14px;}
 </section>
 
 
-<footer>
-&copy; 2025 Champs Entertainment. All rights reserved.
-</footer>
+	<footer>
+		<div class="social-icons">
+			<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram">
+				<i class="fab fa-instagram"></i>
+			</a>
+			<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok">
+				<i class="fab fa-tiktok"></i>
+			</a>
+			<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook">
+				<i class="fab fa-facebook-f"></i>
+			</a>
+			<a href="https://soundcloud.com/champsdj" target="_blank" title="SoundCloud">
+				<i class="fab fa-soundcloud"></i>
+			</a>
+			<a href="https://youtube.com/@ChampsDJ" target="_blank" title="YouTube">
+				<i class="fab fa-youtube"></i>
+			</a>
+		</div>
+	  &copy; 2025 Champs Entertainment. All rights reserved.
+	</footer>
 
 
 <script>
