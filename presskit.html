@@ -371,7 +371,7 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 <button onclick="showAudio('dnb')">Drum &amp; Bass</button>
 <button onclick="showAudio('techno')">Techno</button>
 <button onclick="showAudio('trance')">Trance</button>
-<button onclick="showAudio('dubstep')">Melodic Dubstep</button>
+<button onclick="showAudio('dubstep')">Dubstep</button>
 </div>
 <iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
 </div>
@@ -485,7 +485,7 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 <script>
 function showAudio(type) {
 const audio = document.getElementById('audioPlayer');
-const buttons = document.querySelectorAll('.media-tabs button');
+const buttons = document.querySelectorAll('.audio-tabs button');
 buttons.forEach(btn => btn.classList.remove('active'));
 if(type === 'house') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
@@ -496,14 +496,14 @@ buttons[1].classList.add('active');
 } else if(type === 'dnb') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
 buttons[2].classList.add('active');
-} else if(type === 'techno'){
+} else if(type === 'techno') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
 buttons[3].classList.add('active');
-} else if(type === 'trance'){
+} else if(type === 'trance') {
 audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-40-uplifting-trance-6';
 buttons[4].classList.add('active');
 } else {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-072-melodic-dubstep-3;
+audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-deep-dubstep-grime-ukg-the-birthday-boys-raid-train';
 buttons[5].classList.add('active');
 }
 }
