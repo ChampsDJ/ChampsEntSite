@@ -168,13 +168,13 @@ const video = document.getElementById('videoPlayer');
 const buttons = document.querySelectorAll('#media .media-tabs + .media-tabs button');
 buttons.forEach(btn => btn.classList.remove('active'));
 if(type === 'promo') {
-video.src = 'https://www.youtube.com/watch?v=azoQ-88LIl0';
+video.src = 'https://www.youtube.com/embed/azoQ-88LIl0';
 buttons[0].classList.add('active');
 } else if(type === 'live') {
-video.src = 'https://www.youtube.com/watch?v=8_ZNC2AKryQ';
+video.src = 'https://www.youtube.com/embed/8_ZNC2AKryQ';
 buttons[1].classList.add('active');
 } else {
-video.src = 'https://www.youtube.com/watch?v=hxUK9zJjpnc';
+video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
 buttons[2].classList.add('active');
 }
 }
