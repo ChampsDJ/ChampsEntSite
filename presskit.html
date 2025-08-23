@@ -20,7 +20,7 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-<style>
+	<style>
 		body {
 			background-color: #131314;
 			color: white;
@@ -46,6 +46,7 @@
 		h2 {
 			font-weight: 700;
 			font-size: 40px;
+			margin-top: 0px;
 			margin-bottom: 10px;
 			color:#C8A700;
 		}
@@ -62,7 +63,7 @@
 		}
 		p {
 			font-size: 20px;
-			margin-bottom: 10px;
+
 		}
 		
 		/* Remove 'display: block' for all links */
@@ -74,6 +75,111 @@
 		}
 		a:hover {
 			text-decoration: underline;
+		}
+		.carousel-container {
+		  position: relative;
+		  overflow: hidden;
+		  max-width: 800px;
+		  margin: 20px auto;
+		}
+
+		.carousel-track {
+		  display: flex;
+		  transition: transform 0.5s ease;
+		}
+
+		.carousel-item {
+		  flex: 0 0 100%;
+		  text-align: center;
+		  padding: 10px;
+		}
+
+		.carousel-item img {
+		  width: 80%;
+		  max-width: 150px;
+		  height: auto;
+		  margin: 0 auto;
+		  border-radius: 10px;
+		  transition: transform 0.3s;
+		}
+
+		.carousel-item img:hover {
+		  transform: scale(1.05);
+		}
+
+		.carousel-item p {
+		  margin-top: 10px;
+		  font-size: 18px;
+		  color: white;
+		  transition: color 0.3s;
+		}
+
+		.carousel-item:hover p {
+		  color: #C8A700;
+		}
+
+		.carousel-buttons {
+		  position: absolute;
+		  top: 50%;
+		  left: 0;
+		  right: 0;
+		  width: 98.8%;
+		  display: flex;
+		  justify-content: space-between;
+		  padding: 0 10px;
+		  transform: translateY(-50%);
+		  z-index: 10;
+		  pointer-events: none;
+		}
+
+		.carousel-buttons button {
+		  pointer-events: all;
+		  background: rgba(0, 0, 0, 0.6);
+		  border: none;
+		  color: white;
+		  font-size: 30px;
+		  cursor: pointer;
+		  padding: 10px;
+		  border-radius: 50%;
+		}
+
+		.carousel-buttons button:hover {
+		  background: #C8A700;
+		  color: black;
+		}
+		#booking {
+		  text-align: center;
+		}
+
+		.booking-buttons {
+		  display: flex;
+		  justify-content: center;
+		  gap: 20px;
+		  flex-wrap: wrap;
+		}
+
+		.booking-buttons button {
+		  background: #222;
+		  color: white;
+		  border: none;
+		  padding: 12px 20px;
+		  border-radius: 8px;
+		  font-size: 18px;
+		  cursor: pointer;
+		  transition: background 0.3s, transform 0.2s;
+		  display: flex;
+		  align-items: center;
+		  gap: 8px;
+		}
+
+		.booking-buttons button:hover {
+		  background: #C8A700;
+		  color: black;
+		  transform: scale(1.05);
+		}
+
+		.booking-buttons i {
+		  font-size: 20px;
 		}
 		
 		/* Desktop View */
@@ -88,7 +194,7 @@
 				margin: 0 auto; /* Center the text block */
 				word-wrap: break-word;
 				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
+
 			}
 			h2 {
 				max-width: 950px;
@@ -132,8 +238,11 @@
 				font-size: 50px;
 			}
 			.social-icons a:hover {
-			color: #ddd;
-			text-decoration: none;
+				color: #ddd;
+				text-decoration: none;
+			}
+			.carousel-item {
+				flex: 0 0 33.33%; /* 3 items on desktop */
 			}
 		}
 
@@ -189,21 +298,20 @@
 				max-width: 400px; /* Set to the desired width or match your logo's width */
 				margin: 0 auto; /* Center the text block */
 				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
 			}
 			.social-icons a {
 				margin: 0 10px;
 				font-size: 50px;
 			}
 			.carousel-track {
-				max-width: 90%;
+				max-width: 100%;
 			}
 			.carousel-buttons button {
 				font-size: 24px; /* slightly smaller arrows */
 				padding: 5px;
 			}
 		}
-section {padding:20px 20px;}
+		section {padding:20px;}
 
 		.social-icons a {
 			color: white;
@@ -218,88 +326,15 @@ section {padding:20px 20px;}
 			transform:scale(1.2) rotate(5deg);
 			text-decoration: none;
 		}
-.media-tabs button {
-background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
-}
-.media-tabs button:hover, .media-tabs button.active {background:#C8A700; color:black;}
-iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; border-radius:10px;}
-.media-block {
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-
-.media-tabs {
-  margin-bottom: 10px;
-}
-
-.carousel {
-  display: flex;
-  overflow: hidden;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  position: relative;
-}
-
-.carousel-track {
-  max-width: 90%;
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  flex: 0 0 200px;
-  text-align: center;
-  margin: 0 15px;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.carousel-item img:hover {
-  transform: scale(1.1);
-}
-
-.carousel-item p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: white;
-  transition: color 0.3s;
-}
-
-.carousel-item:hover p {
-  color: #C8A700;
-}
-
-.carousel-buttons {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none; /* allow clicks through empty space */
-}
-
-.carousel-buttons button {
-  pointer-events: auto; /* keep buttons clickable */
-  background: rgba(0, 0, 0, 0.6);
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  padding: 5px 10px;
-  transition: background 0.3s;
-  z-index: 10; /* ensure buttons stay on top */
-}
-
-.carousel-buttons button:hover {
-  background: #C8A700;
-  color: black;
-}
+		.media-tabs button {
+			background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
+		}
+		.media-tabs button:hover, .media-tabs button.active {background:#C8A700; color:black;}
+		iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; border-radius:10px;}
+		.media-block {
+			max-width: 800px;
+			margin: 0 auto;
+		}
 		footer {
 			background-color: #131314;
 			padding: 20px 0;
@@ -307,237 +342,366 @@ iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; b
 		}
 
 
-</style>
-</head>
+		</style>
+		
+	</head>
+	
 <body>
 
-<nav class="navbar">
-<a href="index.html">HOME</a>
-<a href="about.html">ABOUT</a>
-<a href="services.html">SERVICES</a>
-<a href="reviews.html">REVIEWS</a>
-<a href="gallery.html">GALLERY</a>
-<a href="music.html">MUSIC</a>
-<a href="faq.html">FAQ</a>
-<a href="contact.html">CONTACT</a>
-<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
-</nav>
+	<nav class="navbar">
+	
+		<a href="index.html">HOME</a>
+		<a href="about.html">ABOUT</a>
+		<a href="services.html">SERVICES</a>
+		<a href="reviews.html">REVIEWS</a>
+		<a href="gallery.html">GALLERY</a>
+		<a href="music.html">MUSIC</a>
+		<a href="faq.html">FAQ</a>
+		<a href="contact.html">CONTACT</a>
+		<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
+	
+	</nav>
 
-<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
-
-
-<header>
-<h1>CHAMPS</h1>
-<img src="Images/farout_headshot.png" alt="Champs Headshot">
-<p>DJ | Producer | Entertainer</p>
-<a href="files/Champs_MediaKit2025.pdf" download
-   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
-   Download PDF
-</a>
-</header>
-
-<section id="social">
-<h2>CONNECT</h2>
-<div class="social-icons">
-<a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
-<a href="https://youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
-</div>
-</section>
+	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
 
 
-<section id="bio">
-<h2>BIO</h2>
-<p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
+	<header>
+	
+		<h1>CHAMPS PRESS KIT</h1>
+		
+		<a href="files/Champs_MediaKit2025.pdf" download
+		   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
+		   Download PDF
+		</a>
+		<br><br>
+		
+		<img src="Images/farout_headshot.png" alt="Champs Headshot">
+		
+		<p>DJ | Producer | Entertainer</p>
 
-<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the area like Spirit Lodge, Bottlerocket Social Hall, THIS IS RED, and The Clement. He stays ahead of the curve by engaging with industry leaders, with his most recent event being the Pittsburgh DJ Summit in 2025. </p>
+		
+	</header>
 
-<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house music and drum & bass.</p></p>
-</section>
-
-
-<section id="media">
-<h2>MEDIA</h2>
-
-
-<!-- Audio Player Block -->
-<div class="media-block">
-<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
-<div class="media-tabs audio-tabs">
-<button class="active" onclick="showAudio('house')">House</button>
-<button onclick="showAudio('prog')">Progressive House</button>
-<button onclick="showAudio('dnb')">Drum &amp; Bass</button>
-<button onclick="showAudio('techno')">Techno</button>
-<button onclick="showAudio('trance')">Trance</button>
-<button onclick="showAudio('dubstep')">Dubstep</button>
-</div>
-<iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
-</div>
-
-<!-- Video Player Block -->
-<div class="media-block">
-<h3 style="margin-bottom:10px;">YOUTUBE</h3>
-<div class="media-tabs video-tabs">
-<button class="active" onclick="showVideo('promo')">House Set Live</button>
-<button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
-<button onclick="showVideo('radio')">MSYH.FM Radio Set Live from Hellbender</button>
-</div>
-<iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
-</div>
-
-</section>
+	<section id="bio">
+	
+		<h2>BIO</h2>
+		
+			<p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
+			<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the area like Spirit Lodge, Bottlerocket Social Hall, THIS IS RED, and The Clement. He stays ahead of the curve by engaging with industry leaders, with his most recent event being the Pittsburgh DJ Summit in 2025. </p>
+			<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house music and drum & bass.</p></p>
+			<p>Learn more about Champs on <a href="about.html">our About page!</a></p>
+	
+	</section>
 
 
-<section id="highlights">
-  <!-- Venues Carousel -->
-  <h3 style="color:#C8A700; margin-bottom:10px;">VENUES</h3>
-  <div class="carousel" id="venuesCarousel">
-    <div class="carousel-track">
-      <div class="carousel-item">
-        <img src="Images/bottlerocket.jpg" alt="Bottlerocket Social Hall">
-        <p>Bottlerocket Social Hall</p>
-      </div>
-      <div class="carousel-item">
-        <img src="Images/spirit.jpg" alt="Spirit Lodge">
-        <p>Spirit Hall</p>
-      </div>
-	  <div class="carousel-item">
-        <img src="Images/hellbender.jpg" alt="Hellbender Vinyl">
-        <p>Hellbender Vinyl</p>
-      </div>
-	  <div class="carousel-item">
-        <img src="Images/spigolo.jpg" alt="Spigolo">
-        <p>Spigolo</p>
-      </div>
-      <div class="carousel-item">
-        <img src="Images/thisisred.jpg" alt="THIS IS RED">
-        <p>THIS IS RED</p>
-      </div>
-      <div class="carousel-item">
-        <img src="Images/theclement.jpg" alt="The Clement">
-        <p>The Clement</p>
-      </div>
-      <div class="carousel-item">
-        <img src="Images/colombino.png" alt="Colombino">
-        <p>Colombino</p>
-      </div>
-    </div>
-    <div class="carousel-buttons">
-      <button onclick="moveCarousel('venuesCarousel', -1)">&#10094;</button>
-      <button onclick="moveCarousel('venuesCarousel', 1)">&#10095;</button>
-    </div>
-  </div>
+	<section id="media">
+	
+		<h2>MEDIA</h2>
 
-  <!-- Events Carousel -->
-  <h3 style="color:#C8A700; margin-bottom:10px;">EVENTS</h3>
-  <div class="carousel" id="eventsCarousel">
-    <div class="carousel-track">
-      <div class="carousel-item"><p>Pittsburgh's First Coffeeshop Party</p></div>
-      <div class="carousel-item"><p>Pittsburgh Against Apartheid</p></div>
-      <div class="carousel-item"><p>Pittsburgh Open Decks</p></div>
-      <div class="carousel-item"><p>EDC Discord Music Night</p></div>
-      <div class="carousel-item"><p>Techno Harbor</p></div>
-	  <div class="carousel-item"><p>Pittsburgh VegFair</p></div>
-    </div>
-    <div class="carousel-buttons">
-      <button onclick="moveCarousel('eventsCarousel', -1)">&#10094;</button>
-      <button onclick="moveCarousel('eventsCarousel', 1)">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-
-<section id="gallery">
-<h2>GALLERY</h2>
-
-
-
-</section>
-
-<section id="contact">
-<h2>Booking</h2>
-<button style="background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer;">Contact for Bookings</button>
-</section>
-
-
-	<footer>
-		<div class="social-icons">
-			<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram">
-				<i class="fab fa-instagram"></i>
-			</a>
-			<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok">
-				<i class="fab fa-tiktok"></i>
-			</a>
-			<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="https://soundcloud.com/champsdj" target="_blank" title="SoundCloud">
-				<i class="fab fa-soundcloud"></i>
-			</a>
-			<a href="https://youtube.com/@ChampsDJ" target="_blank" title="YouTube">
-				<i class="fab fa-youtube"></i>
-			</a>
+		<!-- Audio Player Block -->
+		<div class="media-block">
+			<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
+			<div class="media-tabs audio-tabs">
+				<button class="active" onclick="showAudio('house')">House</button>
+				<button onclick="showAudio('prog')">Progressive House</button>
+				<button onclick="showAudio('dnb')">Drum &amp; Bass</button>
+				<button onclick="showAudio('techno')">Techno</button>
+				<button onclick="showAudio('trance')">Trance</button>
+				<button onclick="showAudio('dubstep')">Dubstep</button>
+			</div>
+			<iframe id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
 		</div>
-	  &copy; 2025 Champs Entertainment. All rights reserved.
+
+		<!-- Video Player Block -->
+		<div class="media-block">
+			<h3 style="margin-bottom:10px;">YOUTUBE</h3>
+			<div class="media-tabs video-tabs">
+				<button class="active" onclick="showVideo('promo')">House Set Live</button>
+				<button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
+				<button onclick="showVideo('radio')">MSYH.FM Radio Set Live from Hellbender</button>
+			</div>
+			<iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
+		</div>
+
+	</section>
+
+	<section id="highlights">
+	
+		<!-- Venues Carousel -->
+		<h3 style="color:#C8A700; margin-bottom:10px;">VENUES</h3>
+		<div class="carousel-container" id="venuesCarousel">
+			<div class="carousel-track">
+				<div class="carousel-item">
+					<img src="Images/bottlerocket.jpg" alt="Bottlerocket Social Hall">
+					<p>Bottlerocket Social Hall</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/spirit.jpg" alt="Spirit Lodge">
+					<p>Spirit Lodge</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/hellbender.jpg" alt="Hellbender Vinyl">
+					<p>Hellbender Vinyl</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/spigolo.jpg" alt="Spigolo">
+					<p>Spigolo</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/thisisred.jpg" alt="THIS IS RED">
+					<p>THIS IS RED</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/theclement.jpg" alt="The Clement">
+					<p>The Clement</p>
+				</div>
+				<div class="carousel-item">
+					<img src="Images/colombino.png" alt="Colombino">
+					<p>Colombino</p>
+				</div>
+			</div>
+			
+			<div class="carousel-buttons">
+				<button class="prev">&#10094;</button>
+				<button class="next">&#10095;</button>
+			</div>
+		</div>
+
+		<!-- Events Carousel -->
+		<h3 style="color:#C8A700; margin-bottom:10px;">EVENTS</h3>
+			<div class="carousel-container" id="eventsCarousel">
+				<div class="carousel-track">
+					<div class="carousel-item">
+						<p>Pittsburgh's First Coffeeshop Party</p>
+					</div>
+					<div class="carousel-item">
+						<p>Pittsburgh Against Apartheid</p>
+					</div>
+					<div class="carousel-item">
+						<p>Pittsburgh Open Decks</p>
+					</div>
+					<div class="carousel-item">
+						<p>EDC Discord Music Night</p>
+					</div>
+					<div class="carousel-item">
+						<p>Techno Harbor</p>
+					</div>
+					<div class="carousel-item">
+						<p>Pittsburgh VegFair</p>
+					</div>
+				</div>
+				<div class="carousel-buttons">
+					<button class="prev">&#10094;</button>
+					<button class="next">&#10095;</button>
+				</div>
+			</div>
+	</section>
+
+	<section id="gallery">
+	
+		<h2>GALLERY</h2>
+		
+		<p>Check out all of the events and parties we have thrown on <a href="gallery.html">our Gallery page!</a></p>
+		
+	</section>
+
+	<section id="social">
+	
+		<h2>CONNECT</h2>
+		
+		<div class="social-icons">
+			<a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
+			<a href="https://tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
+			<a href="https://facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook-f"></i></a>
+			<a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+			<a href="https://youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
+		</div>
+		
+	</section>
+
+	<section id="booking">
+		<h2>BOOKING</h2>
+		
+		<div class="booking-buttons">
+			<!-- Call Button -->
+			<button id="callButton">
+				<i class="fas fa-phone"></i> Call
+			</button>
+
+			<!-- Website Button -->
+			<button onclick="window.location.href='contact.html'">
+				<i class="fas fa-globe"></i> Contact Form
+			</button>
+
+			<!-- Email Button -->
+			<button id="emailButton">
+				<i class="fas fa-envelope"></i> Email
+			</button>
+		</div>
+	</section>
+	
+	<hr>
+
+	<a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+	
+	<footer>
+		&copy; 2025 Champs Entertainment. All rights reserved.
 	</footer>
 
 
-<script>
-function showAudio(type) {
-const audio = document.getElementById('audioPlayer');
-const buttons = document.querySelectorAll('.audio-tabs button');
-buttons.forEach(btn => btn.classList.remove('active'));
-if(type === 'house') {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
-buttons[0].classList.add('active');
-} else if(type === 'prog') {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-074-progressive-house-7';
-buttons[1].classList.add('active');
-} else if(type === 'dnb') {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
-buttons[2].classList.add('active');
-} else if(type === 'techno') {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
-buttons[3].classList.add('active');
-} else if(type === 'trance') {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-40-uplifting-trance-6';
-buttons[4].classList.add('active');
-} else {
-audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-deep-dubstep-grime-ukg-the-birthday-boys-raid-train';
-buttons[5].classList.add('active');
-}
-}
-function showVideo(type) {
-const video = document.getElementById('videoPlayer');
-const buttons = document.querySelectorAll('.video-tabs button');
-buttons.forEach(btn => btn.classList.remove('active'));
-if(type === 'promo') {
-video.src = 'https://www.youtube.com/embed/azoQ-88LIl0';
-buttons[0].classList.add('active');
-} else if(type === 'live') {
-video.src = 'https://www.youtube.com/embed/8_ZNC2AKryQ';
-buttons[1].classList.add('active');
-} else {
-video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
-buttons[2].classList.add('active');
-}
-}
-</script>
-<script>
-function moveCarousel(carouselId, direction) {
-  const carousel = document.getElementById(carouselId);
-  const track = carousel.querySelector('.carousel-track');
-  const itemWidth = carousel.querySelector('.carousel-item').offsetWidth + 30; // 200px + margin
-  const maxScroll = (track.children.length * itemWidth) - carousel.offsetWidth;
-  let currentTransform = getComputedStyle(track).transform;
-  let matrixValues = currentTransform === 'none' ? 0 : parseFloat(currentTransform.split(',')[4]);
-  let newTransform = matrixValues - (direction * itemWidth);
-  if (newTransform > 0) newTransform = 0;
-  if (newTransform < -maxScroll) newTransform = -maxScroll;
-  track.style.transform = `translateX(${newTransform}px)`;
-}
-</script>
+	<script>
+		function showAudio(type) {
+			const audio = document.getElementById('audioPlayer');
+			const buttons = document.querySelectorAll('.audio-tabs button');
+			buttons.forEach(btn => btn.classList.remove('active'));
+			if(type === 'house') {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
+			buttons[0].classList.add('active');
+			} else if(type === 'prog') {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-074-progressive-house-7';
+			buttons[1].classList.add('active');
+			} else if(type === 'dnb') {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
+			buttons[2].classList.add('active');
+			} else if(type === 'techno') {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
+			buttons[3].classList.add('active');
+			} else if(type === 'trance') {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-40-uplifting-trance-6';
+			buttons[4].classList.add('active');
+			} else {
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-deep-dubstep-grime-ukg-the-birthday-boys-raid-train';
+			buttons[5].classList.add('active');
+			}
+		}
+		function showVideo(type) {
+			const video = document.getElementById('videoPlayer');
+			const buttons = document.querySelectorAll('.video-tabs button');
+			buttons.forEach(btn => btn.classList.remove('active'));
+			if(type === 'promo') {
+			video.src = 'https://www.youtube.com/embed/azoQ-88LIl0';
+			buttons[0].classList.add('active');
+			} else if(type === 'live') {
+			video.src = 'https://www.youtube.com/embed/8_ZNC2AKryQ';
+			buttons[1].classList.add('active');
+			} else {
+			video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
+			buttons[2].classList.add('active');
+			}
+		}
+	</script>
+	<script>
+		function initCarousel(containerId, interval = 3000) {
+		  const container = document.getElementById(containerId);
+		  const track = container.querySelector('.carousel-track');
+		  const items = container.querySelectorAll('.carousel-item');
+		  const prevBtn = container.querySelector('.prev');
+		  const nextBtn = container.querySelector('.next');
+
+		  let index = 0;
+		  let autoScroll;
+		  let startX = 0;
+		  let endX = 0;
+
+		  // Updated carousel positioning logic
+		  function updateCarousel() {
+			const visibleItems = window.innerWidth >= 768 ? 3 : 1;
+			const itemWidth = items[0].getBoundingClientRect().width;
+			const trackWidth = itemWidth * items.length;
+
+			// Calculate total scroll offset
+			let offset = itemWidth * index;
+
+			// On desktop, adjust so the first visible item stays fully in frame
+			if (visibleItems === 3) {
+			  // Clamp offset so we never scroll beyond the last full "page"
+			  const maxOffset = trackWidth - container.clientWidth;
+			  offset = Math.min(offset, maxOffset);
+			}
+
+			track.style.transform = `translateX(-${Math.round(offset)}px)`;
+		  }
+
+		  function next() {
+			index = (index + 1) % items.length;
+			updateCarousel();
+		  }
+
+		  function prev() {
+			index = (index - 1 + items.length) % items.length;
+			updateCarousel();
+		  }
+
+		  function startAutoScroll() {
+			autoScroll = setInterval(next, interval);
+		  }
+
+		  function stopAutoScroll() {
+			clearInterval(autoScroll);
+		  }
+
+		  // **Call updateCarousel once on initialization**
+		  updateCarousel();
+
+		  // Start auto-scroll
+		  startAutoScroll();
+
+		  // Pause on hover (desktop)
+		  container.addEventListener('mouseenter', stopAutoScroll);
+		  container.addEventListener('mouseleave', startAutoScroll);
+
+		  // Manual controls
+		  nextBtn.addEventListener('click', () => {
+			stopAutoScroll();
+			next();
+		  });
+
+		  prevBtn.addEventListener('click', () => {
+			stopAutoScroll();
+			prev();
+		  });
+
+		  // Swipe controls (mobile)
+		  container.addEventListener('touchstart', (e) => {
+			startX = e.touches[0].clientX;
+		  });
+
+		  container.addEventListener('touchend', (e) => {
+			endX = e.changedTouches[0].clientX;
+			let diff = startX - endX;
+
+			if (Math.abs(diff) > 50) { // Swipe threshold
+			  stopAutoScroll();
+			  if (diff > 0) {
+				// Swipe left → next
+				next();
+			  } else {
+				// Swipe right → previous
+				prev();
+			  }
+			}
+		  });
+
+		  // Handle resizing
+		  window.addEventListener('resize', () => {
+			updateCarousel();
+		  });
+		}
+
+		// Initialize both carousels
+		initCarousel('venuesCarousel', 4000);
+		initCarousel('eventsCarousel', 4000);
+	</script>
+	<script>
+		document.getElementById('callButton').addEventListener('click', function () {
+		  this.innerHTML = '<i class="fas fa-phone"></i> (412) 219-3134';
+		  window.location.href = 'tel:4122193134';
+		});
+
+		document.getElementById('emailButton').addEventListener('click', function () {
+		  this.innerHTML = '<i class="fas fa-envelope"></i> champs@champsentertainment.com';
+		  window.location.href = 'mailto:champs@champsentertainment.com';
+		});
+	</script>
 </body>
 </html>
