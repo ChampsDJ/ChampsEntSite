@@ -347,20 +347,22 @@
 	</head>
 	
 <body>
-
-	<nav class="navbar">
-	
-		<a href="index.html">HOME</a>
-		<a href="about.html">ABOUT</a>
-		<a href="services.html">SERVICES</a>
-		<a href="reviews.html">REVIEWS</a>
-		<a href="gallery.html">GALLERY</a>
-		<a href="music.html">MUSIC</a>
-		<a href="faq.html">FAQ</a>
-		<a href="contact.html">CONTACT</a>
-		<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
-	
-	</nav>
+	<div class="menu-container">
+		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+			<nav class="navbar">
+			
+				<a href="index.html">HOME</a>
+				<a href="about.html">ABOUT</a>
+				<a href="services.html">SERVICES</a>
+				<a href="reviews.html">REVIEWS</a>
+				<a href="gallery.html">GALLERY</a>
+				<a href="music.html">MUSIC</a>
+				<a href="faq.html">FAQ</a>
+				<a href="contact.html">CONTACT</a>
+				<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
+			
+			</nav>
+	</div>
 
 	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
 
@@ -702,6 +704,12 @@
 		  this.innerHTML = '<i class="fas fa-envelope"></i> champs@champsentertainment.com';
 		  window.location.href = 'mailto:champs@champsentertainment.com';
 		});
+	</script>
+	<script>
+		function toggleMenu() {
+			var navbar = document.querySelector(".navbar");
+			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
+		}
 	</script>
 </body>
 </html>
