@@ -35,12 +35,12 @@
 		}
 		img {
 			max-width: 90%;
-			width: auto;
-			height: auto;
+			height: auto; 
 		}
 		h1 {
 			font-weight: 700;
 			font-size: 50px;
+			margin-top: 120px;
 			margin-bottom: 20px;
 		}
 		h2 {
@@ -52,7 +52,7 @@
 		}
 		h3 {
 			font-weight: 700;
-			font-size: 35px;
+			font-size: 25px;
 			margin-bottom: 10px;
 			margin-top: 0px;
 		}
@@ -63,7 +63,6 @@
 		}
 		p {
 			font-size: 20px;
-
 		}
 		
 		/* Remove 'display: block' for all links */
@@ -200,7 +199,6 @@
 				max-width: 950px;
 				margin: 0 auto; /* Center the text block */
 				word-wrap: break-word;
-				margin-top: 30px;
 				margin-bottom: 30px;
 				text-align: center;
 			}
@@ -227,7 +225,8 @@
 			}
 
 			.navbar a:hover {
-				text-decoration: underline;
+				color: #C8A700;
+				text-decoration: none;
 			}
 			.navbar a.active {
 				color: #C8A700;  /* Highlight active page */
@@ -378,25 +377,23 @@
 			
 			</nav>
 	</div>
-
-	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo" class="logo">
-
-
+	
 	<header>
 	
 		<h1>CHAMPS PRESS KIT</h1>
-		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button! Otherwise, take a look at the sections below for more information like links to socials, mixes, and how to reach out to book Champs!</p>
+		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button! Otherwise, take a look at the sections below for more information like links to socials, mixes, logos, and how to reach out to book Champs!</p>
 		<a href="files/Champs_MediaKit2025.pdf" download
 		   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
 		   Download PDF
 		</a>
 		<br><br>
 		
-		<img src="Images/farout_headshot.png" alt="Champs Headshot">
-		
-		<p>DJ | Producer | Entertainer</p>
+		<h2>HEADSHOTS</h2>
+		<figure>
+			<a href="Images/farout_headshot.png"><img src="Images/farout_headshot.png" alt="Champs Headshot"></a>
+			<figcaption style="color: grey;">Headshot (click to download)</figcaption>
+		</figure>
 
-		
 	</header>
 
 	<section id="bio">
@@ -409,8 +406,7 @@
 			<p>Learn more about Champs on <a href="about.html">our About page!</a></p>
 	
 	</section>
-
-
+	<hr>
 	<section id="media">
 	
 		<h2>MEDIA</h2>
@@ -418,6 +414,7 @@
 		<!-- Audio Player Block -->
 		<div class="media-block">
 			<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
+			<p>Click one of the buttons below to listen to a mix in that genre!</p>
 			<div class="media-tabs audio-tabs">
 				<button class="active" onclick="showAudio('house')">House</button>
 				<button onclick="showAudio('prog')">Progressive House</button>
@@ -434,6 +431,7 @@
 		<!-- Video Player Block -->
 		<div class="media-block">
 			<h3 style="margin-bottom:10px;">YOUTUBE</h3>
+			<p>Click one of the buttons below to watch one of my live sets!</p>
 			<div class="media-tabs video-tabs">
 				<button class="active" onclick="showVideo('promo')">House Set Live</button>
 				<button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
@@ -443,13 +441,25 @@
 				<iframe id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
+		
+		<h3 style="margin-bottom:10px;">LOGOS</h3>
+		<p>Click the logos below to download!</p>
+		<figure>
+			<a href="Images/Champs_Word_Logo.png"><img style="width: 800px;" src="Images/Champs_Word_Logo.png" alt="Champs Logo" class="logo"></a>
+			<figcaption style="color: grey;">Champs Logo</figcaption>
+		</figure>
+		
+		<figure>
+			<a href="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png"><img src="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png" alt="Champs Logo" class="logo"></a>
+			<figcaption style="color: grey;">Champs Entertainment Logo</figcaption>
+		</figure>
 
 	</section>
-
+	<hr>
 	<section id="highlights">
 	
 		<!-- Venues Carousel -->
-		<h3 style="color:#C8A700; margin-bottom:10px;">VENUES</h3>
+		<h2>VENUES</h2>
 		<div class="carousel-container" id="venuesCarousel">
 			<div class="carousel-track">
 				<div class="carousel-item">
@@ -489,7 +499,7 @@
 		</div>
 
 		<!-- Events Carousel -->
-		<h3 style="color:#C8A700; margin-bottom:10px;">EVENTS</h3>
+		<h2>EVENTS</h2>
 			<div class="carousel-container" id="eventsCarousel">
 				<div class="carousel-track">
 					<div class="carousel-item">
@@ -516,14 +526,6 @@
 					<button class="next">&#10095;</button>
 				</div>
 			</div>
-	</section>
-
-	<section id="gallery">
-	
-		<h2>GALLERY</h2>
-		
-		<p>Check out all of the events and parties we have thrown on <a href="gallery.html">our Gallery page!</a></p>
-		
 	</section>
 
 	<section id="social">
