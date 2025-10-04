@@ -149,7 +149,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 0px;
 			margin-bottom: 20px;
         }
         button:hover {
@@ -291,14 +291,16 @@
 		<input id="nickname" type="text" name="nickname" style="display:none">
         <textarea id="message" name="message" placeholder="Please include any additional details about your event - e.g. Is ceremony audio also needed? Is dinner in a different room? Is lighting also needed?" required></textarea>
         <div class="g-recaptcha" data-sitekey="6Lco_YwrAAAAAMHHaKYJmbcpfF8GSIxLqIbN9q9T"></div>
+		<p style="color: grey; font-size: 10px; margin-bottom: 5px;">This form is protected by reCAPTCHA and the Google <a style="color: grey; font-size: 10px;" href="https://policies.google.com/privacy">Privacy Policy</a> and <a style="color: grey; font-size: 10px;" href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
 		<button type="submit" id="submit-button">
 			<span id="button-text">Send Message</span>
 			<span id="spinner" style="display: none; margin-left: 10px;">
 				<i class="fas fa-spinner fa-spin"></i>
 			</span>
 		</button>
+		
     </form>
-	
+
 	<hr>
 	<p><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a></p>
 	
