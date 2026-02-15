@@ -38,14 +38,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<style>
+		html, body {
+			width: 100%;
+			overflow-x: hidden;
+		}
 		body {
-			background-color: #131314;
+			background-color: #000;
 			color: white;
 			font-family: 'Nunito', sans-serif;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: stretch;
 			justify-content: flex-start;
 			min-height: 100vh;
 			margin: 0;
@@ -57,7 +61,7 @@
 			border-radius:10px;
 		}
 		video {
-			max-width: 90%;
+			max-width: 100%;
 			width: auto;
 			height: auto;
 			border-radius: 10px;
@@ -74,11 +78,16 @@
 			margin-bottom: 20px;
 			color:#C8A700;
 			max-width: 700px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
 			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		p {
 			font-size: 20px;
@@ -95,7 +104,20 @@
 		a:hover {
 			text-decoration: underline;
 		}
-		
+		.topbar-social {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.topbar-social a {
+			font-size: 30px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		.topbar-social a:hover {
+			color: var(--gold);
+		}
 		/* Desktop View */
 		@media (min-width: 768px) {
 			/* Hide Hamburger */
@@ -113,23 +135,20 @@
 			/* Ensure Horizontal Menu */
 			.navbar {
 				display: flex;
-				justify-content: center;
+				flex-wrap: wrap;
+				justify-content: flex-start;
 				align-items: center;
-				gap: 15px;
-				padding: 10px 0;
-				background: rgba(0, 0, 0, 0.8);
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1; /* Ensure navbar stays on top */
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
 			}
 
 			.navbar a {
-				display: inline-block; /* Ensures links stay in a row */
-				padding: 10px 15px;
-				font-size: 18px;
-				white-space: nowrap; /* Prevents text from breaking */
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
 			}
 
 			.navbar a:hover {
@@ -138,15 +157,54 @@
 			}
 			.navbar a.active {
 				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
+				font-weight: 800;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
+			.nav-item {
+				position: relative;
+				display: inline-block;
 			}
-			.social-icons a:hover {
-				color: #ddd;
-				text-decoration: none;
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 
@@ -180,9 +238,9 @@
 			/* Display Hamburger button */
 			.menu-toggle {
 				display: block !important;
-				position: fixed;
-				top: 10px;
-				right: 15px;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
 				font-size: 28px;
 				cursor: pointer;
 				color: white;
@@ -191,6 +249,52 @@
 				padding: 5px;
 				border-radius: 20%; /* Make it circular */
 				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
 			}
 			/* Add margin to prevent logo being pushed out of view */
 			img {
@@ -204,85 +308,520 @@
 				text-align: center; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
+			h2 {
+				max-width: 400px;
 			}
 			h1 {
 				font-weight: 700;
 				font-size: 40px;
 				margin-bottom: 20px;
 			}
+			.topbar {
+				grid-template-columns: auto 1fr auto;
+			}
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: left;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
-		footer {
-			color: grey;
-			background-color: #131314;
-			padding: 20px 0;
+		:root {
+			--gold: #C8A700;
+			--bg: #131314;
+		}
+
+		/* HERO */
+		.hero {
+			position: relative;
+			width: 100%;
+			max-width: 100%;
+			min-height: 70vh;
+			overflow: hidden;
+			border-radius: 0;
+		}
+
+		/* Full-width background video */
+		.hero-video {
+			position: absolute;
+			inset: 0;
+			max-width: 100% !important;
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: cover;
+			display: block;
+			border-radius: 0 !important;
+			filter: brightness(0.7);
+		}
+
+		/* Overlay layer for nav + logo + text */
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* TOP BAR layout: left nav, center logo, right social+contact */
+		.topbar {
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			padding: 50px 14px;
+			column-gap: 10px;
+		}
+
+		/* Make navbar background transparent so video shows */
+		.navbar {
+			background: transparent !important;
+		}
+
+		/* Shrink menu + move to left */
+		.topbar-left {
+			justify-self: start;
+		}
+
+		/* TRUE center: take logo out of layout flow */
+		.topbar-center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			justify-self: unset;
+			pointer-events: none;			/* prevents blocking clicks behind it */
+		}
+		.topbar-center a,
+		.topbar-center img {
+			pointer-events: auto;         /* but still allow logo click */
+		}
+
+		.brand-logo {
+			width: 300px;
+			max-width: 300px;
+			height: auto;
+			border-radius: 0;
+			margin: 0;
+			filter:
+			drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55))
+			drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+		}
+		
+		/* Reserve center space so the logo never gets overlapped */
+		.topbar-left,
+		.topbar-right {
+			min-width: 0;                /* prevents overflow weirdness */
+		}
+
+		.topbar-left {
+			padding-right: 230px;        /* reserve space for logo */
+		}
+
+		.topbar-right {
+			padding-left: 230px;         /* reserve space for logo */
+			justify-self: end;
+		}
+
+		/* Right side: social icons + contact button */
+		.topbar-right {
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			justify-self: end;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+
+		/* Contact button inverted hover */
+		.contact-btn {
+			display: inline-block;
+			padding: 8px 10px;
+			border: 1px solid white;
+			border-radius: 10px;
+			font-weight: 700;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.contact-btn:hover {
+			background: var(--gold);
+			color: #000;
+			text-decoration: none;
+		}
+
+		/* Hero text overlay */
+		.hero-text {
+			margin-top: auto;
+			padding: 28px 18px 44px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.hero-title {
+			color: var(--gold);
+			max-width: 900px;
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			font-size: 60px;
+		}
+
+		.hero-subtitle {
+			color: rgba(255,255,255,0.9);
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			max-width: 800px;
+		}
+
+		/* Content after hero */
+		.after-hero {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 18px;
+		}
+		.alt-section {
+			width: 100%;
+			padding: 40px 18px;
+			transition: background-color 0.6s ease, color 0.6s ease;
+		}
+
+		.alt-dark {
+			background: #000;
+		}
+
+		.alt-section.in-view {
+			background: var(--gold);
+			color: #000;
+		}
+
+		.alt-section.in-view h2 {
+			color: #000;
+		}
+		.site-footer {
+			width: 100%;
+			background: #000;
+			color: #fff;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 18px;
+			padding: 28px 18px 14px;
+			align-items: start;
+		}
+
+		.footer-logo {
+			width: 240px;
+			height: auto;
+			border-radius: 0;
+		}
+
+		.footer-contact a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+
+		.footer-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 26px;
+			justify-items: start;
+		}
+
+		.footer-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 16px;
+		}
+		.footer-links a:hover,
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+		.footer-social {
+			margin-top: 18px;
+			display: flex;
+			justify-content: center;
+			gap: 14px;
+		}
+		.footer-social a {
+			color: #fff;
+			font-size: 28px;
+			text-decoration: none;
+			align-items: center;
+		}
+		.footer-social a:hover {
+			transform: translateY(-1px);
+			color: var(--gold);
+		}
+
+		.footer-copy {
+			grid-column: 1 / -1;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 12px;
+			opacity: 0.8;
+		}
+
+		.bottom-cta {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 18px 0 40px;
+		}
+
+		.bottom-cta .contact-btn {
+			width: auto;
+			min-width: 220px;
 			text-align: center;
 		}
+		@media (max-width: 1100px) and (min-width: 769px) {
+			/* show hamburger */
+			.menu-toggle {
+				display: block !important;
+				font-size: 22px;
+				padding: 6px 8px;
+				border-radius: 10px;
+				border: 1px solid rgba(255,255,255,0.75);
+				background: rgba(0,0,0,0.35);
+				cursor: pointer;
+			}
+			.navbar {
+				display: none !important;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: max-content;
+				min-width: 240px;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0;
+				padding: 10px 12px;
+				background: rgba(0,0,0,0.55);
+				backdrop-filter: blur(16px);
+				border-radius: 12px;
+				z-index: 1000;
+			}
+			.navbar.show {
+				display: flex !important;
+			}
+			.navbar a {
+				display: block;
+				width: 100%;
+				padding: 10px 10px;
+				font-size: 15px;
+				white-space: nowrap;
+				text-align: left;
+			}
+			.topbar { 
+				padding: 30px 10px; 
+			}
+			.submenu {
+				position: static !important;
+				min-width: 0;
+				width: 100%;
+				display: none;
+				flex-direction: column;
+				padding-left: 12px;
+				background: transparent;
+				backdrop-filter: none;
+			}
 
-		.social-icons a {
-			color: white;
-			margin: 0 10px;
-			font-size: 50px;
-			transition: color 0.3s ease;
-			text-decoration: none;
+			.has-submenu.open .submenu {
+				display: flex;
+			}
+
+			/* make SERVICES behave like a toggle in this mode */
+			.services-link {
+				width: 100%;
+				justify-content: space-between;
+			}
 		}
-
-		.social-icons a:hover {
-			color:#C8A700; 
-			transform:scale(1.2) rotate(5deg);
-			text-decoration: none;
-		}
-
+	
 	</style>
 </head>
 <body>
-    <div class="menu-container">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-		<nav class="navbar">
-			<a href="index.html" class="active"><i class="fas fa-arrow-right"></i> HOME <i class="fas fa-arrow-left"></i></a>
-			<a href="about.html">ABOUT</a>
-			<a href="services.html">SERVICES</a>
-			<a href="reviews.html">REVIEWS</a>
-			<a href="gallery.html">GALLERY</a>
-			<a href="music.html">MUSIC</a>
-			<a href="faq.html">FAQ</a>
-			<a href="contact.html">CONTACT</a>
-			<a href="presskit.html">PRESS KIT</a>
- 
-		</nav>
-	</div>
+	<header class="hero">
+		<video class="hero-video" autoplay loop muted playsinline>
+			<source src="videos/dancefloor.mp4" type="video/mp4">
+		</video>
 
-	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+		<div class="hero-overlay">
+			<div class="topbar">
+				<div class="topbar-left">
+					<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-	<div class="video-wrapper">
+					<nav class="navbar">
+						<a href="about.html">ABOUT</a>
+
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">SERVICES</a>
+								<div class="submenu">
+									<a href="weddings.html">WEDDINGS</a>
+									<a href="parties.html">PARTIES</a>
+									<a href="recordings.html">RECORDINGS</a>
+									<a href="rentals.html">RENTALS</a>
+								</div>
+						</div>
+
+						<a href="reviews.html">REVIEWS</a>
+						
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
+								<div class="submenu">
+									<a href="gallery.html">VIDEOS</a>
+									<a href="music.html">MUSIC/MIXES</a>
+									<a href="presskit.html">PRESS KIT</a>
+								</div>
+						</div>
+						
+						<a href="faq.html">FAQ</a>
+						<a href="contact.html">CONTACT</a>
+					</nav>
+				</div>
+
+				<div class="topbar-center">
+					<a href="index.html" class="brand">
+						<img class="brand-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+					</a>
+				</div>
+
+				<div class="topbar-right">
+					<div class="topbar-social">
+						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+
+					<a class="contact-btn" href="contact.html">CONTACT</a>
+				</div>
+			</div>
+
+			<div class="hero-text">
+				<h2 class="hero-title">WELCOME TO THE GOLD STANDARD FOR LIVE EVENT & WEDDING ENTERTAINMENT</h2>
+				<p class="hero-subtitle">Born in the heart of Pittsburgh, PA; the Steel City; the City of Champions, Champs Entertainment has thrown weddings, produced events and played for dancefloors coast-to-coast.</p>
+			</div>
+		</div>
+	</header>
+
+		<div class="after-hero">
+			<p>Please keep scrolling to find out how I can help you tell your story with an incredible celebration!</p>
+		</div>
+		
 		<figure>
-			<video autoplay loop muted playsinline>
-				<source src="videos/dancefloor.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video>
-			<figcaption style="color: grey;">We keep the dancefloor moving</figcaption>
+			<img src="Images/champs_pioneer_gear.jpg" alt="We use industry standard Pioneer DJ/Alpha Theta equipment and software.">
+			<figcaption style="color: grey;">We use industry standard Pioneer DJ/Alpha Theta equipment.</figcaption>
 		</figure>
+
+	
+	<section class="alt-section alt-dark">
+		<h2>ENTERTAINMENT EXPERIENCES</h2>
+		
+		<h2><i>“People don’t remember the songs you played, they remember how you made them feel.” – Carl Cox</i></h2>
+		
+		<p>Can I let you in on a secret? When you hire someone to soundtrack your event, you're not just booking entertainment, you're designing the feeling of the most important day of your life. I understand that.</p>
+		<p>When potential clients reach out to me, they usually start by asking about music, which makes sense, music is what people tend to think about when thinking about a DJ.
+		<p>But, what you're really investing is goes far beyond a playlist. You're investing in how your day <i>flows</i>, how it <i>feels</i> when guests arrive, how <i>smoothly</i> moments transition, & how <i>confident</i> you feel knowing someone is guiding everything behind the scenes.</p>
+		<p>My role isn't just to play songs, it's to create an entertainment experience that supports every moment of your wedding or event. From the first guest walking into the room, until the last song of the night, we will keep the vibes and energy high.</p>
+	</section>
+	
+
+		<h2>AN EXPERIENCE BUILT AROUND YOUR VIBE</h2>
+		
+		<h2><i>"A DJ is there to give people what they want. You have to feel what the crowd wants and do your best to provide it for them." – Steve Aoki</i></h2>
+		
+		<p>Every event has a rhythm and vibe, it's my job to protect it.</p>
+		<p style="margin-bottom: 0px;">I won't just be dropping tracks, I will be:</p>
+		<ul class="left-aligned-list">
+			<li>Reading the room and adjusting to the energy of the crowd in real time</li>
+			<li>Knowing when to step forward on the mic</li>
+			<li>Making announcements that feel natural, not forced</li>
+			<li>Ensuring audio is clean, clear, and reliable for vows, speeches and dancing</li>
+			<li>Using lighting to enhance the space, not distract from it</li>
+			<li>Keeping your timeline moving without it ever feeling rushed</li>
+		</ul>
+		<p>When this is all done right, no one notices <i>how</i> it’s happening. They just feel like everything flows effortlessly. This is what we strive for at my company.</p>
+
+	
+	<section class="alt-section alt-dark">
+		<h2>A PLANNING & TEAM-FIRST APPROACH</h2>
+		
+		<h2><i>"The DJ booth is not a place for personal taste, it’s where you take people on a journey." – Fatboy Slim</i></h2>
+		
+		<p>I don’t believe in cookie-cutter events.</p>
+		<p>Before we ever talk about music genres or lighting options, I want to understand:</p>
+		
+		<ul class="left-aligned-list">
+			<li>What kind of atmosphere you want your guests to feel</li>
+			<li>Which moments & formalities matter most to you</li>
+			<li>How you envision the energy changing throughout the night</li>
+			<li>What you want to avoid just as much as what you want included</li>
+		</ul>
+		<p>Our conversations will feel less like boring meetings and more like exciting planning sessions because that’s exactly what they are. By the time your big day arrives, the hard work has already been done, and it is time to enjoy yourself.</p>
+		<p>Another thing that I will do on-site is ensure that all of your other vendors are on the same page as us by communicating clearly and sharing our timeline with them so that everyone is on the same page.</p>
+	</section>
+	
+
+		<h2>CALM, PROFESSIONAL, PREPARED</h2>
+		
+		<h2><i>"I try to DJ like I'm playing a live instrument. I try to bring the energy and excitement of playing an instrument to what I do as a DJ." – Mix Master Mike</i></h2>
+		
+		<p>Your event should feel exciting, not stressful.</p>
+		<p>I pride myself on being the steady presence clients can rely on. Someone who shows up prepared, communicates clearly, and adapts quickly when plans change.</p>
+		<p>When you book me, you're gaining a partner on your day who cares deeply about how that day unfolds and how it's remembered for years to come.</p>
+
+	
+	<section class="alt-section alt-dark">
+		<h2>LET'S DESIGN YOUR CELEBRATION!</h2>
+		
+		<p>If you're looking for more than just background music; more than an ego-centric DJ who thinks they are headlining Coachella. If you want an intentional, well-executed entertainment experience, <a href="contact.html">I'd love to talk.</a></p>
+		<p>Let's focus on the flow, the feeling, and the moments your guests will still be talking about long after the last track plays!</p>
+		
+	</section>
+	
+	<div class="bottom-cta">
+		<a class="contact-btn" href="contact.html">CONTACT</a>
 	</div>
-    
-	<h2>WELCOME TO THE GOLD STANDARD FOR LIVE EVENT DJING IN THE PITTSBURGH, PA AREA!</h2>
-			
-	<p>We service the following counties in Pennsylvania on a regular basis: Allegheny, Butler, Beaver, Washington, and Westmoreland.</p>
-	<p>We will also consider any event outside of our normal service area, including Maryland, West Virginia and Ohio.</p>
-	<p>We have helped throw and play events as far away as Chicago & Denver!</p>
-	
-	<hr>
-	
-	<figure>
-		<img src="Images/champs_pioneer_gear.jpg" alt="We use industry standard Pioneer DJ/Alpha Theta equipment and software.">
-		<figcaption style="color: grey;">We use industry standard Pioneer DJ/Alpha Theta equipment.</figcaption>
-	</figure>
-	
-	<h2>WE ARE BOOKING FOR 2026 & 2027 NOW!</h2>
-	<p>Get to know <strong><a href="about.html">about our company</a></strong>, check out the <strong><a href="services.html">services and packages we offer</a></strong>, <strong><a href="reviews.html">look at our reviews</a></strong>, <strong><a href="music.html">check out our music</a></strong>, <strong><a href="contact.html">contact us for a quote</a></strong>, & <strong>much more!</strong></p>
-	<hr>
-	<p><strong><a href="contact.html">CONTACT US</a></strong></p>
 	
 	<script>
 		function toggleMenu() {
@@ -290,26 +829,55 @@
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
+	<script>
+		function toggleSubmenu(e) {
+			e.preventDefault();
+
+			const parent = e.target.closest('.has-submenu');
+			parent.classList.toggle('open');
+		}
+	</script>
+	<script>
+		const sections = document.querySelectorAll('.alt-section');
+
+		const io = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  entry.target.classList.toggle('in-view', entry.isIntersecting);
+		});
+		}, { threshold: 0.35 });
+
+		sections.forEach(s => io.observe(s));
+	</script>
 	
-	<footer>
-		<div class="social-icons">
-			<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram">
-				<i class="fab fa-instagram"></i>
+	<footer class="site-footer">
+		<div class="footer-left">
+			<a href="index.html" class="brand">
+				<img class="footer-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
 			</a>
-			<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok">
-				<i class="fab fa-tiktok"></i>
-			</a>
-			<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="https://soundcloud.com/champsdj" target="_blank" title="SoundCloud">
-				<i class="fab fa-soundcloud"></i>
-			</a>
-			<a href="https://youtube.com/@ChampsDJ" target="_blank" title="YouTube">
-				<i class="fab fa-youtube"></i>
-			</a>
+			<div class="footer-contact">
+				<div><a href="tel:+14122193134">412-219-3134</a></strong></div>
+				<div><a href="mailto:champs@champsentertainment.com">champs@champsentertainment.com</a></div>
+			</div>
 		</div>
-	&copy; 2026 Champs Entertainment. All rights reserved.
+
+		<div class="footer-right">
+			<div class="footer-links">
+				<a href="about.html">ABOUT</a>
+				<a href="music.html">MUSIC</a>
+				<a href="weddings.html">WEDDINGS</a>
+				<a href="gallery.html">VIDEO SETS</a>
+				<a href="parties.html">PARTIES</a>
+				<a href="contact.html">CONTACT</a>
+			</div>
+
+			<div class="footer-social">
+				<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+				<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+				<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+			</div>
+		</div>
+		<div class="footer-copy">&copy; 2026 Champs Entertainment. All rights reserved.</div>
 	</footer>
 </body>
 </html>

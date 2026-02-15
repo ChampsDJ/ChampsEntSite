@@ -376,13 +376,13 @@
 			
 				<a href="index.html">HOME</a>
 				<a href="about.html">ABOUT</a>
-				<a href="services.html">SERVICES</a>
+				<a href="weddings.html">WEDDINGS</a>
+				<a href="weddings.html">PARTIES</a>
 				<a href="reviews.html">REVIEWS</a>
-				<a href="gallery.html">GALLERY</a>
 				<a href="music.html">MUSIC</a>
+				<a href="gallery.html">VIDEO SETS</a>
 				<a href="faq.html">FAQ</a>
 				<a href="contact.html">CONTACT</a>
-				<a href="presskit.html" class="active"><i class="fas fa-arrow-right"></i> PRESS KIT <i class="fas fa-arrow-left"></i></a>
 			
 			</nav>
 	</div>
@@ -391,7 +391,7 @@
 	
 		<h1>CHAMPS PRESS KIT</h1>
 		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button! Otherwise, take a look at the sections below for more information like links to socials, mixes, logos, and how to reach out to book Champs!</p>
-		<a href="files/Champs_MediaKit2025.pdf" download
+		<a href="files/Champs_PressKit2026.pdf" download
 		   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
 		   Download PDF
 		</a>
@@ -399,8 +399,12 @@
 		
 		<h2>HEADSHOTS</h2>
 		<figure>
-			<a href="Images/farout_headshot.png"><img style="border-radius:10px;" src="Images/farout_headshot.png" alt="Champs Headshot"></a>
+			<a href="Images/champs_2026_headshot.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot.png" alt="Champs Headshot"></a>
 			<figcaption style="color: grey;">Headshot (click to download)</figcaption>
+		</figure>
+		<figure>
+			<a href="Images/champs_2026_headshot2.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot2.png" alt="Champs Headshot"></a>
+			<figcaption style="color: grey;">Headshot 2 (click to download)</figcaption>
 		</figure>
 
 	</header>
@@ -409,9 +413,9 @@
 	
 		<h2>BIO</h2>
 		
-			<p>Champs is an accomplished multi-genre DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
-			<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the area like Spirit Lodge, Bottlerocket Social Hall, THIS IS RED, and The Clement. He stays ahead of the curve by engaging with industry leaders, with his most recent conferences being the Pittsburgh DJ Summit in 2025 & 2026.</p>
-			<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house music and drum & bass.</p>
+			<p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
+			<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the Pittsburgh area like Spirit Lodge, Bottlerocket Social Hall, Jackworth, Pitch & Spigolo. He stays ahead of the curve by engaging with industry leading event DJs, with his most recent conference and networking event being the Pittsburgh DJ Summit in 2026.</p>
+			<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house and drum & bass. He also enjoys spinning trance & techno. He also doesn’t shy away from open-format DJing; including: pop, rap, hip-hop, rock, trap and even some country if the vibe is right.</p>
 			<p>Learn more about Champs on <a href="about.html">our About page!</a></p>
 	
 	</section>
@@ -442,10 +446,10 @@
 			<h3 style="margin-bottom:10px;">YOUTUBE</h3>
 			<p>Click one of the buttons below to watch one of my live sets!</p>
 			<div class="media-tabs video-tabs">
-				<button class="active" onclick="showVideo('promo')">House Set Live</button>
-				<button onclick="showVideo('live')">Drum &amp; Bass Set Live</button>
-				<button onclick="showVideo('radio')">MSYH.FM Radio Set Live from Hellbender</button>
-				<button onclick="showVideo('wedding')">Yinzers Meet Fake Wedding</button>
+				<button class="active" onclick="showVideo('promo')">FURNACE House Set Live</button>
+				<button onclick="showVideo('live')">MSYH.FM Radio DnB Set Live from Hellbender</button>
+				<button onclick="showVideo('radio')">Progressive House Live from Soundsource</button>
+				<button onclick="showVideo('wedding')">Yinzers Meet Fake Wedding Live from Pitch</button>
 			</div>
 			<div class="video-player">
 				<iframe width="800px" height="300px" id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
@@ -530,6 +534,9 @@
 					<div class="carousel-item">
 						<p>Pittsburgh VegFair</p>
 					</div>
+					<div class="carousel-item">
+						<p>heatsignal's FURNACE</p>
+					</div>
 				</div>
 				<div class="carousel-buttons">
 					<button class="prev">&#10094;</button>
@@ -558,7 +565,7 @@
 		<div class="booking-buttons">
 			<!-- Call Button -->
 			<button id="callButton">
-				<i class="fas fa-phone"></i> Call
+				<i class="fas fa-phone"></i> Call/Text
 			</button>
 
 			<!-- Website Button -->
@@ -569,6 +576,11 @@
 			<!-- Email Button -->
 			<button id="emailButton">
 				<i class="fas fa-envelope"></i> Email
+			</button>
+			
+			<!-- Insta DM Button -->
+			<button id="instaButton">
+				<i class="fas fa-envelope"></i> Instagram DM
 			</button>
 		</div>
 	</section>
@@ -588,22 +600,22 @@
 			const buttons = document.querySelectorAll('.audio-tabs button');
 			buttons.forEach(btn => btn.classList.remove('active'));
 			if(type === 'house') {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-tech-bass-house-bangers-remixes-busy-signal-ruggers-pub-12-12-25';
 			buttons[0].classList.add('active');
 			} else if(type === 'prog') {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/elevated-eclectica-074-progressive-house-7';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/soundsource-sessions-volume-1-mango-alley-ade-010-compilation-currents-mixed-by-champs';
 			buttons[1].classList.add('active');
 			} else if(type === 'dnb') {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-liquid-drum-bass-edc-discord-music-night-live-vol-31';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-heavy-neuro-jump-up-drum-bass-mix';
 			buttons[2].classList.add('active');
 			} else if(type === 'techno') {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/mixtape-oops-all-hard-techno-edc-discord-music-night-live-vol-24';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-peaktime-driving-melodic-drumcode-tdjs-new-year-open-format-raid-train';
 			buttons[3].classList.add('active');
 			} else if(type === 'trance') {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-40-uplifting-trance-6';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/trance-mission-episode-42-classics-extended-journey';
 			buttons[4].classList.add('active');
 			} else {
-			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/full-set-deep-dubstep-grime-ukg-the-birthday-boys-raid-train';
+			audio.src = 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-dubstep-dnb-decked-out-for-bass-buddies';
 			buttons[5].classList.add('active');
 			}
 		}
@@ -612,13 +624,13 @@
 			const buttons = document.querySelectorAll('.video-tabs button');
 			buttons.forEach(btn => btn.classList.remove('active'));
 			if(type === 'promo') {
-			video.src = 'https://www.youtube.com/embed/azoQ-88LIl0';
+			video.src = 'https://www.youtube.com/embed/7fNWhsgRxMg?t=3200';
 			buttons[0].classList.add('active');
 			} else if(type === 'live') {
-			video.src = 'https://www.youtube.com/embed/8_ZNC2AKryQ';
+			video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
 			buttons[1].classList.add('active');
 			} else if(type === 'radio') {
-			video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
+			video.src = 'https://www.youtube.com/embed/N7fOJjDFVfw';
 			buttons[2].classList.add('active');
 			} else {
 			video.src = 'https://www.youtube.com/embed/fHKp9I_xpeQ';
@@ -737,6 +749,11 @@
 		document.getElementById('emailButton').addEventListener('click', function () {
 		  this.innerHTML = '<i class="fas fa-envelope"></i> champs@champsentertainment.com';
 		  window.location.href = 'mailto:champs@champsentertainment.com';
+		});
+		
+		document.getElementById('instaButton').addEventListener('click', function () {
+		  this.innerHTML = '<i class="fas fa-envelope"></i> instagram.com/champsdj_/';
+		  window.location.href = 'https://www.instagram.com/champsdj_/';
 		});
 	</script>
 	<script>

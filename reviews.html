@@ -21,14 +21,18 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	
 	<style>
+		html, body {
+			width: 100%;
+			overflow-x: hidden;
+		}
 		body {
-			background-color: #131314;
+			background-color: #000;
 			color: white;
 			font-family: 'Nunito', sans-serif;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: stretch;
 			justify-content: flex-start;
 			min-height: 100vh;
 			margin: 0;
@@ -37,6 +41,14 @@
 			max-width: 90%;
 			width: auto;
 			height: auto;
+			border-radius:10px;
+		}
+		video {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+			border-radius: 10px;
+			overflow: hidden;
 		}
 		h1 {
 			font-weight: 700;
@@ -45,20 +57,31 @@
 		}
 		h2 {
 			font-weight: 700;
-			font-size: 30px;
-			margin-top: 0px;
+			font-size: 25px;
 			margin-bottom: 20px;
-			color: #C8A700; 
+			color:#C8A700;
+			max-width: 700px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		h3 {
+			font-weight: 700;
+			font-size: 30px;
+			margin-bottom: 10px;
+			margin-top: 0px;
+			color:#C8A700;
 		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
-			margin-top: 20px;
 			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		p {
 			font-size: 20px;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
 		}
 		
 		/* Remove 'display: block' for all links */
@@ -71,26 +94,21 @@
 		a:hover {
 			text-decoration: underline;
 		}
-		#google-reviews {
-			max-height: 500px;
-			overflow-y: auto;
-			padding-right: 10px;
-			margin-bottom: 30px;
-			width: 100%;
-			scroll-behavior: smooth;
+		.topbar-social {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.topbar-social a {
+			font-size: 30px;
+			margin: 0;
+			text-decoration: none;
 		}
 
-		/* Optional: style the scrollbar for WebKit browsers */
-		#google-reviews::-webkit-scrollbar {
-			width: 6px;
+		.topbar-social a:hover {
+			color: var(--gold);
 		}
-		#google-reviews::-webkit-scrollbar-thumb {
-			background-color: #C8A700;
-			border-radius: 3px;
-		}
-		#google-reviews::-webkit-scrollbar-track {
-			background: #1c1c1e;
-		}
+		
 		/* Desktop View */
 		@media (min-width: 768px) {
 			/* Hide Hamburger */
@@ -98,33 +116,38 @@
 				display: none;
 			}
 			/* Align words/paragraphs */
-			p {
+			p  {
 				max-width: 700px; /* Set to the desired width or match your logo's width */
 				margin: 0 auto; /* Center the text block */
 				word-wrap: break-word;
 				text-align: center; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
+			h2 {
+				max-width: 950px;
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				text-align: center;
+			}
 			/* Ensure Horizontal Menu */
 			.navbar {
 				display: flex;
-				justify-content: center;
+				flex-wrap: wrap;
+				justify-content: flex-start;
 				align-items: center;
-				gap: 15px;
-				padding: 10px 0;
-				background: rgba(0, 0, 0, 0.8);
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1; /* Ensure navbar stays on top */
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
 			}
 
 			.navbar a {
-				display: inline-block; /* Ensures links stay in a row */
-				padding: 10px 15px;
-				font-size: 18px;
-				white-space: nowrap; /* Prevents text from breaking */
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
 			}
 
 			.navbar a:hover {
@@ -133,23 +156,54 @@
 			}
 			.navbar a.active {
 				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
+				font-weight: 800;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
+			.nav-item {
+				position: relative;
+				display: inline-block;
 			}
-			.social-icons a:hover {
-				color: #ddd;
-				text-decoration: none;
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
 			}
-			#google-reviews {
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
 				max-width: 700px;
-				padding: 0 10px;
-				box-sizing: border-box;
-				margin: 0 auto 30px auto;
-				overflow-x: hidden;
-				overflow-y: auto;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 
@@ -178,14 +232,14 @@
 			}
 			.navbar a.active {
 				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
+				font-weight: 900;
 			}
 			/* Display Hamburger button */
 			.menu-toggle {
 				display: block !important;
-				position: fixed;
-				top: 10px;
-				right: 15px;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
 				font-size: 28px;
 				cursor: pointer;
 				color: white;
@@ -195,10 +249,53 @@
 				border-radius: 20%; /* Make it circular */
 				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
 			}
-			/* Add margin to prevent logo being pushed out of view */
-			img {
-				margin-top: 20px; 
+			.nav-item {
+				position: relative;
+				display: inline-block;
 			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+
 			/* p block display configurations just for mobile */
 			p {
 				max-width: 400px; /* Set to the desired width or match your logo's width */
@@ -206,269 +303,630 @@
 				text-align: center; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
+			h2 {
+				max-width: 400px;
 			}
-			#google-reviews {
-				width: 90%;
-				max-width: 90%;
-				padding: 0 10px;
-				box-sizing: border-box;
-				margin: 0 auto 30px auto;
-				overflow-x: hidden;
-				overflow-y: auto;
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
 			}
-			.review {
-				width: 90%;
-				max-width: 90%;
-				padding: 0 10px;
-				box-sizing: border-box;
-				margin: 0 auto 30px auto;
-				font-size: 0.95em;
+			.topbar {
+				grid-template-columns: auto 1fr auto;
 			}
-			.stars {
-				font-size: 1em;
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: left;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.review-btn {
+				min-width: 220px;
+				font-size: 15px;
 			}
 		}
-		footer {
-			color: grey;
-			background-color: #131314;
-			padding: 20px 0;
-			text-align: center;
+		:root {
+			--gold: #C8A700;
+			--bg: #131314;
 		}
 
-		.social-icons a {
-			color: white;
-			margin: 0 10px;
-			font-size: 50px;
-			transition: color 0.3s ease;
-			text-decoration: none;
+		/* HERO */
+		.hero {
+			position: relative;
+			width: 100%;
+			max-width: 100%;
+			min-height: 70vh;
+			overflow: hidden;
+			border-radius: 0;
 		}
 
-		.social-icons a:hover {
-			color:#C8A700; 
-			transform:scale(1.2) rotate(5deg);
-			text-decoration: none;
+		/* Full-width background video */
+		.hero-video {
+			position: absolute;
+			inset: 0;
+			max-width: 100% !important;
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: cover;
+			display: block;
+			border-radius: 0 !important;
+			filter: brightness(0.7);
 		}
-		.screenshot-link {
-			margin-top: 15px;
+
+		/* Overlay layer for nav + logo + text */
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
 		}
-		.review {
-			background-color: #1c1c1e;
-			border-left: 4px solid #C8A700;
-			padding: 15px;
-			margin: 15px auto;
-			max-width: 700px;
+
+		/* TOP BAR layout: left nav, center logo, right social+contact */
+		.topbar {
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			padding: 50px 14px;
+			column-gap: 10px;
+		}
+
+		/* Make navbar background transparent so video shows */
+		.navbar {
+			background: transparent !important;
+		}
+
+		/* Shrink menu + move to left */
+		.topbar-left {
+			justify-self: start;
+		}
+
+		/* TRUE center: take logo out of layout flow */
+		.topbar-center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			justify-self: unset;
+			pointer-events: none;			/* prevents blocking clicks behind it */
+		}
+		.topbar-center a,
+		.topbar-center img {
+			pointer-events: auto;         /* but still allow logo click */
+		}
+
+		.brand-logo {
+			width: 300px;
+			max-width: 300px;
+			height: auto;
+			border-radius: 0;
+			margin: 0;
+			filter:
+			drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55))
+			drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+		}
+		
+		/* Reserve center space so the logo never gets overlapped */
+		.topbar-left,
+		.topbar-right {
+			min-width: 0;                /* prevents overflow weirdness */
+		}
+
+		.topbar-left {
+			padding-right: 230px;        /* reserve space for logo */
+		}
+
+		.topbar-right {
+			padding-left: 230px;         /* reserve space for logo */
+			justify-self: end;
+		}
+
+		/* Right side: social icons + contact button */
+		.topbar-right {
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			justify-self: end;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+
+		/* Contact button inverted hover */
+		.contact-btn {
+			display: inline-block;
+			padding: 8px 10px;
+			border: 1px solid white;
 			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(200, 167, 0, 0.2);
-			text-align: left;
+			font-weight: 700;
+			font-size: 14px;
+			text-decoration: none;
 		}
 
-			.review strong {
-				font-size: 1.2em;
-				color: #C8A700;
-			}
+		.contact-btn:hover {
+			background: var(--gold);
+			color: #000;
+			text-decoration: none;
+		}
 
-			.review em {
-				display: block;
-				font-size: 0.9em;
-				color: #aaa;
-				margin-top: 5px;
-				margin-bottom: 10px;
-			}
+		/* Hero text overlay */
+		.hero-text {
+			margin-top: auto;
+			padding: 28px 18px 44px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-			.review p {
-				font-size: 1em;
-				line-height: 1.5em;
-				margin: 0;
-				color: #fff;
-			}
+		.hero-title {
+			color: var(--gold);
+			max-width: 900px;
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			font-size: 60px;
+		}
 
-			.stars {
-				color: #C8A700;
-				margin-bottom: 10px;
-				font-size: 1.2em;
-			}
-			
-		.google-review-cta {
-			margin: 0px auto;
+		.hero-subtitle {
+			color: rgba(255,255,255,0.9);
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			max-width: 800px;
+		}
+
+		/* Content after hero */
+		.after-hero {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 18px;
+		}
+		.alt-section {
+			width: 100%;
+			padding: 40px 18px;
+			transition: background-color 0.6s ease, color 0.6s ease;
+		}
+
+		.alt-dark {
+			background: #000;
+		}
+
+		.alt-section.in-view {
+			background: var(--gold);
+			color: #000;
+		}
+
+		.alt-section.in-view h2 {
+			color: #000;
+		}
+		.site-footer {
+			width: 100%;
+			background: #000;
+			color: #fff;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 18px;
+			padding: 28px 18px 14px;
+			align-items: start;
+		}
+
+		.footer-logo {
+			width: 240px;
+			height: auto;
+			border-radius: 0;
+		}
+
+		.footer-contact a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+
+		.footer-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 26px;
+			justify-items: start;
+		}
+
+		.footer-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 16px;
+		}
+		.footer-links a:hover,
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+		.footer-social {
+			margin-top: 18px;
+			display: flex;
+			justify-content: center;
+			gap: 14px;
+		}
+		.footer-social a {
+			color: #fff;
+			font-size: 28px;
+			text-decoration: none;
+			align-items: center;
+		}
+		.footer-social a:hover {
+			transform: translateY(-1px);
+			color: var(--gold);
+		}
+
+		.footer-copy {
+			grid-column: 1 / -1;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 12px;
+			opacity: 0.8;
+		}
+
+		.bottom-cta {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 18px 0 40px;
+		}
+
+		.bottom-cta .contact-btn {
+			width: auto;
+			min-width: 220px;
 			text-align: center;
 		}
+		.google-review-cta {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 14px;
+			margin: 30px 0;
+		}
 
+		/* Base button */
 		.review-btn {
-			background-color: #C8A700;
-			color: #131314;
-			padding: 12px 24px;
-			border-radius: 6px;
-			font-weight: bold;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			min-width: 260px;
+			padding: 12px 18px;
+			font-size: 16px;
+			font-weight: 700;
+			border-radius: 10px;
 			text-decoration: none;
-			display: inline-block;
-			transition: background-color 0.3s ease, color 0.3s ease;
+			transition: all 0.25s ease;
+			cursor: pointer;
 		}
 
-		.review-btn:hover {
-			background-color: #fff;
-			color: #C8A700;
+		/* Primary (gold fill) */
+		.review-btn.primary {
+			background: var(--gold);
+			color: #000;
+			border: 1px solid var(--gold);
 		}
 
-		.review-link {
-			display: inline-block;
-			color: #C8A700;
-			font-size: 0.95em;
-			text-decoration: underline;
+		.review-btn.primary:hover {
+			background: #fff;
+			color: #000;
+			border-color: #fff;
 		}
 
+		/* Secondary (outline) */
+		.review-btn.secondary {
+			background: transparent;
+			color: #fff;
+			border: 1px solid #fff;
+			font-size: 15px;
+		}
+
+		.review-btn.secondary:hover {
+			background: #fff;
+			color: #000;
+		}
+		@media (max-width: 1100px) and (min-width: 769px) {
+			/* show hamburger */
+			.menu-toggle {
+				display: block !important;
+				font-size: 22px;
+				padding: 6px 8px;
+				border-radius: 10px;
+				border: 1px solid rgba(255,255,255,0.75);
+				background: rgba(0,0,0,0.35);
+				cursor: pointer;
+			}
+			.navbar {
+				display: none !important;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: max-content;
+				min-width: 240px;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0;
+				padding: 10px 12px;
+				background: rgba(0,0,0,0.55);
+				backdrop-filter: blur(16px);
+				border-radius: 12px;
+				z-index: 1000;
+			}
+			.navbar.show {
+				display: flex !important;
+			}
+			.navbar a {
+				display: block;
+				width: 100%;
+				padding: 10px 10px;
+				font-size: 15px;
+				white-space: nowrap;
+				text-align: left;
+			}
+			.topbar { 
+				padding: 30px 10px; 
+			}
+			.submenu {
+				position: static !important;
+				min-width: 0;
+				width: 100%;
+				display: none;
+				flex-direction: column;
+				padding-left: 12px;
+				background: transparent;
+				backdrop-filter: none;
+			}
+
+			.has-submenu.open .submenu {
+				display: flex;
+			}
+
+			/* make SERVICES behave like a toggle in this mode */
+			.services-link {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+		
 	</style>
 </head>
 <body>
-    <div class="menu-container">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-		<nav class="navbar">
-			<a href="index.html">HOME</a>
-			<a href="about.html">ABOUT</a>
-			<a href="services.html">SERVICES</a>
-			<a href="reviews.html" class="active"><i class="fas fa-arrow-right"></i> REVIEWS <i class="fas fa-arrow-left"></i></a>
-			<a href="gallery.html">GALLERY</a>
-			<a href="music.html">MUSIC</a>
-			<a href="faq.html">FAQ</a>
-			<a href="contact.html">CONTACT</a>
-			<a href="presskit.html">PRESS KIT</a>
- 
-		</nav>
-	</div>
-
-	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
-    
-    <h1>REVIEWS</h1>
-	<p>Welcome to our reviews page! These reviews are from Google and various other sites by people who have hosted or booked us.</p>
-	<h2>GOOGLE REVIEWS</h2>
-	<!--<div id="google-reviews"></div>--!>
-	<div class="google-review-cta">
-		<a href="https://g.page/r/CWeUxbcwyS5oEBM" target="_blank" class="review-link">
-		<p>View all reviews on Google</p>
-		</a>
-		<br/>
-		<a href="https://g.page/r/CWeUxbcwyS5oEBM/review" target="_blank" class="review-btn">
-			<i class="fas fa-pen"></i> Leave us a Google Review
-		</a>
-	</div>
-	<script>
-	  async function fetchGoogleReviews() {
-		const url = 'https://script.google.com/macros/s/AKfycbyCEmXnexRqXCwzV6ycrB5aKjwbaLcupEgigfJu4tNsdYr6TY_IzS_vjowG-nUdp67etQ/exec';
-
-		try {
-		  const response = await fetch(url);
-		  const data = await response.json();
-
-		  // v1 Places API puts reviews under data.reviews, not data.result.reviews
-		  if (data.reviews && data.reviews.length > 0) {
-			const container = document.getElementById('google-reviews');
-			container.innerHTML = data.reviews.slice(0, 5).map(r => {
-			  const stars = [...Array(5)].map((_, i) => {
-				return `<i class="fa${i < (r.rating || 0) ? 's' : 'r'} fa-star"></i>`;
-			  }).join('');
-
-			  // publishTime looks like "2023-11-04T15:23:00Z"
-			  const date = r.publishTime
-				? new Date(r.publishTime).toLocaleDateString()
-				: '';
-
-			  return `
-				<div class="review">
-				  <strong>${r.authorAttribution?.displayName || 'Anonymous'}</strong>
-				  <div class="stars">${stars}</div>
-				  <em>${date}</em>
-				  <p>${r.text?.text || ''}</p>
-				</div>
-			  `;
-			}).join('');
-		  } else {
-			console.error('No reviews found');
-			document.getElementById('google-reviews').innerHTML = '<p>No reviews found. Check back soon!</p>';
-		  }
-		} catch (err) {
-		  console.error('Error fetching reviews:', err);
-		  document.getElementById('google-reviews').innerHTML = '<p>Error loading reviews. Please try again later.</p>';
-		}
-	  }
-
-	  fetchGoogleReviews();
-	</script>
-	<hr>
+	<header class="hero">
 	
-	<h2>PEERSPACE REVIEWS</h2>
+		<img class="hero-video" src="Images/ddj-1000_bg.jpg" alt="">
 
-	  <strong>The Clement</strong>
-	  <div class="stars">
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-	  </div>
-	  <em>Phillip R., Owner, Tarentum, PA</em>
-	  <p>Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience.</p>
-	  <p><a href="Images/peerspace_reviews.png" target="_blank">View Screenshot</a></p>
+		<div class="hero-overlay">
+			<div class="topbar">
+				<div class="topbar-left">
+					<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+					<nav class="navbar">
+						<a href="about.html">ABOUT</a>
+
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">SERVICES</a>
+								<div class="submenu">
+									<a href="weddings.html">WEDDINGS</a>
+									<a href="parties.html">PARTIES</a>
+									<a href="recordings.html">RECORDINGS</a>
+									<a href="rentals.html">RENTALS</a>
+								</div>
+						</div>
+
+						<a href="reviews.html" class="active">REVIEWS</a>
+						
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
+								<div class="submenu">
+									<a href="gallery.html">VIDEOS</a>
+									<a href="music.html">MUSIC/MIXES</a>
+									<a href="presskit.html">PRESS KIT</a>
+								</div>
+						</div>
+						
+						<a href="faq.html">FAQ</a>
+						<a href="contact.html">CONTACT</a>
+					</nav>
+				</div>
+
+				<div class="topbar-center">
+					<a href="index.html" class="brand">
+						<img class="brand-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+					</a>
+				</div>
+
+				<div class="topbar-right">
+					<div class="topbar-social">
+						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+
+					<a class="contact-btn" href="contact.html">CONTACT</a>
+				</div>
+			</div>
+
+			<div class="hero-text">
+				<h2 class="hero-title">TESTIMONIALS</h2>
+			</div>
+		</div>
+	</header>
+	
+
+		<div class="after-hero">
+			<p>These reviews are just a small sample of people who have hosted or booked us.</p>
+		</div>
+
+	
+
+		
+		<h1>GOOGLE REVIEWS</h1>
+		
+		<p>"Matt was awesome! Professional and can read the room. We would love to have him back! Thank you Matt."</p>
+		<div class="stars">
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+		</div>
+		<em><strong>VegFair</strong></em></br>
+		<em>Pittsburgh, PA</em>
+
+		<div class="google-review-cta">
+			<a href="https://g.page/r/CWeUxbcwyS5oEBM/review" target="_blank" class="review-btn secondary">
+				<i class="fas fa-pen"></i> Leave us a Google Review
+			</a>
+			
+			<a href="https://g.page/r/CWeUxbcwyS5oEBM" target="_blank" class="review-btn primary">
+				View all reviews on Google
+			</a>
+		</div>
+
+	
+	<section class="alt-section alt-dark">
+	
+		<h1>PEERSPACE REVIEWS</h1>
+
+		<p>"Matt and his group were friendly and fun. He left the space in great condition, and was very communicative during the entire process. Good experience."</p>
+		<div class="stars">
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+		</div>
+		<em><strong>The Clement</strong></em></br>
+		<em>Phillip R., Owner, Tarentum, PA</em>
+		
+		</br></br></br>
+		
+		<p>"Great guest!!! I would host again."</p>
+		<div class="stars">
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+		</div>
+		<em><strong>THIS IS RED</strong></em></br>
+		<em>Jeff M., Owner, Munhall, PA</em>
+	</section>
+	
+
+	
+		<h1>INSTAGRAM REVIEWS</h1>
+		
+		<p>"Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!"</p>
+		<div class="stars">
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+			<i class="fas fa-star"></i>
+		</div>
+		<em><strong>Alynment</strong></em></br>
+		<em>DJ/Producer, Pittsburgh, PA</em>
 
 
+	
+	<div class="bottom-cta">
+		<a class="contact-btn" href="contact.html">CONTACT</a>
+	</div>
 
-	  <strong>THIS IS RED</strong>
-	  <div class="stars">
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-	  </div>
-	  <em>Jeff M., Owner, Munhall, PA</em>
-	  <p>Great guest!!! I would host again.</p>
-	  <p><a href="Images/peerspace_reviews.png" target="_blank">View Screenshot</a></p>
-
-	<hr>
-	<h2>INSTAGRAM REVIEWS</h2>
-
-	  <strong>Alynment</strong>
-	  <div class="stars">
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-		<i class="fas fa-star"></i>
-	  </div>
-	  <em>DJ/Producer, Pittsburgh, PA</em>
-	  <p>Shoutout Champs for absolutely slaying the video/editing/audio game and hooking everyone up with great quality content!</p>
-	  <p><a href="Images/insta_review.png" target="_blank">View Screenshot</a></p>
-
-	<hr>
-	<p><strong><a href="contact.html">CONTACT US</a></strong></p>
-	<p><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a></p>
 	<script>
 		function toggleMenu() {
 			var navbar = document.querySelector(".navbar");
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
+	<script>
+		function toggleSubmenu(e) {
+			e.preventDefault();
 
-	<footer>
-		<div class="social-icons">
-			<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram">
-				<i class="fab fa-instagram"></i>
+			const parent = e.target.closest('.has-submenu');
+			parent.classList.toggle('open');
+		}
+	</script>
+	<script>
+		const sections = document.querySelectorAll('.alt-section');
+
+		const io = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  entry.target.classList.toggle('in-view', entry.isIntersecting);
+		});
+		}, { threshold: 0.35 });
+
+		sections.forEach(s => io.observe(s));
+	</script>
+	
+	<footer class="site-footer">
+		<div class="footer-left">
+			<a href="index.html" class="brand">
+				<img class="footer-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
 			</a>
-			<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok">
-				<i class="fab fa-tiktok"></i>
-			</a>
-			<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="https://soundcloud.com/champsdj" target="_blank" title="SoundCloud">
-				<i class="fab fa-soundcloud"></i>
-			</a>
-			<a href="https://youtube.com/@ChampsDJ" target="_blank" title="YouTube">
-				<i class="fab fa-youtube"></i>
-			</a>
+			<div class="footer-contact">
+				<div><a href="tel:+14122193134">412-219-3134</a></strong></div>
+				<div><a href="mailto:champs@champsentertainment.com">champs@champsentertainment.com</a></div>
+			</div>
 		</div>
-	  &copy; 2026 Champs Entertainment. All rights reserved.
+
+		<div class="footer-right">
+			<div class="footer-links">
+				<a href="about.html">ABOUT</a>
+				<a href="music.html">MUSIC</a>
+				<a href="weddings.html">WEDDINGS</a>
+				<a href="gallery.html">VIDEO SETS</a>
+				<a href="parties.html">PARTIES</a>
+				<a href="contact.html">CONTACT</a>
+			</div>
+
+			<div class="footer-social">
+				<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+				<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+				<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+			</div>
+		</div>
+		<div class="footer-copy">&copy; 2026 Champs Entertainment. All rights reserved.</div>
 	</footer>
 </body>
 </html>

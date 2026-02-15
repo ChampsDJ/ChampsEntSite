@@ -13,7 +13,7 @@
 	<meta name="twitter:title" content="Champs Entertainment">
 	<meta name="twitter:description" content="The gold standard for live event DJing in the Pittsburgh, PA area. We also offer recording, streaming & audio mastering services for your big day.">
 	<meta name="twitter:image" content="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_social_gold.png">
-    <title>Gallery | Champs Entertainment</title>
+    <title>Media | Champs Entertainment</title>
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
@@ -24,19 +24,35 @@
 	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
 	<style>
+		html, body {
+			width: 100%;
+			overflow-x: hidden;
+		}
 		body {
-			background-color: #131314;
+			background-color: #000;
 			color: white;
 			font-family: 'Nunito', sans-serif;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: stretch;
 			justify-content: flex-start;
 			min-height: 100vh;
 			margin: 0;
 		}
-
+		img {
+			max-width: 90%;
+			width: auto;
+			height: auto;
+			border-radius:10px;
+		}
+		video {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+			border-radius: 10px;
+			overflow: hidden;
+		}
 		h1 {
 			font-weight: 700;
 			font-size: 50px;
@@ -44,15 +60,20 @@
 		}
 		h2 {
 			font-weight: 700;
-			font-size: 30px;
+			font-size: 25px;
 			margin-bottom: 20px;
-			color: #C8A700; 
+			color:#C8A700;
+			max-width: 700px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
 			margin-bottom: 20px;
-			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		p {
 			font-size: 20px;
@@ -69,7 +90,20 @@
 		a:hover {
 			text-decoration: underline;
 		}
-		
+		.topbar-social {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.topbar-social a {
+			font-size: 30px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		.topbar-social a:hover {
+			color: var(--gold);
+		}
 		/* Desktop View */
 		@media (min-width: 768px) {
 			/* Hide Hamburger */
@@ -87,23 +121,20 @@
 			/* Ensure Horizontal Menu */
 			.navbar {
 				display: flex;
-				justify-content: center;
+				flex-wrap: wrap;
+				justify-content: flex-start;
 				align-items: center;
-				gap: 15px;
-				padding: 10px 0;
-				background: rgba(0, 0, 0, 0.8);
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1; /* Ensure navbar stays on top */
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
 			}
 
 			.navbar a {
-				display: inline-block; /* Ensures links stay in a row */
-				padding: 10px 15px;
-				font-size: 18px;
-				white-space: nowrap; /* Prevents text from breaking */
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
 			}
 
 			.navbar a:hover {
@@ -112,45 +143,54 @@
 			}
 			.navbar a.active {
 				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
+				font-weight: 800;
 			}
-			.youtube-container {
+			.nav-item {
 				position: relative;
-				width: 90%;
-				max-width: 90%; /* Adjust width as needed */
-				margin: 20px;
+				display: inline-block;
 			}
-			.youtube-container iframe {
-				width: 560px;
-				height: 315px; /* Adjust height as needed */
-				border: none;
-				border-radius:10px;
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
 			}
-			.social-icons a:hover {
-				color: #ddd;
-				text-decoration: none;
-			}
-			.gallery {
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
 				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 2px;
-				padding: 10px;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
 			}
 
-			.gallery a {
-				flex: 1 1 calc(12.5% - 200px); /* 8 images per row */
-				max-width: calc(12.5% - 200px); 
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
 			}
-
-			.gallery img {
-				width: 65px;
-				height: auto;
-				border-radius: 20px;
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 
@@ -184,9 +224,9 @@
 			/* Display Hamburger button */
 			.menu-toggle {
 				display: block !important;
-				position: fixed;
-				top: 10px;
-				right: 15px;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
 				font-size: 28px;
 				cursor: pointer;
 				color: white;
@@ -196,138 +236,550 @@
 				border-radius: 20%; /* Make it circular */
 				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
 			}
-			/* Add margin to prevent logo being pushed out of view */
-			img {
-				max-width: 90%;
-				width: auto;
-				height: auto;
-				margin-top: 20px; 
+			.nav-item {
+				position: relative;
+				display: inline-block;
 			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+
 			/* p block display configurations just for mobile */
 			p {
 				max-width: 400px; /* Set to the desired width or match your logo's width */
 				margin: 0 auto; /* Center the text block */
-				text-align: center; 
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
 				margin-bottom: 20px;
 			}
-			.youtube-container {
-				position: relative;
-				width: 90%;
-				max-width: 90%; /* Adjust width as needed */
-				margin: 20px;
+			h2 {
+				max-width: 400px;
 			}
-			.youtube-container iframe {
-				width: 100%;
-				height: 315px; /* Adjust height as needed */
-				border: none;
-				border-radius:10px;
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
 			}
-			.social-icons a {
-				margin: 0 10px;
-				font-size: 50px;
-			}
-			.gallery {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				gap: 5px;
-				padding: 10px;
+			.topbar {
+				grid-template-columns: auto 1fr auto;
 			}
 
-			.gallery a {
-				flex: 1 1 calc(12.5% - 10px); /* 8 images per row */
-				max-width: calc(12.5% - 10px); 
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 			}
-			.gallery img {
-				width: 100%;
-				height: auto;
-				border-radius: 20px;
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: left;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
-		footer {
-			color: grey;
-			background-color: #131314;
-			padding: 20px 0;
+		:root {
+			--gold: #C8A700;
+			--bg: #131314;
+		}
+
+		/* HERO */
+		.hero {
+			position: relative;
+			width: 100%;
+			max-width: 100%;
+			min-height: 70vh;
+			overflow: hidden;
+			border-radius: 0;
+		}
+
+		/* Full-width background video */
+		.hero-video {
+			position: absolute;
+			inset: 0;
+			max-width: 100% !important;
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: cover;
+			display: block;
+			border-radius: 0 !important;
+			filter: brightness(0.7);
+		}
+
+		/* Overlay layer for nav + logo + text */
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* TOP BAR layout: left nav, center logo, right social+contact */
+		.topbar {
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			padding: 50px 14px;
+			column-gap: 10px;
+		}
+
+		/* Make navbar background transparent so video shows */
+		.navbar {
+			background: transparent !important;
+		}
+
+		/* Shrink menu + move to left */
+		.topbar-left {
+			justify-self: start;
+		}
+
+		/* TRUE center: take logo out of layout flow */
+		.topbar-center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			justify-self: unset;
+			pointer-events: none;			/* prevents blocking clicks behind it */
+		}
+		.topbar-center a,
+		.topbar-center img {
+			pointer-events: auto;         /* but still allow logo click */
+		}
+
+		.brand-logo {
+			width: 300px;
+			max-width: 300px;
+			height: auto;
+			border-radius: 0;
+			margin: 0;
+			filter:
+			drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55))
+			drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+		}
+		
+		/* Reserve center space so the logo never gets overlapped */
+		.topbar-left,
+		.topbar-right {
+			min-width: 0;                /* prevents overflow weirdness */
+		}
+
+		.topbar-left {
+			padding-right: 230px;        /* reserve space for logo */
+		}
+
+		.topbar-right {
+			padding-left: 230px;         /* reserve space for logo */
+			justify-self: end;
+		}
+
+		/* Right side: social icons + contact button */
+		.topbar-right {
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			justify-self: end;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+
+		/* Contact button inverted hover */
+		.contact-btn {
+			display: inline-block;
+			padding: 8px 10px;
+			border: 1px solid white;
+			border-radius: 10px;
+			font-weight: 700;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.contact-btn:hover {
+			background: var(--gold);
+			color: #000;
+			text-decoration: none;
+		}
+
+		/* Hero text overlay */
+		.hero-text {
+			margin-top: auto;
+			padding: 28px 18px 44px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.hero-title {
+			color: var(--gold);
+			max-width: 900px;
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			font-size: 60px;
+		}
+
+		.hero-subtitle {
+			color: rgba(255,255,255,0.9);
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			max-width: 800px;
+		}
+
+		/* Content after hero */
+		.after-hero {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 18px;
+		}
+		.alt-section {
+			width: 100%;
+			padding: 40px 18px;
+			transition: background-color 0.6s ease, color 0.6s ease;
+		}
+
+		.alt-dark {
+			background: #000;
+		}
+
+		.alt-section.in-view {
+			background: var(--gold);
+			color: #000;
+		}
+
+		.alt-section.in-view h2 {
+			color: #000;
+		}
+		.site-footer {
+			width: 100%;
+			background: #000;
+			color: #fff;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 18px;
+			padding: 28px 18px 14px;
+			align-items: start;
+		}
+
+		.footer-logo {
+			width: 240px;
+			height: auto;
+			border-radius: 0;
+		}
+
+		.footer-contact a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+
+		.footer-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 26px;
+			justify-items: start;
+		}
+
+		.footer-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 16px;
+		}
+		.footer-links a:hover,
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+		.footer-social {
+			margin-top: 18px;
+			display: flex;
+			justify-content: center;
+			gap: 14px;
+		}
+		.footer-social a {
+			color: #fff;
+			font-size: 28px;
+			text-decoration: none;
+			align-items: center;
+		}
+		.footer-social a:hover {
+			transform: translateY(-1px);
+			color: var(--gold);
+		}
+
+		.footer-copy {
+			grid-column: 1 / -1;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 12px;
+			opacity: 0.8;
+		}
+
+		.bottom-cta {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 18px 0 40px;
+		}
+
+		.bottom-cta .contact-btn {
+			width: auto;
+			min-width: 220px;
 			text-align: center;
 		}
-
-		.social-icons a {
-			color: white;
-			margin: 0 10px;
-			font-size: 50px;
-			transition: color 0.3s ease;
-			text-decoration: none;
+		.youtube-container {
+			width: 100%;
+			max-width: 700px; /* Adjust width as needed */
+			margin: 20px auto;
+			padding: 0 12px;      /* small breathing room on small screens */
+			box-sizing: border-box;
 		}
-
-		.social-icons a:hover {
-			color:#C8A700; 
-			transform:scale(1.2) rotate(5deg);
-			text-decoration: none;
+		.youtube-container iframe {
+			width: 100%;
+			display: block;
+			height: 450px; /* Adjust height as needed */
+			border: none;
+			border-radius:10px;
 		}
+		@media (max-width: 1100px) and (min-width: 769px) {
+			/* show hamburger */
+			.menu-toggle {
+				display: block !important;
+				font-size: 22px;
+				padding: 6px 8px;
+				border-radius: 10px;
+				border: 1px solid rgba(255,255,255,0.75);
+				background: rgba(0,0,0,0.35);
+				cursor: pointer;
+			}
+			.navbar {
+				display: none !important;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: max-content;
+				min-width: 240px;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0;
+				padding: 10px 12px;
+				background: rgba(0,0,0,0.55);
+				backdrop-filter: blur(16px);
+				border-radius: 12px;
+				z-index: 1000;
+			}
+			.navbar.show {
+				display: flex !important;
+			}
+			.navbar a {
+				display: block;
+				width: 100%;
+				padding: 10px 10px;
+				font-size: 15px;
+				white-space: nowrap;
+				text-align: left;
+			}
+			.topbar { 
+				padding: 30px 10px; 
+			}
+			.submenu {
+				position: static !important;
+				min-width: 0;
+				width: 100%;
+				display: none;
+				flex-direction: column;
+				padding-left: 12px;
+				background: transparent;
+				backdrop-filter: none;
+			}
+
+			.has-submenu.open .submenu {
+				display: flex;
+			}
+
+			/* make SERVICES behave like a toggle in this mode */
+			.services-link {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
+	
 	</style>
 </head>
 <body>
-    <div class="menu-container">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-		<nav class="navbar">
-			<a href="index.html">HOME</a>
-			<a href="about.html">ABOUT</a>
-			<a href="services.html">SERVICES</a>
-			<a href="reviews.html">REVIEWS</a>
-			<a href="gallery.html" class="active"><i class="fas fa-arrow-right"></i> GALLERY <i class="fas fa-arrow-left"></i></a>
-			<a href="music.html">MUSIC</a>
-			<a href="faq.html">FAQ</a>
-			<a href="contact.html">CONTACT</a>
-			<a href="presskit.html">PRESS KIT</a>
- 
-		</nav>
-	</div>
+	<header class="hero">
+		<video class="hero-video" autoplay loop muted playsinline>
+			<source src="videos/social_mixer1.mp4" type="video/mp4">
+		</video>
 
-	<img src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
- 
-	<h1>EVENT GALLERY</h1>
+		<div class="hero-overlay">
+			<div class="topbar">
+				<div class="topbar-left">
+					<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+					<nav class="navbar">
+						<a href="about.html">ABOUT</a>
+
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">SERVICES</a>
+								<div class="submenu">
+									<a href="weddings.html">WEDDINGS</a>
+									<a href="parties.html">PARTIES</a>
+									<a href="recordings.html">RECORDINGS</a>
+									<a href="rentals.html">RENTALS</a>
+								</div>
+						</div>
+
+						<a href="reviews.html">REVIEWS</a>
+						
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
+								<div class="submenu">
+									<a href="gallery.html" class="active">VIDEOS</a>
+									<a href="music.html">MUSIC/MIXES</a>
+									<a href="presskit.html">PRESS KIT</a>
+								</div>
+						</div>
+						
+						<a href="faq.html">FAQ</a>
+						<a href="contact.html">CONTACT</a>
+					</nav>
+				</div>
+
+				<div class="topbar-center">
+					<a href="index.html" class="brand">
+						<img class="brand-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+					</a>
+				</div>
+
+				<div class="topbar-right">
+					<div class="topbar-social">
+						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+
+					<a class="contact-btn" href="contact.html">CONTACT</a>
+				</div>
+			</div>
+
+			<div class="hero-text">
+				<h2 class="hero-title">VIDEO SETS</h2>
+				<p class="hero-subtitle">Below are sets, videos, and photos for events that we either have fully produced for our client or helped co-produce with other parties for a shared client.</p>
+			</div>
+		</div>
+	</header>
 	
-	<p>Below are sets, videos, and photos for events that we either have fully produced for our client or helped co-produce with other parties for a shared client.</p>
-	<p>You can also find most of these sets and more over on Champs' SoundCloud from the <a href="music.html">Music page</a> on our website!</p>
-
-	<h2>YINZERS MEET FAKE WEDDING</h2>
-	<p>Champs provided the entertainment for the Fake Wedding social mixer by Yinzers Meet at Pitch Social on Carson St. on 9/19/25. We acted like we were hosting a wedding reception and had a great time. Two sets below, the first one is more of a "dinner" type of mix while we set up, and then the main event set.</p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/fHKp9I_xpeQ?si=i5Fq0SjbjaiWFP3V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>	
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/g3zCV_5xcZs?si=uEnJXBmUwLQJWUmN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<hr>
+	<section class="alt-section alt-dark">	
+		<h2>YINZERS MEET FAKE WEDDING</h2>
+		<p>Champs provided the entertainment for the Fake Wedding social mixer by Yinzers Meet at Pitch Social on Carson St. on 9/19/25. We acted like we were hosting a wedding reception and had a great time. Two sets below, the first one is more of a "dinner" type of mix while we set up, and then the main event set.</p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/fHKp9I_xpeQ?si=i5Fq0SjbjaiWFP3V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>	
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/g3zCV_5xcZs?si=uEnJXBmUwLQJWUmN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+	</section>
 	
 	<h2>VENANGO PRIDE</h2>
 	<p>Champs participated in Venango Pride in June 2025. It was our first Pride event and we were so excited to be invited to play. This set was nudisco and disco house remixes.</p>
 	<div class="youtube-container">
 		<iframe src="https://www.youtube.com/embed/MtgD70DTlQQ?si=iF0OtQYNWan8wNiN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	</div>
-	<hr>
 	
-	<h2>SPIGOLO</h2>
-	<p>Champs played at Spigolo Coffee in Edgewood alongside Mem_ary in May. This little coffee shop was a gem to play at. We stuck to Organic, Melodic, Progressive House vibes for this one.</p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/MoBGjPZ8Wqg?si=1oj0x09B5iy2e6Wr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<hr>
+	<section class="alt-section alt-dark">
+		<h2>SPIGOLO</h2>
+		<p>Champs played at Spigolo Coffee in Edgewood alongside Mem_ary in May. This little coffee shop was a gem to play at. We stuck to Organic, Melodic, Progressive House vibes for this one.</p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/MoBGjPZ8Wqg?si=1oj0x09B5iy2e6Wr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+	</section>
 	
 	<h2>MUSIC NIGHT LIVE</h2>
 	<p>Champs was invited to surprise the community that got him into DJing, the Electric Daisy Carnival Discord! The Music Night LIVE showrunners, based in Denver, CO, invited Champs to co-produce their Halloween 2024 event in person and play a live set. Put on your seatbelts for this one, you are about to enter the realm of hard techno!</p>
 	<div class="youtube-container">
 		<iframe src="https://www.youtube.com/embed/8k3HRnw0ZQk?si=CqsEjOwSoD5gTW9t&amp;start=199" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	</div>
-	<hr>
 	
-	<h2>PITTSBURGH AGAINST APARTHEID</h2>
-	<p>Champs participated in a local fundraiser event in February 2025, which we helped co-produce alongside DJs Against Apartheid and Not On Our Dime Pittsburgh. We were responsible for video & audio recording and the livestream. Champs also played a disco set, which is below.</p>
-	<p>This video is an excellent demonstration of our current livestream and recording capabilities.</p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/dFddwResAZY?si=nYHPnTCZSOzijKB2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>	
-	</div>
-	<hr>
+	<section class="alt-section alt-dark">
+		<h2>PITTSBURGH AGAINST APARTHEID</h2>
+		<p>Champs participated in a local fundraiser event in February 2025, which we helped co-produce alongside DJs Against Apartheid and Not On Our Dime Pittsburgh. We were responsible for video & audio recording and the livestream. Champs also played a disco set, which is below.</p>
+		<p>This video is an excellent demonstration of our current livestream and recording capabilities.</p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/dFddwResAZY?si=nYHPnTCZSOzijKB2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>	
+		</div>
+	</section>
+	
 	
     <h2>COLOMBINO</h2>
 	<p>Champs played at and produced Pittsburgh's First Coffee Truck Party of 2025 at the Colombino Coffee Truck in Lawrenceville. We provided all equipment, sound, power (we ran the whole event off of a generator battery), and social media marketing, as well as played two sets, both of which are below.</p>
@@ -346,36 +798,36 @@
 	</div>
 	<p><strong>VIDEOS</strong></p>	
 	<p><strong><a href="https://www.instagram.com/reel/DFSz3CpOrbt/" target="_blank">Colombino Event Recap</a></strong></p>
-	<hr>
 	
-	<h2>PITTSBURGH OPEN DECKS</h2>
-	<p>Champs has also played out for Pittsburgh Open Decks. These are more EDM club-style mixes, including drum & bass and synthwave.</p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/8_ZNC2AKryQ?si=UALpksVwxqKKUwm2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<p></p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/XJYd85cImbw?si=q3hr2O1uVCRwC6xj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<p></p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/LeH0NmC0quE?si=PvnvHETizk28UyKD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<hr>
+	<section class="alt-section alt-dark">
+		<h2>PITTSBURGH OPEN DECKS</h2>
+		<p>Champs has also played out for Pittsburgh Open Decks. These are more EDM club-style mixes, including drum & bass and synthwave.</p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/8_ZNC2AKryQ?si=UALpksVwxqKKUwm2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+		<p></p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/XJYd85cImbw?si=q3hr2O1uVCRwC6xj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+		<p></p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/LeH0NmC0quE?si=PvnvHETizk28UyKD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+	</section>
 	
 	<h2>TECHNO HARBOR</h2>
 	<p>Champs played and helped co-produce Techno Harbor in Chicago, IL on Montrose Beach in August 2024. We did not have recording capabilities at that event since it was all battery powered, so all we had to rely on was our phones to capture the event. It was our first out-of-state event.</p>
 	<p><strong>VIDEOS</strong></p>	
 	<p><strong><a href="https://www.instagram.com/reel/C_Jzy-HgZKR/" target="_blank">Techno Harbor Chicago Event Recap</a></strong></p>
 	<p><strong><a href="https://www.instagram.com/reel/C_IufQ5gWc2/" target="_blank">Techno Harbor Champs b2b Compil3r Set Recap</a></strong></p>
-	<hr>
-	
-	<h2>THIS IS RED</h2>
-	<p>Champs LIVE at THIS IS RED in Munhall, PA. Full production for all angles, visuals, and music selection. This was a 4/20 tech house themed set and shot on location inside the venue in front of the living wall. This set was also a demo of our mobile capabilities.</p>
-	<div class="youtube-container">
-		<iframe src="https://www.youtube.com/embed/DJvgQgGlhpw?si=fM0379wslysHG7hi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	</div>
-	<hr>
+
+	<section class="alt-section alt-dark">
+		<h2>THIS IS RED</h2>
+		<p>Champs LIVE at THIS IS RED in Munhall, PA. Full production for all angles, visuals, and music selection. This was a 4/20 tech house themed set and shot on location inside the venue in front of the living wall. This set was also a demo of our mobile capabilities.</p>
+		<div class="youtube-container">
+			<iframe src="https://www.youtube.com/embed/DJvgQgGlhpw?si=fM0379wslysHG7hi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+	</section>
 	
 	<h2>THE CLEMENT</h2>
 	<p>Champs had the privledge of having the entire event hall in The Clement to himself for a special techno set. This set was a demo of the full mobile DJ setup and does not reflect our current production capabilities. We also had our photographer taking pictures before and during the set.</p>
@@ -383,94 +835,11 @@
 		<iframe src="https://www.youtube.com/embed/0_c_wRQn19U?si=mi-ePrJFU9EnR2pv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	</div>
 	
-	<p><strong>PHOTOS</strong></p>
-	<div class="gallery">
-		<a href="Images/TheClement-0625/01.jpeg" data-fancybox="clement" data-caption="A mural on the inside of the Clement">
-			<img src="Images/TheClement-0625/01.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/02.jpeg" data-fancybox="clement" data-caption="A mural on the inside of the Clement">
-			<img src="Images/TheClement-0625/02.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/03.jpeg" data-fancybox="clement" data-caption="Stained-glass side door">
-			<img src="Images/TheClement-0625/03.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/04.jpeg" data-fancybox="clement" data-caption="DDJ-1000">
-			<img src="Images/TheClement-0625/04.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/05.jpeg" data-fancybox="clement" data-caption="Stage view of the grand hall">
-			<img src="Images/TheClement-0625/05.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/06.jpeg" data-fancybox="clement" data-caption="Zoomed in shot of the words on the balcony">
-			<img src="Images/TheClement-0625/06.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/07.jpeg" data-fancybox="clement" data-caption="Stained-glass front doors">
-			<img src="Images/TheClement-0625/07.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/08.jpeg" data-fancybox="clement" data-caption="View of the altar and setup">
-			<img src="Images/TheClement-0625/08.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/09.jpeg" data-fancybox="clement" data-caption="View of the altar and setup">
-			<img src="Images/TheClement-0625/09.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/10.jpeg" data-fancybox="clement" data-caption="View of the altar and setup">
-			<img src="Images/TheClement-0625/10.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/11.jpeg" data-fancybox="clement" data-caption="The aisleway that leads to the altar">
-			<img src="Images/TheClement-0625/11.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/12.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/12.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/13.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/13.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/14.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/14.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/15.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/15.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/16.jpeg" data-fancybox="clement" data-caption="Wide shot behind the DJ booth">
-			<img src="Images/TheClement-0625/16.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/17.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/17.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/18.jpeg" data-fancybox="clement" data-caption="Cooking in the kitchen">
-			<img src="Images/TheClement-0625/18.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/19.jpeg" data-fancybox="clement" data-caption="Fingerguns is all I got">
-			<img src="Images/TheClement-0625/19.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/20.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/20.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/21.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/21.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/22.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/22.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/23.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/23.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/24.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/24.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/25.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/25.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/26.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/26.jpeg" alt="Thumbnail" width="100">
-		</a>
-		<a href="Images/TheClement-0625/27.jpeg" data-fancybox="clement" data-caption="Mixing tracks">
-			<img src="Images/TheClement-0625/27.jpeg" alt="Thumbnail" width="100">
-		</a>
-	</div>
-	<hr>
 	
-	<p><strong><a href="contact.html">CONTACT US</a></strong></p>
-	<p><a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a></p>
+	<div class="bottom-cta">
+		<a class="contact-btn" href="contact.html">CONTACT</a>
+	</div>
+	
 	<script>
 		function toggleMenu() {
 			var navbar = document.querySelector(".navbar");
@@ -478,34 +847,54 @@
 		}
 	</script>
 	<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        Fancybox.bind("[data-fancybox='gallery']", {
-            Toolbar: true, 
-            animated: true,
-            closeButton: "inside",
-        });
-    });
-	</script>
+		function toggleSubmenu(e) {
+			e.preventDefault();
 
-	<footer>
-		<div class="social-icons">
-			<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram">
-				<i class="fab fa-instagram"></i>
+			const parent = e.target.closest('.has-submenu');
+			parent.classList.toggle('open');
+		}
+	</script>
+	<script>
+		const sections = document.querySelectorAll('.alt-section');
+
+		const io = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  entry.target.classList.toggle('in-view', entry.isIntersecting);
+		});
+		}, { threshold: 0.35 });
+
+		sections.forEach(s => io.observe(s));
+	</script>
+	
+	<footer class="site-footer">
+		<div class="footer-left">
+			<a href="index.html" class="brand">
+				<img class="footer-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
 			</a>
-			<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok">
-				<i class="fab fa-tiktok"></i>
-			</a>
-			<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="https://soundcloud.com/champsdj" target="_blank" title="SoundCloud">
-				<i class="fab fa-soundcloud"></i>
-			</a>
-			<a href="https://youtube.com/@ChampsDJ" target="_blank" title="YouTube">
-				<i class="fab fa-youtube"></i>
-			</a>
+			<div class="footer-contact">
+				<div><a href="tel:+14122193134">412-219-3134</a></strong></div>
+				<div><a href="mailto:champs@champsentertainment.com">champs@champsentertainment.com</a></div>
+			</div>
 		</div>
-	  &copy; 2026 Champs Entertainment. All rights reserved.
+
+		<div class="footer-right">
+			<div class="footer-links">
+				<a href="about.html">ABOUT</a>
+				<a href="music.html">MUSIC</a>
+				<a href="weddings.html">WEDDINGS</a>
+				<a href="gallery.html">VIDEO SETS</a>
+				<a href="parties.html">PARTIES</a>
+				<a href="contact.html">CONTACT</a>
+			</div>
+
+			<div class="footer-social">
+				<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+				<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+				<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+			</div>
+		</div>
+		<div class="footer-copy">&copy; 2026 Champs Entertainment. All rights reserved.</div>
 	</footer>
 </body>
 </html>

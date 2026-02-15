@@ -2,56 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.champsentertainment.com/</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/about.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.champsentertainment.com/services.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <loc>https://www.champsentertainment.com/weddings.html</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.champsentertainment.com/parties.html</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.champsentertainment.com/recordings.html</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.champsentertainment.com/rentals.html</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/gallery.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/music.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/faq.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/contact.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.champsentertainment.com/reviews.html</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.champsentertainment.com/reviews.html</loc>
-    <lastmod>2025-08-23</lastmod>
+    <loc>https://www.champsentertainment.com/presskit.html</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-    <url>
-    <loc>https://www.champsentertainment.com/presskit.html</loc>
-    <lastmod>2025-08-23</lastmod>
+  <url>
+    <loc>https://www.champsentertainment.com/thankyou.html</loc>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.1</priority>
   </url>
 </urlset>
