@@ -21,49 +21,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<style>
+		html, body {
+			width: 100%;
+			overflow-x: hidden;
+		}
 		body {
-			background-color: #131314;
+			background-color: #000;
 			color: white;
 			font-family: 'Nunito', sans-serif;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
+			align-items: stretch;
 			justify-content: flex-start;
 			min-height: 100vh;
 			margin: 0;
 		}
 		img {
 			max-width: 90%;
-			height: auto; 
+			width: auto;
+			height: auto;
+			border-radius:10px;
+		}
+		video {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+			border-radius: 10px;
+			overflow: hidden;
 		}
 		h1 {
 			font-weight: 700;
 			font-size: 50px;
-			margin-top: 120px;
 			margin-bottom: 20px;
 		}
 		h2 {
 			font-weight: 700;
-			font-size: 40px;
-			margin-top: 0px;
-			margin-bottom: 10px;
-			color:#C8A700;
-		}
-		h3 {
-			font-weight: 700;
 			font-size: 25px;
-			margin-bottom: 10px;
-			margin-top: 0px;
+			margin-bottom: 20px;
 			color:#C8A700;
+			max-width: 700px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		hr {
 			min-width: 20%;
 			max-width: 20%;
 			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		p {
 			font-size: 20px;
+			margin-bottom: 20px;
 		}
 		
 		/* Remove 'display: block' for all links */
@@ -76,6 +87,537 @@
 		a:hover {
 			text-decoration: underline;
 		}
+		.topbar-social {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		.topbar-social a {
+			font-size: 30px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		.topbar-social a:hover {
+			color: var(--gold);
+		}
+		/* Desktop View */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
+			}
+
+			.navbar a {
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
+			}
+
+			.navbar a:hover {
+				color: #C8A700;
+				text-decoration: none;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 800;
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		/* Mobile View */
+		@media (max-width: 768px) {
+			/* Hide Menu Initially */
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: fixed;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+				z-index: 999; /* Ensure navbar stays on top */
+			}
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 700;
+			}
+			/* Display Hamburger button */
+			.menu-toggle {
+				display: block !important;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+				border: 1px solid white; /* Add border to make the hamburger more visible */
+				padding: 5px;
+				border-radius: 20%; /* Make it circular */
+				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 400px;
+			}
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
+			}
+			.topbar {
+				grid-template-columns: auto 1fr auto;
+			}
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: left;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.social-icons a {
+				margin: 0 20px;
+				font-size: 50px;
+			}
+			.carousel-container {
+				max-width: 300px
+			}
+			.carousel-track {
+				max-width: 300px
+			}
+			.carousel-buttons {
+				display: none;
+			}
+			.carousel-buttons button {
+				display: none;
+			}
+			.video-player iframe {
+				width: 95%;
+				height:300px;
+			}
+			.audio-player iframe {
+				width: 95%;
+				height:170px;
+			}
+		}
+		:root {
+			--gold: #C8A700;
+			--bg: #131314;
+		}
+
+		/* HERO */
+		.hero {
+			position: relative;
+			width: 100%;
+			max-width: 100%;
+			min-height: 70vh;
+			overflow: hidden;
+			border-radius: 0;
+		}
+
+		/* Full-width background video */
+		.hero-video {
+			position: absolute;
+			inset: 0;
+			max-width: 100% !important;
+			width: 100% !important;
+			height: 100% !important;
+			object-fit: cover;
+			display: block;
+			border-radius: 0 !important;
+			filter: brightness(0.7);
+		}
+
+		/* Overlay layer for nav + logo + text */
+		.hero-overlay {
+			position: absolute;
+			inset: 0;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* TOP BAR layout: left nav, center logo, right social+contact */
+		.topbar {
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			padding: 50px 14px;
+			column-gap: 10px;
+		}
+
+		/* Make navbar background transparent so video shows */
+		.navbar {
+			background: transparent !important;
+		}
+
+		/* Shrink menu + move to left */
+		.topbar-left {
+			justify-self: start;
+		}
+
+		/* TRUE center: take logo out of layout flow */
+		.topbar-center {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			justify-self: unset;
+			pointer-events: none;			/* prevents blocking clicks behind it */
+		}
+		.topbar-center a,
+		.topbar-center img {
+			pointer-events: auto;         /* but still allow logo click */
+		}
+
+		.brand-logo {
+			width: 300px;
+			max-width: 300px;
+			height: auto;
+			border-radius: 0;
+			margin: 0;
+			filter:
+			drop-shadow(0 2px 4px rgba(0, 0, 0, 0.55))
+			drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+		}
+		
+		/* Reserve center space so the logo never gets overlapped */
+		.topbar-left,
+		.topbar-right {
+			min-width: 0;                /* prevents overflow weirdness */
+		}
+
+		.topbar-left {
+			padding-right: 230px;        /* reserve space for logo */
+		}
+
+		.topbar-right {
+			padding-left: 230px;         /* reserve space for logo */
+			justify-self: end;
+		}
+
+		/* Right side: social icons + contact button */
+		.topbar-right {
+			flex-wrap: nowrap;
+			white-space: nowrap;
+			justify-self: end;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+
+		/* Contact button inverted hover */
+		.contact-btn {
+			display: inline-block;
+			padding: 8px 10px;
+			border: 1px solid white;
+			border-radius: 10px;
+			font-weight: 700;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.contact-btn:hover {
+			background: var(--gold);
+			color: #000;
+			text-decoration: none;
+		}
+
+		/* Hero text overlay */
+		.hero-text {
+			margin-top: auto;
+			padding: 28px 18px 44px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.hero-title {
+			color: var(--gold);
+			max-width: 900px;
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			font-size: 60px;
+		}
+
+		.hero-subtitle {
+			color: rgba(255,255,255,0.9);
+			text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+			max-width: 800px;
+		}
+
+		/* Content after hero */
+		.after-hero {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 18px;
+		}
+		.alt-section {
+			width: 100%;
+			padding: 40px 18px;
+			transition: background-color 0.6s ease, color 0.6s ease;
+		}
+
+		.alt-dark {
+			background: #000;
+		}
+
+		.alt-section.in-view {
+			background: var(--gold);
+			color: #000;
+		}
+
+		.alt-section.in-view h2 {
+			color: #000;
+		}
+		.site-footer {
+			width: 100%;
+			background: #000;
+			color: #fff;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 18px;
+			padding: 28px 18px 14px;
+			align-items: start;
+		}
+
+		.footer-logo {
+			width: 240px;
+			height: auto;
+			border-radius: 0;
+		}
+
+		.footer-contact a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+
+		.footer-links {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			column-gap: 26px;
+			justify-items: start;
+		}
+
+		.footer-links a {
+			color: #fff;
+			text-decoration: none;
+			font-size: 16px;
+		}
+		.footer-links a:hover,
+		.footer-contact a:hover {
+			text-decoration: none;
+			color: var(--gold);
+		}
+		.footer-social {
+			margin-top: 18px;
+			display: flex;
+			justify-content: center;
+			gap: 14px;
+		}
+		.footer-social a {
+			color: #fff;
+			font-size: 28px;
+			text-decoration: none;
+			align-items: center;
+		}
+		.footer-social a:hover {
+			transform: translateY(-1px);
+			color: var(--gold);
+		}
+
+		.footer-copy {
+			grid-column: 1 / -1;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 12px;
+			opacity: 0.8;
+		}
+
+		.bottom-cta {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			margin: 18px 0 40px;
+		}
+
+		.bottom-cta .contact-btn {
+			width: auto;
+			min-width: 220px;
+			text-align: center;
+		}
+
 		.carousel-container {
 		  position: relative;
 		  overflow: hidden;
@@ -181,172 +723,27 @@
 		.booking-buttons i {
 		  font-size: 20px;
 		}
-		
-		/* Desktop View */
-		@media (min-width: 768px) {
-			/* Hide Hamburger */
-			.menu-toggle {
-				display: none;
-			}
-			/* Align words/paragraphs */
-			p  {
-				max-width: 700px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				word-wrap: break-word;
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				padding: 10px;
-			}
-			h2 {
-				max-width: 950px;
-				margin: 0 auto; /* Center the text block */
-				word-wrap: break-word;
-				margin-bottom: 30px;
-				text-align: center;
-			}
-			/* Ensure Horizontal Menu */
-			.navbar {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				gap: 15px;
-				padding: 10px 0;
-				background: rgba(0, 0, 0, 0.8);
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1; /* Ensure navbar stays on top */
-			}
-
-			.navbar a {
-				display: inline-block; /* Ensures links stay in a row */
-				padding: 10px 15px;
-				font-size: 18px;
-				white-space: nowrap; /* Prevents text from breaking */
-			}
-
-			.navbar a:hover {
-				color: #C8A700;
-				text-decoration: none;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 900;
-			}
-			.social-icons a {
-				margin: 0 20px;
-				font-size: 50px;
-			}
-			.social-icons a:hover {
-				color: #ddd;
-				text-decoration: none;
-			}
-			.carousel-item {
-				flex: 0 0 33.33%; /* 3 items on desktop */
-			}
-			.audio-player iframe {
-				width: 95%;
-				height:170px;
-			}
-			.video-player iframe {
-				width: 65%;
-				height:300px;
-			}
-		}
-
-		/* Mobile View */
-		@media (max-width: 768px) {
-			/* Hide Menu Initially */
-			.navbar {
-				display: none;
-				flex-direction: column;
-				background: black;
-				position: fixed;
-				width: 100%;
-				top: 50px;
-				left: 0;
-				text-align: center;
-				padding: 10px 0;
-				z-index: 999; /* Ensure navbar stays on top */
-			}
-			/* Show the navbar when the 'show' class is added */
-			.navbar.show {
-				display: flex; /* Show the navbar */
-			}
-			.navbar a {
-				display: block;
-				padding: 10px;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 900;
-			}
-			/* Display Hamburger button */
-			.menu-toggle {
-				display: block !important;
-				position: fixed;
-				top: 10px;
-				right: 15px;
-				font-size: 28px;
-				cursor: pointer;
-				color: white;
-				z-index: 1000;
-				border: 1px solid white; /* Add border to make the hamburger more visible */
-				padding: 5px;
-				border-radius: 20%; /* Make it circular */
-				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
-			}
-			/* Add margin to prevent logo being pushed out of view */
-			img {
-				margin-top: 20px; 
-				max-width: 90%;
-			}
-			/* p block display configurations just for mobile */
-			p {
-				max-width: 400px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				padding: 10px;
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-			}
-			.social-icons a {
-				margin: 0 20px;
-				font-size: 50px;
-			}
-			.carousel-container {
-				max-width: 300px
-			}
-			.carousel-track {
-				max-width: 300px
-			}
-			.carousel-buttons {
-				display: none;
-			}
-			.carousel-buttons button {
-				display: none;
-			}
-			.video-player iframe {
-				width: 95%;
-				height:300px;
-			}
-			.audio-player iframe {
-				width: 95%;
-				height:170px;
-			}
-		}
-		section {padding:20px;}
-
 		.social-icons a {
-			color: white;
-			margin: 0 20px;
-			font-size: 50px;
-			transition: color 0.3s ease;
+				margin: 0 20px;
+				font-size: 50px;
+			}
+		.social-icons a:hover {
+			color: #ddd;
 			text-decoration: none;
 		}
-
-		.social-icons a:hover {
-			color:#C8A700; 
-			transform:scale(1.2) rotate(5deg);
-			text-decoration: none;
+		.carousel-item {
+			flex: 0 0 33.33%; /* 3 items on desktop */
+		}
+		.audio-player iframe {
+			width: 95%;
+			height:170px;
+		}
+		.video-player iframe {
+			width: 65%;
+			height:300px;
+		}
+		section {
+			padding:20px;
 		}
 		.media-tabs button {
 			background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
@@ -357,59 +754,158 @@
 			max-width: 800px;
 			margin: 0 auto;
 		}
-		footer {
-			color: grey;
-			background-color: #131314;
-			padding: 20px 0;
-			text-align: center;
-		}
+		
+		
+		@media (max-width: 1100px) and (min-width: 769px) {
+			/* show hamburger */
+			.menu-toggle {
+				display: block !important;
+				font-size: 22px;
+				padding: 6px 8px;
+				border-radius: 10px;
+				border: 1px solid rgba(255,255,255,0.75);
+				background: rgba(0,0,0,0.35);
+				cursor: pointer;
+			}
+			.navbar {
+				display: none !important;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: max-content;
+				min-width: 240px;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0;
+				padding: 10px 12px;
+				background: rgba(0,0,0,0.55);
+				backdrop-filter: blur(16px);
+				border-radius: 12px;
+				z-index: 1000;
+			}
+			.navbar.show {
+				display: flex !important;
+			}
+			.navbar a {
+				display: block;
+				width: 100%;
+				padding: 10px 10px;
+				font-size: 15px;
+				white-space: nowrap;
+				text-align: left;
+			}
+			.topbar { 
+				padding: 30px 10px; 
+			}
+			.submenu {
+				position: static !important;
+				min-width: 0;
+				width: 100%;
+				display: none;
+				flex-direction: column;
+				padding-left: 12px;
+				background: transparent;
+				backdrop-filter: none;
+			}
 
+			.has-submenu.open .submenu {
+				display: flex;
+			}
+
+			/* make SERVICES behave like a toggle in this mode */
+			.services-link {
+				width: 100%;
+				justify-content: space-between;
+			}
+		}
 
 		</style>
 		
 	</head>
 	
 <body>
-	<div class="menu-container">
-		<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-			<nav class="navbar">
-			
-				<a href="index.html">HOME</a>
-				<a href="about.html">ABOUT</a>
-				<a href="weddings.html">WEDDINGS</a>
-				<a href="parties.html">PARTIES</a>
-				<a href="recordings.html">RECORDINGS</a>
-				<a href="rentals.html">RENTALS</a>
-				<a href="reviews.html">REVIEWS</a>
-				<a href="music.html">MUSIC</a>
-				<a href="gallery.html">VIDEO SETS</a>
-				<a href="faq.html">FAQ</a>
-				<a href="contact.html">CONTACT</a>
-			
-			</nav>
-	</div>
-	
-	<header>
-	
-		<h1>CHAMPS PRESS KIT</h1>
-		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button! Otherwise, take a look at the sections below for more information like links to socials, mixes, logos, and how to reach out to book Champs!</p>
+	<header class="hero">
+		<img class="hero-video" src="Images/champs_orange_bg.jpg" alt="">
+
+		<div class="hero-overlay">
+			<div class="topbar">
+				<div class="topbar-left">
+					<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+					<nav class="navbar">
+						<a href="about.html">ABOUT</a>
+
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">SERVICES</a>
+								<div class="submenu">
+									<a href="weddings.html">WEDDINGS</a>
+									<a href="parties.html">PARTIES</a>
+									<a href="recordings.html">RECORDINGS</a>
+									<a href="rentals.html">RENTALS</a>
+								</div>
+						</div>
+
+						<a href="reviews.html">REVIEWS</a>
+						
+						<div class="nav-item has-submenu">
+							<a href="" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
+								<div class="submenu">
+									<a href="gallery.html">VIDEOS</a>
+									<a href="music.html">MUSIC/MIXES</a>
+									<a href="presskit.html" class="active">PRESS KIT</a>
+								</div>
+						</div>
+						
+						<a href="faq.html">FAQ</a>
+						<a href="contact.html">CONTACT</a>
+					</nav>
+				</div>
+
+				<div class="topbar-center">
+					<a href="index.html" class="brand">
+						<img class="brand-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+					</a>
+				</div>
+
+				<div class="topbar-right">
+					<div class="topbar-social">
+						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+					</div>
+
+					<a class="contact-btn" href="contact.html">CONTACT</a>
+				</div>
+			</div>
+
+			<div class="hero-text">
+				<h2 class="hero-title">CHAMPS PRESS KIT</h2>
+			</div>
+		</div>
+	</header>
+    
+	<div class="after-hero">
+		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button below!</p>
+		<p>Otherwise, take a look at the sections below for more information like links to socials, mixes, logos, and how to reach out to book Champs!</p>
 		<a href="files/Champs_PressKit2026.pdf" download
 		   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
 		   Download PDF
 		</a>
 		<br><br>
-		
-		<h2>HEADSHOTS</h2>
-		<figure>
-			<a href="Images/champs_2026_headshot.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot.png" alt="Champs Headshot"></a>
-			<figcaption style="color: grey;">Headshot (click to download)</figcaption>
-		</figure>
-		<figure>
-			<a href="Images/champs_2026_headshot2.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot2.png" alt="Champs Headshot"></a>
-			<figcaption style="color: grey;">Headshot 2 (click to download)</figcaption>
-		</figure>
+	</div>
+	
+	<h2>HEADSHOTS</h2>
+	<figure>
+		<a href="Images/champs_2026_headshot.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot.png" alt="Champs Headshot"></a>
+		<figcaption style="color: grey;">Headshot (click to download)</figcaption>
+	</figure>
+	<figure>
+		<a href="Images/champs_2026_headshot2.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot2.png" alt="Champs Headshot"></a>
+		<figcaption style="color: grey;">Headshot 2 (click to download)</figcaption>
+	</figure>
 
-	</header>
+
 
 	<section id="bio">
 	
@@ -439,7 +935,7 @@
 				<button onclick="showAudio('dubstep')">Dubstep</button>
 			</div>
 			<div class="audio-player">
-				<iframe width="100%" height="180px" id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-nudisco-disco-house-remixes-venango-pride-2025"></iframe>
+				<iframe width="100%" height="180px" id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-tech-bass-house-bangers-remixes-busy-signal-ruggers-pub-12-12-25"></iframe>
 			</div>
 		</div>
 
@@ -582,7 +1078,7 @@
 			
 			<!-- Insta DM Button -->
 			<button id="instaButton">
-				<i class="fas fa-envelope"></i> Instagram DM
+				<i class="fab fa-instagram"></i> Instagram DM
 			</button>
 		</div>
 	</section>
@@ -754,7 +1250,7 @@
 		});
 		
 		document.getElementById('instaButton').addEventListener('click', function () {
-		  this.innerHTML = '<i class="fas fa-envelope"></i> instagram.com/champsdj_/';
+		  this.innerHTML = '<i class="fab fa-instagram"></i> instagram.com/champsdj_/';
 		  window.location.href = 'https://www.instagram.com/champsdj_/';
 		});
 	</script>
@@ -764,5 +1260,55 @@
 			navbar.classList.toggle("show"); // Toggle the 'show' class to control visibility
 		}
 	</script>
+	<script>
+		function toggleSubmenu(e) {
+			e.preventDefault();
+
+			const parent = e.target.closest('.has-submenu');
+			parent.classList.toggle('open');
+		}
+	</script>
+	<script>
+		const sections = document.querySelectorAll('.alt-section');
+
+		const io = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+		  entry.target.classList.toggle('in-view', entry.isIntersecting);
+		});
+		}, { threshold: 0.35 });
+
+		sections.forEach(s => io.observe(s));
+	</script>
+	
+	<footer class="site-footer">
+		<div class="footer-left">
+			<a href="index.html" class="brand">
+				<img class="footer-logo" src="Images/Champs_Ent_Logo_Gold_social2_transparent.png" alt="Champs Entertainment Logo">
+			</a>
+			<div class="footer-contact">
+				<div><a href="tel:+14122193134">412-219-3134</a></strong></div>
+				<div><a href="mailto:champs@champsentertainment.com">champs@champsentertainment.com</a></div>
+			</div>
+		</div>
+
+		<div class="footer-right">
+			<div class="footer-links">
+				<a href="about.html">ABOUT</a>
+				<a href="music.html">MUSIC</a>
+				<a href="weddings.html">WEDDINGS</a>
+				<a href="gallery.html">VIDEO SETS</a>
+				<a href="parties.html">PARTIES</a>
+				<a href="contact.html">CONTACT</a>
+			</div>
+
+			<div class="footer-social">
+				<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+				<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+				<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+			</div>
+		</div>
+		<div class="footer-copy">&copy; 2026 Champs Entertainment. All rights reserved.</div>
+	</footer>
 </body>
 </html>
