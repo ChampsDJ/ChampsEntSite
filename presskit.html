@@ -944,13 +944,13 @@
 			<h3 style="margin-bottom:10px;">YOUTUBE</h3>
 			<p>Click one of the buttons below to watch one of my live sets!</p>
 			<div class="media-tabs video-tabs">
-				<button class="active" onclick="showVideo('promo')">FURNACE House Set Live</button>
-				<button onclick="showVideo('live')">MSYH.FM Radio DnB Set Live from Hellbender</button>
+				<button class="active" onclick="showVideo('promo')">FURNACE House Set Live from The Playground</button>
+				<button onclick="showVideo('live')">MSYH.FM DnB Set Live from Hellbender Vinyl</button>
 				<button onclick="showVideo('radio')">Progressive House Live from Soundsource</button>
 				<button onclick="showVideo('wedding')">Yinzers Meet Fake Wedding Live from Pitch</button>
 			</div>
 			<div class="video-player">
-				<iframe width="800px" height="300px" id="videoPlayer" src="https://www.youtube.com/embed/azoQ-88LIl0" frameborder="0" allowfullscreen></iframe>
+				<iframe width="800px" height="300px" id="videoPlayer" src="https://www.youtube.com/embed/7fNWhsgRxMg" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		
@@ -1113,7 +1113,7 @@
 			const buttons = document.querySelectorAll('.video-tabs button');
 			buttons.forEach(btn => btn.classList.remove('active'));
 			if(type === 'promo') {
-			video.src = 'https://www.youtube.com/embed/7fNWhsgRxMg?t=3200';
+			video.src = 'https://www.youtube.com/embed/7fNWhsgRxMg';
 			buttons[0].classList.add('active');
 			} else if(type === 'live') {
 			video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
@@ -1241,8 +1241,8 @@
 		});
 		
 		document.getElementById('instaButton').addEventListener('click', function () {
-		  this.innerHTML = '<i class="fab fa-instagram"></i> instagram.com/champsdj_/';
-		  window.location.href = 'https://www.instagram.com/champsdj_/';
+		  this.innerHTML = '<i class="fab fa-instagram"></i> @champsdj_';
+		  window.location.href = 'https://www.instagram.com/direct/t/17842535199022014/';
 		});
 	</script>
 	<script>
