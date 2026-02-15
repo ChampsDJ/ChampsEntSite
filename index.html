@@ -118,95 +118,6 @@
 		.topbar-social a:hover {
 			color: var(--gold);
 		}
-		/* Desktop View */
-		@media (min-width: 768px) {
-			/* Hide Hamburger */
-			.menu-toggle {
-				display: none;
-			}
-			/* Align words/paragraphs */
-			p {
-				max-width: 700px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				word-wrap: break-word;
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			/* Ensure Horizontal Menu */
-			.navbar {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 6px 10px;
-				padding: 6px 0;
-				width: auto;
-			}
-
-			.navbar a {
-				padding: 6px 8px;
-				font-size: 14px;
-				white-space: normal;        /* allow wrap */
-				line-height: 1.1;
-				font-weight: 600;
-			}
-
-			.navbar a:hover {
-				color: #C8A700;
-				text-decoration: none;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 800;
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				background: transparent;
-				backdrop-filter: blur(16px);
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.services-link {
-				display: inline-flex;
-				align-items: center;
-				gap: 6px;
-			}
-
-			.services-link::after {
-				content: "▾";
-				font-size: 0.7em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-				margin-left: 4px;
-			}
-			.has-submenu:hover > .services-link::after {
-				transform: rotate(180deg);
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 700px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
 		:root {
 			--gold: #C8A700;
 			--bg: #131314;
@@ -315,7 +226,6 @@
 			align-items: center;
 			gap: 12px;
 		}
-
 
 		/* Contact button inverted hover */
 		.contact-btn {
@@ -469,6 +379,98 @@
 			margin: 0 auto;
 		}
 		
+		/* Desktop View */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
+			}
+
+			.navbar a {
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
+			}
+
+			.navbar a:hover {
+				color: #C8A700;
+				text-decoration: none;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 800;
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			
+		}
+		
 		/* Mobile View */
 		@media (max-width: 768px) {
 			/* Hide Menu Initially */
@@ -577,9 +579,6 @@
 				font-size: 40px;
 				margin-bottom: 20px;
 			}
-			.topbar {
-				grid-template-columns: auto 1fr auto;
-			}
 
 			.brand-logo {
 				width: 80px;
@@ -627,39 +626,54 @@
 				margin-left: auto;
 				margin-right: auto;
 			}
-			/* Let topbar behave naturally */
+			
 			.topbar {
+				display: grid;
 				grid-template-columns: auto 1fr auto;
-				padding: 14px;
+				grid-template-rows: auto auto;
+				align-items: center;
+				padding: 14px 12px;
+				row-gap: 10px;
 			}
 
-			/* logo back into normal flow */
-			.topbar-center {
-				position: static;
-				transform: none;
-				pointer-events: auto;
-				text-align: center;
-			}
-
-			/* remove reserved space */
 			.topbar-left {
+				grid-column: 1;
+				grid-row: 1;
 				padding-right: 0;
 			}
 
+			.topbar-center {
+				position: relative !important;
+				left: auto !important;
+				top: auto !important;
+				transform: none !important;
+				text-align: center;
+			}
+
 			.topbar-right {
+				grid-column: 3;
+				grid-row: 1;
 				padding-left: 0;
+				display: flex;
+				justify-content: flex-end;
 			}
-
-			/* shrink logo */
-			.brand-logo {
-				width: 120px;
-				max-width: 120px;
-			}
-
-			/* allow wrapping instead of overflow */
+			
+			.topbar-left,
 			.topbar-right {
-				flex-wrap: wrap;
-				gap: 8px;
+				padding: 0 !important;
+			}
+
+			/* socials move to second row */
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
+			}
+
+			/* make logo bigger again */
+			.brand-logo {
+				width: 170px;
+				max-width: 170px;
 			}
 			.hero-title {
 				font-size: 32px;
@@ -689,6 +703,7 @@
 			}
 		}
 		
+		/* MID RANGE VIEW */
 		@media (max-width: 1100px) and (min-width: 769px) {
 			/* show hamburger */
 			.menu-toggle {
@@ -729,6 +744,11 @@
 			}
 			.topbar { 
 				padding: 30px 10px; 
+			}
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
 			}
 			.submenu {
 				position: static !important;
@@ -801,15 +821,9 @@
 				</div>
 
 				<div class="topbar-right">
-					<div class="topbar-social">
-						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-					</div>
-
 					<a class="contact-btn" href="contact.html">CONTACT</a>
 				</div>
+
 			</div>
 
 			<div class="hero-text">
