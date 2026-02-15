@@ -207,158 +207,6 @@
 				margin-right: auto;
 			}
 		}
-
-		/* Mobile View */
-		@media (max-width: 768px) {
-			/* Hide Menu Initially */
-			.navbar {
-				display: none;
-				flex-direction: column;
-				background: black;
-				position: fixed;
-				width: 100%;
-				top: 50px;
-				left: 0;
-				text-align: center;
-				padding: 10px 0;
-				z-index: 999; /* Ensure navbar stays on top */
-			}
-			/* Show the navbar when the 'show' class is added */
-			.navbar.show {
-				display: flex; /* Show the navbar */
-			}
-			.navbar a {
-				display: block;
-				padding: 10px;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
-			}
-			/* Display Hamburger button */
-			.menu-toggle {
-				display: block !important;
-				position: relative !important;
-				top: auto !important;
-				right: auto !important;
-				font-size: 28px;
-				cursor: pointer;
-				color: white;
-				z-index: 1000;
-				border: 1px solid white; /* Add border to make the hamburger more visible */
-				padding: 5px;
-				border-radius: 20%; /* Make it circular */
-				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: static;
-				top: 100%;
-				left: 0;
-				background: transparent !important;
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
-				max-height: 0;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-				padding-left: 32px;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.has-submenu.open .submenu {
-				display: block;
-				max-height: 500px;
-			}
-			.services-link {
-				cursor: pointer;
-			}
-			.services-link::after {
-				content: "▾";
-				display: inline-block;
-				margin-left: 10px;   /* controls distance from text */
-				font-size: 0.8em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-			}
-
-			.has-submenu.open .services-link::after {
-				transform: rotate(180deg);
-			}
-			/* Add margin to prevent logo being pushed out of view */
-			img {
-				margin-top: 20px; 
-				border-radius:10px;
-			}
-			/* p block display configurations just for mobile */
-			p {
-				max-width: 400px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			h2 {
-				max-width: 400px;
-			}
-			h1 {
-				font-weight: 700;
-				font-size: 40px;
-				margin-bottom: 20px;
-			}
-			.topbar {
-				grid-template-columns: auto 1fr auto;
-			}
-
-			.brand-logo {
-				width: 80px;
-				max-width: 80px;
-				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-			}
-
-			.topbar-social a {
-				font-size: 16px;
-			}
-
-			.contact-btn {
-				padding: 8px 10px;
-				font-size: 14px;
-			}
-
-			/* Put the menu panel over the video but transparent */
-			.navbar {
-				background: transparent !important;
-				backdrop-filter: blur(16px);
-			}
-			.site-footer {
-				grid-template-columns: 1fr;
-				text-align: left;
-			}
-			.footer-copy {
-				text-align: center;
-			}
-
-			.footer-links {
-				justify-items: start;
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
 		:root {
 			--gold: #C8A700;
 			--bg: #131314;
@@ -518,7 +366,7 @@
 		}
 		.alt-section {
 			width: 100%;
-			padding: 40px 18px;
+			padding: 40px 0;
 			transition: background-color 0.6s ease, color 0.6s ease;
 		}
 
@@ -614,6 +462,207 @@
 			min-width: 220px;
 			text-align: center;
 		}
+		.container {
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			margin: 0 auto;
+		}
+		
+		/* Mobile View */
+		@media (max-width: 768px) {
+			/* Hide Menu Initially */
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: fixed;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+				z-index: 999; /* Ensure navbar stays on top */
+			}
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 700;
+			}
+			/* Display Hamburger button */
+			.menu-toggle {
+				display: block !important;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+				border: 1px solid white; /* Add border to make the hamburger more visible */
+				padding: 5px;
+				border-radius: 20%; /* Make it circular */
+				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+			/* Add margin to prevent logo being pushed out of view */
+			img {
+				margin-top: 20px; 
+				border-radius:10px;
+			}
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 400px;
+			}
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
+			}
+			.topbar {
+				grid-template-columns: auto 1fr auto;
+			}
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: left;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			/* Let topbar behave naturally */
+			.topbar {
+				grid-template-columns: auto 1fr auto;
+				padding: 14px;
+			}
+
+			/* logo back into normal flow */
+			.topbar-center {
+				position: static;
+				transform: none;
+				pointer-events: auto;
+				text-align: center;
+			}
+
+			/* remove reserved space */
+			.topbar-left {
+				padding-right: 0;
+			}
+
+			.topbar-right {
+				padding-left: 0;
+			}
+
+			/* shrink logo */
+			.brand-logo {
+				width: 120px;
+				max-width: 120px;
+			}
+
+			/* allow wrapping instead of overflow */
+			.topbar-right {
+				flex-wrap: wrap;
+				gap: 8px;
+			}
+			.hero-title {
+				font-size: 32px;
+			}
+			.container {
+				max-width: 100%;
+				padding-left: 16px;
+				padding-right: 16px;
+			}
+		}
+		
 		@media (max-width: 1100px) and (min-width: 769px) {
 			/* show hamburger */
 			.menu-toggle {
@@ -755,17 +804,19 @@
 
 	
 	<section class="alt-section alt-dark">
-		<h2>ENTERTAINMENT EXPERIENCES</h2>
-		
-		<h2><i>“People don’t remember the songs you played, they remember how you made them feel.” – Carl Cox</i></h2>
-		
-		<p>Can I let you in on a secret? When you hire someone to soundtrack your event, you're not just booking entertainment, you're designing the feeling of the most important day of your life. I understand that.</p>
-		<p>When potential clients reach out to me, they usually start by asking about music, which makes sense, music is what people tend to think about when thinking about a DJ.
-		<p>But, what you're really investing is goes far beyond a playlist. You're investing in how your day <i>flows</i>, how it <i>feels</i> when guests arrive, how <i>smoothly</i> moments transition, & how <i>confident</i> you feel knowing someone is guiding everything behind the scenes.</p>
-		<p>My role isn't just to play songs, it's to create an entertainment experience that supports every moment of your wedding or event. From the first guest walking into the room, until the last song of the night, we will keep the vibes and energy high.</p>
+		<div class="container">
+			<h2>ENTERTAINMENT EXPERIENCES</h2>
+			
+			<h2><i>“People don’t remember the songs you played, they remember how you made them feel.” – Carl Cox</i></h2>
+			
+			<p>Can I let you in on a secret? When you hire someone to soundtrack your event, you're not just booking entertainment, you're designing the feeling of the most important day of your life. I understand that.</p>
+			<p>When potential clients reach out to me, they usually start by asking about music, which makes sense, music is what people tend to think about when thinking about a DJ.
+			<p>But, what you're really investing is goes far beyond a playlist. You're investing in how your day <i>flows</i>, how it <i>feels</i> when guests arrive, how <i>smoothly</i> moments transition, & how <i>confident</i> you feel knowing someone is guiding everything behind the scenes.</p>
+			<p>My role isn't just to play songs, it's to create an entertainment experience that supports every moment of your wedding or event. From the first guest walking into the room, until the last song of the night, we will keep the vibes and energy high.</p>
+		</div>
 	</section>
 	
-
+	<div class="container">
 		<h2>AN EXPERIENCE BUILT AROUND YOUR VIBE</h2>
 		
 		<h2><i>"A DJ is there to give people what they want. You have to feel what the crowd wants and do your best to provide it for them." – Steve Aoki</i></h2>
@@ -781,27 +832,29 @@
 			<li>Keeping your timeline moving without it ever feeling rushed</li>
 		</ul>
 		<p>When this is all done right, no one notices <i>how</i> it’s happening. They just feel like everything flows effortlessly. This is what we strive for at my company.</p>
-
+	</div>
 	
 	<section class="alt-section alt-dark">
-		<h2>A PLANNING & TEAM-FIRST APPROACH</h2>
-		
-		<h2><i>"The DJ booth is not a place for personal taste, it’s where you take people on a journey." – Fatboy Slim</i></h2>
-		
-		<p>I don’t believe in cookie-cutter events.</p>
-		<p>Before we ever talk about music genres or lighting options, I want to understand:</p>
-		
-		<ul class="left-aligned-list">
-			<li>What kind of atmosphere you want your guests to feel</li>
-			<li>Which moments & formalities matter most to you</li>
-			<li>How you envision the energy changing throughout the night</li>
-			<li>What you want to avoid just as much as what you want included</li>
-		</ul>
-		<p>Our conversations will feel less like boring meetings and more like exciting planning sessions because that’s exactly what they are. By the time your big day arrives, the hard work has already been done, and it is time to enjoy yourself.</p>
-		<p>Another thing that I will do on-site is ensure that all of your other vendors are on the same page as us by communicating clearly and sharing our timeline with them so that everyone is on the same page.</p>
+		<div class="container">
+			<h2>A PLANNING & TEAM-FIRST APPROACH</h2>
+			
+			<h2><i>"The DJ booth is not a place for personal taste, it’s where you take people on a journey." – Fatboy Slim</i></h2>
+			
+			<p>I don’t believe in cookie-cutter events.</p>
+			<p>Before we ever talk about music genres or lighting options, I want to understand:</p>
+			
+			<ul class="left-aligned-list">
+				<li>What kind of atmosphere you want your guests to feel</li>
+				<li>Which moments & formalities matter most to you</li>
+				<li>How you envision the energy changing throughout the night</li>
+				<li>What you want to avoid just as much as what you want included</li>
+			</ul>
+			<p>Our conversations will feel less like boring meetings and more like exciting planning sessions because that’s exactly what they are. By the time your big day arrives, the hard work has already been done, and it is time to enjoy yourself.</p>
+			<p>Another thing that I will do on-site is ensure that all of your other vendors are on the same page as us by communicating clearly and sharing our timeline with them so that everyone is on the same page.</p>
+		</div>
 	</section>
 	
-
+	<div class="container">
 		<h2>CALM, PROFESSIONAL, PREPARED</h2>
 		
 		<h2><i>"I try to DJ like I'm playing a live instrument. I try to bring the energy and excitement of playing an instrument to what I do as a DJ." – Mix Master Mike</i></h2>
@@ -809,14 +862,15 @@
 		<p>Your event should feel exciting, not stressful.</p>
 		<p>I pride myself on being the steady presence clients can rely on. Someone who shows up prepared, communicates clearly, and adapts quickly when plans change.</p>
 		<p>When you book me, you're gaining a partner on your day who cares deeply about how that day unfolds and how it's remembered for years to come.</p>
-
+	</div>
 	
 	<section class="alt-section alt-dark">
-		<h2>LET'S DESIGN YOUR CELEBRATION!</h2>
-		
-		<p>If you're looking for more than just background music; more than an ego-centric DJ who thinks they are headlining Coachella. If you want an intentional, well-executed entertainment experience, <a href="contact.html">I'd love to talk.</a></p>
-		<p>Let's focus on the flow, the feeling, and the moments your guests will still be talking about long after the last track plays!</p>
-		
+		<div class="container">
+			<h2>LET'S DESIGN YOUR CELEBRATION!</h2>
+			
+			<p>If you're looking for more than just background music; more than an ego-centric DJ who thinks they are headlining Coachella. If you want an intentional, well-executed entertainment experience, <a href="contact.html">I'd love to talk.</a></p>
+			<p>Let's focus on the flow, the feeling, and the moments your guests will still be talking about long after the last track plays!</p>
+		</div>
 	</section>
 	
 	<div class="bottom-cta">
