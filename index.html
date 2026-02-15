@@ -603,14 +603,22 @@
 			}
 			.site-footer {
 				grid-template-columns: 1fr;
-				text-align: left;
+				text-align: center;
 			}
 			.footer-copy {
 				text-align: center;
 			}
-
+			/* center the left block */
+			.footer-left {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 			.footer-links {
-				justify-items: start;
+				justify-items: center;
+			}
+			.footer-logo {
+				margin-bottom: 10px;
 			}
 			.left-aligned-list {
 				text-align: left;
@@ -658,8 +666,26 @@
 			}
 			.container {
 				max-width: 100%;
-				padding-left: 16px;
-				padding-right: 16px;
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			/* ensure rows can shrink */
+			.topbar,
+			.hero-overlay,
+			.after-hero,
+			.container,
+			.alt-section,
+			.site-footer {
+				width: 100%;
+				max-width: 100%;
 			}
 		}
 		
