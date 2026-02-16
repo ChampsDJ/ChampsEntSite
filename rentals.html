@@ -13,7 +13,7 @@
 	<meta name="twitter:title" content="Champs Entertainment">
 	<meta name="twitter:description" content="The gold standard for live event DJing in the Pittsburgh, PA area. We also offer recording, streaming & audio mastering services for your big day.">
 	<meta name="twitter:image" content="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_social_gold.png">
-    <title>Audio, Video & Lighting Equipment Rentals | Champs Entertainment</title>
+    <title>Audio, Video, DJ & Lighting Equipment Rentals | Champs Entertainment</title>
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
@@ -101,243 +101,7 @@
 		.topbar-social a:hover {
 			color: var(--gold);
 		}
-		/* Desktop View */
-		@media (min-width: 768px) {
-			/* Hide Hamburger */
-			.menu-toggle {
-				display: none;
-			}
-			/* Align words/paragraphs */
-			p {
-				max-width: 700px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				word-wrap: break-word;
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			/* Ensure Horizontal Menu */
-			.navbar {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 6px 10px;
-				padding: 6px 0;
-				width: auto;
-			}
 
-			.navbar a {
-				padding: 6px 8px;
-				font-size: 14px;
-				white-space: normal;        /* allow wrap */
-				line-height: 1.1;
-				font-weight: 600;
-			}
-
-			.navbar a:hover {
-				color: #C8A700;
-				text-decoration: none;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 800;
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				background: transparent;
-				backdrop-filter: blur(16px);
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.services-link {
-				display: inline-flex;
-				align-items: center;
-				gap: 6px;
-			}
-
-			.services-link::after {
-				content: "▾";
-				font-size: 0.7em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-				margin-left: 4px;
-			}
-			.has-submenu:hover > .services-link::after {
-				transform: rotate(180deg);
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 700px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-
-		/* Mobile View */
-		@media (max-width: 768px) {
-			/* Hide Menu Initially */
-			.navbar {
-				display: none;
-				flex-direction: column;
-				background: black;
-				position: fixed;
-				width: 100%;
-				top: 50px;
-				left: 0;
-				text-align: center;
-				padding: 10px 0;
-				z-index: 999; /* Ensure navbar stays on top */
-			}
-			/* Show the navbar when the 'show' class is added */
-			.navbar.show {
-				display: flex; /* Show the navbar */
-			}
-			.navbar a {
-				display: block;
-				padding: 10px;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
-			}
-			/* Display Hamburger button */
-			.menu-toggle {
-				display: block !important;
-				position: relative !important;
-				top: auto !important;
-				right: auto !important;
-				font-size: 28px;
-				cursor: pointer;
-				color: white;
-				z-index: 1000;
-				border: 1px solid white; /* Add border to make the hamburger more visible */
-				padding: 5px;
-				border-radius: 20%; /* Make it circular */
-				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: static;
-				top: 100%;
-				left: 0;
-				background: transparent !important;
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
-				max-height: 0;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-				padding-left: 32px;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.has-submenu.open .submenu {
-				display: block;
-				max-height: 500px;
-			}
-			.services-link {
-				cursor: pointer;
-			}
-			.services-link::after {
-				content: "▾";
-				display: inline-block;
-				margin-left: 10px;   /* controls distance from text */
-				font-size: 0.8em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-			}
-
-			.has-submenu.open .services-link::after {
-				transform: rotate(180deg);
-			}
-
-			/* p block display configurations just for mobile */
-			p {
-				max-width: 400px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			h2 {
-				max-width: 400px;
-			}
-			h1 {
-				font-weight: 700;
-				font-size: 40px;
-				margin-bottom: 20px;
-			}
-			.topbar {
-				grid-template-columns: auto 1fr auto;
-			}
-
-			.brand-logo {
-				width: 80px;
-				max-width: 80px;
-				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-			}
-
-			.topbar-social a {
-				font-size: 16px;
-			}
-
-			.contact-btn {
-				padding: 8px 10px;
-				font-size: 14px;
-			}
-
-			/* Put the menu panel over the video but transparent */
-			.navbar {
-				background: transparent !important;
-				backdrop-filter: blur(16px);
-			}
-			.site-footer {
-				grid-template-columns: 1fr;
-				text-align: left;
-			}
-			.footer-copy {
-				text-align: center;
-			}
-
-			.footer-links {
-				justify-items: start;
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
 		:root {
 			--gold: #C8A700;
 			--bg: #131314;
@@ -497,7 +261,7 @@
 		}
 		.alt-section {
 			width: 100%;
-			padding: 40px 18px;
+			padding: 40px 0;
 			transition: background-color 0.6s ease, color 0.6s ease;
 		}
 
@@ -593,20 +357,336 @@
 			min-width: 220px;
 			text-align: center;
 		}
-		.youtube-container {
-			width: 100%;
-			max-width: 700px; /* Adjust width as needed */
-			margin: 20px auto;
-			padding: 0 12px;      /* small breathing room on small screens */
-			box-sizing: border-box;
+		.container {
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			margin: 0 auto;
 		}
-		.youtube-container iframe {
-			width: 100%;
-			display: block;
-			height: 450px; /* Adjust height as needed */
-			border: none;
-			border-radius:10px;
+		
+		/* DESKTOP VIEW */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p  {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 950px;
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
+			}
+
+			.navbar a {
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
+			}
+
+			.navbar a:hover {
+				color: #C8A700;
+				text-decoration: none;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 800;
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
+
+		/* MOBILE VIEW */
+		@media (max-width: 768px) {
+			/* Hide Menu Initially */
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: fixed;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+				z-index: 999; /* Ensure navbar stays on top */
+			}
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 900;
+			}
+			/* Display Hamburger button */
+			.menu-toggle {
+				display: block !important;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+				border: 1px solid white; /* Add border to make the hamburger more visible */
+				padding: 5px;
+				border-radius: 20%; /* Make it circular */
+				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 400px;
+			}
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
+			}
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: center;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.review-btn {
+				min-width: 220px;
+				font-size: 15px;
+			}
+			.topbar {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: auto auto;
+				align-items: center;
+				padding: 14px 12px;
+				row-gap: 10px;
+			}
+
+			.topbar-left {
+				grid-column: 1;
+				grid-row: 1;
+				padding-right: 0;
+			}
+
+			.topbar-center {
+				grid-column: 2;
+				position: relative !important;
+				left: auto !important;
+				top: auto !important;
+				transform: none !important;
+				text-align: center;
+			}
+
+			.topbar-right {
+				grid-column: 3;
+				grid-row: 1;
+				padding-left: 0;
+				display: flex;
+				justify-content: flex-end;
+			}
+			
+			.topbar-left,
+			.topbar-right {
+				padding: 0 !important;
+			}
+
+			/* socials move to second row */
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
+			}
+
+			/* make logo bigger again */
+			.brand-logo {
+				width: 200px;
+				max-width: 200px;
+			}
+			.hero-title {
+				font-size: 32px;
+			}
+			.container {
+				max-width: 100%;
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			/* ensure rows can shrink */
+			.topbar,
+			.hero-overlay,
+			.after-hero,
+			.container,
+			.alt-section,
+			.site-footer {
+				width: 100%;
+				max-width: 100%;
+			}			
+		}
+		
+		/* MID RANGE VIEW */
 		@media (max-width: 1100px) and (min-width: 769px) {
 			/* show hamburger */
 			.menu-toggle {
@@ -647,6 +727,11 @@
 			}
 			.topbar { 
 				padding: 30px 10px; 
+			}
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
 			}
 			.submenu {
 				position: static !important;
@@ -717,13 +802,6 @@
 				</div>
 
 				<div class="topbar-right">
-					<div class="topbar-social">
-						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-					</div>
-
 					<a class="contact-btn" href="contact.html">CONTACT</a>
 				</div>
 			</div>
@@ -735,49 +813,60 @@
 		</div>
 	</header>
     
-	<div class="after-hero">
+	<div class="container">
+		</br>
 		<p>If you are in search of professional audio, video, DJ or lighting equipment, you have come to the right place. When we aren't busy curating dancefloors for our clients, our equipment is available to rent!</p>
 	</div>
   
 	<p>Below you will find everything that we have to offer in terms of rentals here at Champs Entertainment</p>
 	
 	<section class="alt-section alt-dark">	
-	
-		<h2>AUDIO, VIDEO, DJ & LIGHTING RENTALS</h2>
+		<div class="container">
+			<h2>AUDIO, VIDEO, DJ & LIGHTING RENTALS</h2>
 
-		<p>If you're just looking for sound and lighting for your event without a DJ or you are a DJ in need of equipment in the Pittsburgh, PA area to throw your event, we offer equipment rental.</p>
-		<p>From basic setups to advanced systems, we can provide the right tools for any event.</p>
-		
-		<h2>Rental Options Include:</h2><br>
-		<p>✅ Mackie Thump GO 8" Speaker Setup (2 speakers, no sub, incls audio cables + speaker poles)<br>
-		✅ Alto 12" Speaker Setup (2 speakers, no sub, incls audio cables + speaker poles)<br>
-		✅ Full Sound System Setup (2 Alto 12" speakers + 1 Harbinger 18" subwoofer, incls audio cables + speaker poles)<br>
-		✅ Phenyx Pro Wireless Microphone System (Single transmitter unit, 2 mics)<br>
-		✅ Basic Lighting Setup (light bar behind DJ booth with movers)<br>
-		✅ Advanced Lighting Setup (including dance floor, uplighting, pin lights, movers, and wash lights)<br>
-		✅ Pioneer DJ Controllers (XDJ-AZ or DDJ-400)<br>
-		✅ Soundswitch Control One DMX Lighting Controller<br>
-		✅ Harbinger 8-Channel External Audio Mixer<br></p>
-		<p><strong>Cost for all rentals: Flat-rate of 10% of the retail cost of the item, per day.<br>Extra charge for delivery, setup or teardown.<br><br>PLEASE NOTE: 50% of the total rental cost must be paid at contract signing as a non-refundable deposit to secure your rental date.<br><a href="contact.html">Contact us for a custom quote.</a></strong></p></p>
-	
+			<p>If you're just looking for sound and lighting for your event without a DJ or you are a DJ in need of equipment in the Pittsburgh, PA area to throw your event, we offer equipment rental.</p>
+			<p>From basic setups to advanced systems, we can provide the right tools for any event.</p>
+			
+			<h2>Rental Options Include:</h2></br>
+			
+			<p>✅ Mackie Thump GO 8" Speaker Setup (2 speakers, no sub, incls audio cables + speaker poles)</br>
+			✅ Alto 12" Speaker Setup (2 speakers, no sub, incls audio cables + speaker poles)</br>
+			✅ Full Sound System Setup (2 Alto 12" speakers + 1 Harbinger 18" subwoofer, incls audio cables + speaker poles)</br>
+			✅ Phenyx Pro Wireless Microphone System (Single transmitter unit, 2 mics)</br>
+			✅ Basic Lighting Setup (light bar behind DJ booth with movers)</br>
+			✅ Advanced Lighting Setup (including dance floor, uplighting, pin lights, movers, and wash lights)</br>
+			✅ Pioneer DJ Controllers (XDJ-AZ or DDJ-400)</br>
+			✅ Soundswitch Control One DMX Lighting Controller</br>
+			✅ Harbinger 8-Channel External Audio Mixer</br></p>
+			
+			<p><strong>Cost for all rentals: Flat-rate of 10% of the retail cost of the item, per day.
+			</br>Extra charge for delivery, setup or teardown.
+			</br></br>PLEASE NOTE: 50% of the total rental cost must be paid at contract signing as a non-refundable deposit to secure your rental date.
+			</br></br><a href="contact.html">Contact us for a custom quote.</a></strong></p>
+		</div>
 	</section>
 	
-	<h2>HOW TO BOOK & NEXT STEPS</h2>
-	<p>Booking is easy! To get started, have a look on this page at our available equipment. Then, simply visit our <a href="contact.html">contact page</a> and fill out our form with your event rental needs. Please list the equipment you are interested in renting and the duration of your rental.</p>
-	<p>From there, we will reply to you via email with a custom equipment rental quote from your contact page information.</p>
-	<p>If the quote terms are agreed upon, we will provide you with a custom rental service contract that you can take and review before you get back to us. Once the contract is signed and your deposit is paid, your rental is locked in and we will go from there!</p>
+	<div class="container">
+		<h2>HOW TO BOOK & NEXT STEPS</h2>
+		
+		<p>Booking is easy! To get started, have a look on this page at our available equipment. Then, simply visit our <a href="contact.html">contact page</a> and fill out our form with your event rental needs. Please list the equipment you are interested in renting and the duration of your rental.</p>
+		<p>From there, we will reply to you via email with a custom equipment rental quote from your contact page information.</p>
+		<p>If the quote terms are agreed upon, we will provide you with a custom rental service contract that you can take and review before you get back to us. Once the contract is signed and your deposit is paid, your rental is locked in and we will go from there!</p>
+	</div>
 	
 	<section class="alt-section alt-dark">	
-	
-	<h2>WHY CHOOSE CHAMPS ENTERTAINMENT?</h2>
-    <p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> Customizable Services:</strong> Our rentals can be tailored to fit your specific needs and preferences.</p>
-    <p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> State-of-the-Art Equipment:</strong> We only use high-quality, reliable equipment to ensure your event runs smoothly.</p>
-    <p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> Flexibility:</strong> We’re happy to accommodate your any reasonable special requests. If we don't have what you need, we may have the network to acquire it so don't be afraid to ask!</p>
-	
-	<h2>WE ARE BOOKING 2026 & 2027 DATES NOW!</h2>
-	<p>Don’t wait, popular dates fill up fast!</p>
-	<p>Reserve yours with us today!</p>
-	
+		<div class="container">
+			<h2>WHY CHOOSE CHAMPS ENTERTAINMENT?</h2>
+			
+			<p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> Customizable Services:</strong> Our rentals can be tailored to fit your specific needs and preferences.</p>
+			<p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> State-of-the-Art Equipment:</strong> We only use high-quality, reliable equipment to ensure your event runs smoothly.</p>
+			<p><strong><i class="fas fa-map-marker-alt" style="color: #C8A700;"></i> Flexibility:</strong> We’re happy to accommodate your any reasonable special requests. If we don't have what you need, we may have the network to acquire it so don't be afraid to ask!</p>
+			
+			<h2>WE ARE BOOKING 2026 & 2027 DATES NOW!</h2>
+			
+			<p>Don’t wait, popular dates fill up fast!</p>
+			<p>Reserve yours with us today!</p>
+		</div>
 	</section>
 	
 	<div class="bottom-cta">
