@@ -101,267 +101,7 @@
 		.topbar-social a:hover {
 			color: var(--gold);
 		}
-		/* Desktop View */
-		@media (min-width: 768px) {
-			/* Hide Hamburger */
-			.menu-toggle {
-				display: none;
-			}
-			/* Align words/paragraphs */
-			p {
-				max-width: 700px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				word-wrap: break-word;
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			/* Ensure Horizontal Menu */
-			.navbar {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 6px 10px;
-				padding: 6px 0;
-				width: auto;
-			}
 
-			.navbar a {
-				padding: 6px 8px;
-				font-size: 14px;
-				white-space: normal;        /* allow wrap */
-				line-height: 1.1;
-				font-weight: 600;
-			}
-
-			.navbar a:hover {
-				color: #C8A700;
-				text-decoration: none;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 800;
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: absolute;
-				top: 100%;
-				left: 0;
-				background: transparent;
-				backdrop-filter: blur(16px);
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.services-link {
-				display: inline-flex;
-				align-items: center;
-				gap: 6px;
-			}
-
-			.services-link::after {
-				content: "▾";
-				font-size: 0.7em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-				margin-left: 4px;
-			}
-			.has-submenu:hover > .services-link::after {
-				transform: rotate(180deg);
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 700px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-
-		/* Mobile View */
-		@media (max-width: 768px) {
-			/* Hide Menu Initially */
-			.navbar {
-				display: none;
-				flex-direction: column;
-				background: black;
-				position: fixed;
-				width: 100%;
-				top: 50px;
-				left: 0;
-				text-align: center;
-				padding: 10px 0;
-				z-index: 999; /* Ensure navbar stays on top */
-			}
-			/* Show the navbar when the 'show' class is added */
-			.navbar.show {
-				display: flex; /* Show the navbar */
-			}
-			.navbar a {
-				display: block;
-				padding: 10px;
-			}
-			.navbar a.active {
-				color: #C8A700;  /* Highlight active page */
-				font-weight: 700;
-			}
-			/* Display Hamburger button */
-			.menu-toggle {
-				display: block !important;
-				position: relative !important;
-				top: auto !important;
-				right: auto !important;
-				font-size: 28px;
-				cursor: pointer;
-				color: white;
-				z-index: 1000;
-				border: 1px solid white; /* Add border to make the hamburger more visible */
-				padding: 5px;
-				border-radius: 20%; /* Make it circular */
-				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
-			}
-			.nav-item {
-				position: relative;
-				display: inline-block;
-			}
-			.submenu {
-				position: static;
-				top: 100%;
-				left: 0;
-				background: transparent !important;
-				min-width: 220px;
-				display: none;
-				flex-direction: column;
-				z-index: 1000;
-				overflow: hidden;
-				transition: max-height 0.3s ease;
-				max-height: 0;
-			}
-
-			.submenu a {
-				padding: 12px 16px;
-				white-space: nowrap;
-				padding-left: 32px;
-			}
-			.has-submenu:hover .submenu,
-			.has-submenu:focus-within .submenu {
-				display: flex;
-			}
-			.has-submenu.open .submenu {
-				display: block;
-				max-height: 500px;
-			}
-			.services-link {
-				cursor: pointer;
-			}
-			.services-link::after {
-				content: "▾";
-				display: inline-block;
-				margin-left: 10px;   /* controls distance from text */
-				font-size: 0.8em;
-				transition: transform 0.2s ease;
-				opacity: 0.7;
-			}
-
-			.has-submenu.open .services-link::after {
-				transform: rotate(180deg);
-			}
-
-			/* p block display configurations just for mobile */
-			p {
-				max-width: 400px; /* Set to the desired width or match your logo's width */
-				margin: 0 auto; /* Center the text block */
-				text-align: center; /* Justify the text to align it evenly across the paragraph */
-				margin-bottom: 20px;
-			}
-			h2 {
-				max-width: 400px;
-			}
-			h1 {
-				font-weight: 700;
-				font-size: 40px;
-				margin-bottom: 20px;
-			}
-			.topbar {
-				grid-template-columns: auto 1fr auto;
-			}
-
-			.brand-logo {
-				width: 80px;
-				max-width: 80px;
-				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-			}
-
-			.topbar-social a {
-				font-size: 16px;
-			}
-
-			.contact-btn {
-				padding: 8px 10px;
-				font-size: 14px;
-			}
-
-			/* Put the menu panel over the video but transparent */
-			.navbar {
-				background: transparent !important;
-				backdrop-filter: blur(16px);
-			}
-			.site-footer {
-				grid-template-columns: 1fr;
-				text-align: left;
-			}
-			.footer-copy {
-				text-align: center;
-			}
-
-			.footer-links {
-				justify-items: start;
-			}
-			.left-aligned-list {
-				text-align: left;
-				font-size: 20px;
-				max-width: 400px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			.social-icons a {
-				margin: 0 20px;
-				font-size: 50px;
-			}
-			.carousel-container {
-				max-width: 300px
-			}
-			.carousel-track {
-				max-width: 300px
-			}
-			.carousel-buttons {
-				display: none;
-			}
-			.carousel-buttons button {
-				display: none;
-			}
-			.video-player iframe {
-				width: 95%;
-				height:300px;
-			}
-			.audio-player iframe {
-				width: 95%;
-				height:170px;
-			}
-		}
 		:root {
 			--gold: #C8A700;
 			--bg: #131314;
@@ -521,7 +261,7 @@
 		}
 		.alt-section {
 			width: 100%;
-			padding: 40px 18px;
+			padding: 40px 0;
 			transition: background-color 0.6s ease, color 0.6s ease;
 		}
 
@@ -748,14 +488,373 @@
 		.media-tabs button {
 			background:#222; color:white; border:none; padding:10px 20px; margin:5px; cursor:pointer; border-radius:5px; transition:background 0.3s;
 		}
-		.media-tabs button:hover, .media-tabs button.active {background:#C8A700; color:black;}
-		iframe {width:80%; height:300px; border:none; margin:20px auto; display:block; border-radius:10px;}
+		.media-tabs button:hover, 
+		.media-tabs button.active {
+			background:#C8A700; 
+			color:black;
+		}
+		iframe {
+			width:80%; 
+			height:300px; 
+			border:none; 
+			margin:20px auto; 
+			display:block; 
+			border-radius:10px;
+		}
 		.media-block {
 			max-width: 800px;
 			margin: 0 auto;
 		}
+		.container {
+			max-width: 900px;
+			margin-left: auto;
+			margin-right: auto;
+			margin: 0 auto;
+		}
 		
+		/* DESKTOP VIEW */
+		@media (min-width: 768px) {
+			/* Hide Hamburger */
+			.menu-toggle {
+				display: none;
+			}
+			/* Align words/paragraphs */
+			p  {
+				max-width: 700px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 950px;
+				margin: 0 auto; /* Center the text block */
+				word-wrap: break-word;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+			/* Ensure Horizontal Menu */
+			.navbar {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 6px 10px;
+				padding: 6px 0;
+				width: auto;
+			}
+
+			.navbar a {
+				padding: 6px 8px;
+				font-size: 14px;
+				white-space: normal;        /* allow wrap */
+				line-height: 1.1;
+				font-weight: 600;
+			}
+
+			.navbar a:hover {
+				color: #C8A700;
+				text-decoration: none;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 800;
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				background: transparent;
+				backdrop-filter: blur(16px);
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.services-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+			}
+
+			.services-link::after {
+				content: "▾";
+				font-size: 0.7em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+				margin-left: 4px;
+			}
+			.has-submenu:hover > .services-link::after {
+				transform: rotate(180deg);
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		/* MOBILE VIEW */
+		@media (max-width: 768px) {
+			/* Hide Menu Initially */
+			.navbar {
+				display: none;
+				flex-direction: column;
+				background: black;
+				position: fixed;
+				width: 100%;
+				top: 50px;
+				left: 0;
+				text-align: center;
+				padding: 10px 0;
+				z-index: 999; /* Ensure navbar stays on top */
+			}
+			/* Show the navbar when the 'show' class is added */
+			.navbar.show {
+				display: flex; /* Show the navbar */
+			}
+			.navbar a {
+				display: block;
+				padding: 10px;
+			}
+			.navbar a.active {
+				color: #C8A700;  /* Highlight active page */
+				font-weight: 900;
+			}
+			/* Display Hamburger button */
+			.menu-toggle {
+				display: block !important;
+				position: relative !important;
+				top: auto !important;
+				right: auto !important;
+				font-size: 28px;
+				cursor: pointer;
+				color: white;
+				z-index: 1000;
+				border: 1px solid white; /* Add border to make the hamburger more visible */
+				padding: 5px;
+				border-radius: 20%; /* Make it circular */
+				background: rgba(0, 0, 0, 0.5); /* Optional: Adds a subtle background to the button */
+			}
+			.nav-item {
+				position: relative;
+				display: inline-block;
+			}
+			.submenu {
+				position: static;
+				top: 100%;
+				left: 0;
+				background: transparent !important;
+				min-width: 220px;
+				display: none;
+				flex-direction: column;
+				z-index: 1000;
+				overflow: hidden;
+				transition: max-height 0.3s ease;
+				max-height: 0;
+			}
+
+			.submenu a {
+				padding: 12px 16px;
+				white-space: nowrap;
+				padding-left: 32px;
+			}
+			.has-submenu:hover .submenu,
+			.has-submenu:focus-within .submenu {
+				display: flex;
+			}
+			.has-submenu.open .submenu {
+				display: block;
+				max-height: 500px;
+			}
+			.services-link {
+				cursor: pointer;
+			}
+			.services-link::after {
+				content: "▾";
+				display: inline-block;
+				margin-left: 10px;   /* controls distance from text */
+				font-size: 0.8em;
+				transition: transform 0.2s ease;
+				opacity: 0.7;
+			}
+
+			.has-submenu.open .services-link::after {
+				transform: rotate(180deg);
+			}
+
+			/* p block display configurations just for mobile */
+			p {
+				max-width: 400px; /* Set to the desired width or match your logo's width */
+				margin: 0 auto; /* Center the text block */
+				text-align: center; /* Justify the text to align it evenly across the paragraph */
+				margin-bottom: 20px;
+			}
+			h2 {
+				max-width: 400px;
+			}
+			h1 {
+				font-weight: 700;
+				font-size: 40px;
+				margin-bottom: 20px;
+			}
+
+			.brand-logo {
+				width: 80px;
+				max-width: 80px;
+				filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+			}
+
+			.topbar-social a {
+				font-size: 16px;
+			}
+
+			.contact-btn {
+				padding: 8px 10px;
+				font-size: 14px;
+			}
+
+			/* Put the menu panel over the video but transparent */
+			.navbar {
+				background: transparent !important;
+				backdrop-filter: blur(16px);
+			}
+			.site-footer {
+				grid-template-columns: 1fr;
+				text-align: center;
+			}
+			.footer-copy {
+				text-align: center;
+			}
+
+			.footer-links {
+				justify-items: start;
+			}
+			.left-aligned-list {
+				text-align: left;
+				font-size: 20px;
+				max-width: 400px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.review-btn {
+				min-width: 220px;
+				font-size: 15px;
+			}
+			.topbar {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: auto auto;
+				align-items: center;
+				padding: 14px 12px;
+				row-gap: 10px;
+			}
+
+			.topbar-left {
+				grid-column: 1;
+				grid-row: 1;
+				padding-right: 0;
+			}
+
+			.topbar-center {
+				grid-column: 2;
+				position: relative !important;
+				left: auto !important;
+				top: auto !important;
+				transform: none !important;
+				text-align: center;
+			}
+
+			.topbar-right {
+				grid-column: 3;
+				grid-row: 1;
+				padding-left: 0;
+				display: flex;
+				justify-content: flex-end;
+			}
+			
+			.topbar-left,
+			.topbar-right {
+				padding: 0 !important;
+			}
+
+			/* socials move to second row */
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
+			}
+
+			/* make logo bigger again */
+			.brand-logo {
+				width: 200px;
+				max-width: 200px;
+			}
+			.hero-title {
+				font-size: 32px;
+			}
+			.container {
+				max-width: 100%;
+				padding-left: 12px;
+				padding-right: 12px;
+			}
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+			}
+
+			/* ensure rows can shrink */
+			.topbar,
+			.hero-overlay,
+			.after-hero,
+			.container,
+			.alt-section,
+			.site-footer {
+				width: 100%;
+				max-width: 100%;
+			}
+			.carousel-container {
+				max-width: 300px
+			}
+			.carousel-track {
+				max-width: 300px
+			}
+			.carousel-buttons {
+				display: none;
+			}
+			.carousel-buttons button {
+				display: none;
+			}
+			.video-player iframe {
+				width: 95%;
+				height:300px;
+			}
+			.audio-player iframe {
+				width: 95%;
+				height:170px;
+			}
+		}
 		
+		/* MID RANGE VIEW */
 		@media (max-width: 1100px) and (min-width: 769px) {
 			/* show hamburger */
 			.menu-toggle {
@@ -797,6 +896,11 @@
 			.topbar { 
 				padding: 30px 10px; 
 			}
+			.topbar-social {
+				grid-column: 3;
+				grid-row: 2;
+				justify-content: flex-end;
+			}
 			.submenu {
 				position: static !important;
 				min-width: 0;
@@ -819,9 +923,9 @@
 			}
 		}
 
-		</style>
+	</style>
 		
-	</head>
+</head>
 	
 <body>
 	<header class="hero">
@@ -868,13 +972,6 @@
 				</div>
 
 				<div class="topbar-right">
-					<div class="topbar-social">
-						<a href="https://instagram.com/champsdj_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-						<a href="https://tiktok.com/@champsdj" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-						<a href="https://facebook.com/champsdeejay/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-						<a href="https://youtube.com/@champsdj" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-					</div>
-
 					<a class="contact-btn" href="contact.html">CONTACT</a>
 				</div>
 			</div>
@@ -885,201 +982,218 @@
 		</div>
 	</header>
     
-	<div class="after-hero">
+	<div class="container">
+		</br>
 		<p>Welcome to the interactive press kit page for Champs! If you'd like a PDF copy of this information, click the big yellow download button below!</p>
 		<p>Otherwise, take a look at the sections below for more information like links to socials, mixes, logos, and how to reach out to book Champs!</p>
 		<a href="files/Champs_PressKit2026.pdf" download
 		   style="display:inline-block; background:#C8A700; color:black; padding:10px 20px; border:none; border-radius:5px; font-weight:bold; cursor:pointer; text-decoration:none;">
 		   Download PDF
 		</a>
-		<br><br>
+		</br></br>
 	</div>
 	
-	<h2>HEADSHOTS</h2>
-	<figure>
-		<a href="Images/champs_2026_headshot.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot.png" alt="Champs Headshot"></a>
-		<figcaption style="color: grey;">Headshot (click to download)</figcaption>
-	</figure>
-	<figure>
-		<a href="Images/champs_2026_headshot2.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot2.png" alt="Champs Headshot"></a>
-		<figcaption style="color: grey;">Headshot 2 (click to download)</figcaption>
-	</figure>
+	<div class="container">
+		<h2>HEADSHOTS</h2>
+		
+		<figure>
+			<a href="Images/champs_2026_headshot.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot.png" alt="Champs Headshot"></a>
+			<figcaption style="color: grey;">Headshot (click to download)</figcaption>
+		</figure>
+		
+		<figure>
+			<a href="Images/champs_2026_headshot2.png"><img style="border-radius:10px;" src="Images/champs_2026_headshot2.png" alt="Champs Headshot"></a>
+			<figcaption style="color: grey;">Headshot 2 (click to download)</figcaption>
+		</figure>
+	</div>
 
 
 
 	<section id="bio">
-	
-		<h2>BIO</h2>
-		
-			<p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
-			<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the Pittsburgh area like Spirit Lodge, Bottlerocket Social Hall, Jackworth, Pitch & Spigolo. He stays ahead of the curve by engaging with industry leading event DJs, with his most recent conference and networking event being the Pittsburgh DJ Summit in 2026.</p>
-			<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house and drum & bass. He enjoys spinning trance & techno, too. He also doesn’t shy away from open-format DJing; including: pop, rap, hip-hop, rock, trap and even some country if the vibe is right.</p>
-			<p>Learn more about Champs on <a href="about.html">our About page!</a></p>
-	
+		<div class="container">
+			<h2>BIO</h2>
+			
+				<p>Champs is an accomplished DJ based in Pittsburgh, PA who has been throwing parties, playing clubs and live-streaming on Twitch since 2019, delivering good vibes and high-energy experiences. A key figure in the online electronic music community, Champs has helped manage the Electric Daisy Carnival Discord Music Night LIVE since 2022, curating and broadcasting top-tier DJ sets to a global audience.</p>
+				<p>Stepping beyond the streaming world, Champs has established himself as a force in live music, playing venues in the Pittsburgh area like Spirit Lodge, Bottlerocket Social Hall, Jackworth, Pitch & Spigolo. He stays ahead of the curve by engaging with industry leading event DJs, with his most recent conference and networking event being the Pittsburgh DJ Summit in 2026.</p>
+				<p>As a former monthly resident on Ibiza Stardust Radio and current resident on Pittsburgh’s own MSYH.FM Radio, he showcases his deep passion for house and drum & bass. He enjoys spinning trance & techno, too. He also doesn’t shy away from open-format DJing; including: pop, rap, hip-hop, rock, trap and even some country if the vibe is right.</p>
+				<p>Learn more about Champs on <a href="about.html">our About page!</a></p>
+		</div>
 	</section>
-	<hr>
+
 	<section id="media">
-	
-		<h2>MEDIA</h2>
+		<div class="container">
+			<h2>MEDIA</h2>
 
-		<!-- Audio Player Block -->
-		<div class="media-block">
-			<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
-			<p>Click one of the buttons below to listen to a mix in that genre!</p>
-			<div class="media-tabs audio-tabs">
-				<button class="active" onclick="showAudio('house')">House</button>
-				<button onclick="showAudio('prog')">Progressive House</button>
-				<button onclick="showAudio('dnb')">Drum &amp; Bass</button>
-				<button onclick="showAudio('techno')">Techno</button>
-				<button onclick="showAudio('trance')">Trance</button>
-				<button onclick="showAudio('dubstep')">Dubstep</button>
+			<!-- Audio Player Block -->
+			<div class="media-block">
+				<h3 style="margin-bottom:10px;">SOUNDCLOUD</h3>
+				
+				<p>Click one of the buttons below to listen to a mix in that genre!</p>
+				
+				<div class="media-tabs audio-tabs">
+					<button class="active" onclick="showAudio('house')">House</button>
+					<button onclick="showAudio('prog')">Progressive House</button>
+					<button onclick="showAudio('dnb')">Drum &amp; Bass</button>
+					<button onclick="showAudio('techno')">Techno</button>
+					<button onclick="showAudio('trance')">Trance</button>
+					<button onclick="showAudio('dubstep')">Dubstep</button>
+				</div>
+				
+				<div class="audio-player">
+					<iframe width="100%" height="180px" id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-tech-bass-house-bangers-remixes-busy-signal-ruggers-pub-12-12-25"></iframe>
+				</div>
 			</div>
-			<div class="audio-player">
-				<iframe width="100%" height="180px" id="audioPlayer" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/champsdj/live-set-tech-bass-house-bangers-remixes-busy-signal-ruggers-pub-12-12-25"></iframe>
-			</div>
-		</div>
 
-		<!-- Video Player Block -->
-		<div class="media-block">
-			<h3 style="margin-bottom:10px;">YOUTUBE</h3>
-			<p>Click one of the buttons below to watch one of my live sets!</p>
-			<div class="media-tabs video-tabs">
-				<button class="active" onclick="showVideo('promo')">FURNACE House Set Live from The Playground</button>
-				<button onclick="showVideo('live')">MSYH.FM DnB Set Live from Hellbender Vinyl</button>
-				<button onclick="showVideo('radio')">Progressive House Live from Soundsource</button>
-				<button onclick="showVideo('wedding')">Yinzers Meet Fake Wedding Live from Pitch</button>
-			</div>
-			<div class="video-player">
-				<iframe width="800px" height="300px" id="videoPlayer" src="https://www.youtube.com/embed/esgFm1S7WbI" frameborder="0" allowfullscreen></iframe>
-			</div>
-		</div>
-		
-		<h3 style="margin-bottom:10px;">LOGOS</h3>
-		<p>Click the logos below to download!</p>
-		<figure>
-			<a href="Images/Champs_Word_Logo.png"><img style="width: 800px;" src="Images/Champs_Word_Logo.png" alt="Champs Logo" class="logo"></a>
-			<figcaption style="color: grey;">Champs Logo</figcaption>
-		</figure>
-		
-		<figure>
-			<a href="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png"><img src="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png" alt="Champs Logo" class="logo"></a>
-			<figcaption style="color: grey;">Champs Entertainment Logo</figcaption>
-		</figure>
-
-	</section>
-	<hr>
-	<section id="highlights">
-	
-		<!-- Venues Carousel -->
-		<h2>VENUES</h2>
-		<div class="carousel-container" id="venuesCarousel">
-			<div class="carousel-track">
-				<div class="carousel-item">
-					<img src="Images/bottlerocket.jpg" alt="Bottlerocket Social Hall">
-					<p>Bottlerocket Social Hall</p>
+			<!-- Video Player Block -->
+			<div class="media-block">
+				<h3 style="margin-bottom:10px;">YOUTUBE</h3>
+				
+				<p>Click one of the buttons below to watch one of my live sets!</p>
+				
+				<div class="media-tabs video-tabs">
+					<button class="active" onclick="showVideo('promo')">FURNACE House Set Live from The Playground</button>
+					<button onclick="showVideo('live')">MSYH.FM DnB Set Live from Hellbender Vinyl</button>
+					<button onclick="showVideo('radio')">Progressive House Live from Soundsource</button>
+					<button onclick="showVideo('wedding')">Yinzers Meet Fake Wedding Live from Pitch</button>
 				</div>
-				<div class="carousel-item">
-					<img src="Images/spirit.jpg" alt="Spirit Lodge">
-					<p>Spirit Lodge</p>
-				</div>
-				<div class="carousel-item">
-					<img src="Images/hellbender.jpg" alt="Hellbender Vinyl">
-					<p>Hellbender Vinyl</p>
-				</div>
-				<div class="carousel-item">
-					<img src="Images/spigolo.jpg" alt="Spigolo">
-					<p>Spigolo</p>
-				</div>
-				<div class="carousel-item">
-					<img src="Images/thisisred.jpg" alt="THIS IS RED">
-					<p>THIS IS RED</p>
-				</div>
-				<div class="carousel-item">
-					<img src="Images/theclement.jpg" alt="The Clement">
-					<p>The Clement</p>
-				</div>
-				<div class="carousel-item">
-					<img src="Images/colombino.png" alt="Colombino">
-					<p>Colombino</p>
+				
+				<div class="video-player">
+					<iframe width="800px" height="300px" id="videoPlayer" src="https://www.youtube.com/embed/Yf8gGd-5HE8" frameborder="0" allowfullscreen></iframe>
 				</div>
 			</div>
 			
-			<div class="carousel-buttons">
-				<button class="prev">&#10094;</button>
-				<button class="next">&#10095;</button>
-			</div>
+			<h3 style="margin-bottom:10px;">LOGOS</h3>
+			
+			<p>Click the logos below to download!</p>
+			
+			<figure>
+				<a href="Images/Champs_Word_Logo.png"><img style="width: 800px;" src="Images/Champs_Word_Logo.png" alt="Champs Logo" class="logo"></a>
+				<figcaption style="color: grey;">Champs Logo</figcaption>
+			</figure>
+			
+			<figure>
+				<a href="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png"><img src="Images/Champs_Ent_Logo_Gold_nowhitespace_transparent.png" alt="Champs Logo" class="logo"></a>
+				<figcaption style="color: grey;">Champs Entertainment Logo</figcaption>
+			</figure>
 		</div>
-
-		<!-- Events Carousel -->
-		<h2>EVENTS</h2>
-			<div class="carousel-container" id="eventsCarousel">
+	</section>
+	
+	<section id="highlights">
+		<div class="container">
+			<!-- Venues Carousel -->
+			<h2>VENUES</h2>
+			
+			<div class="carousel-container" id="venuesCarousel">
 				<div class="carousel-track">
 					<div class="carousel-item">
-						<p>Pittsburgh's First Coffeeshop Party</p>
+						<img src="Images/bottlerocket.jpg" alt="Bottlerocket Social Hall">
+						<p>Bottlerocket Social Hall</p>
 					</div>
 					<div class="carousel-item">
-						<p>Pittsburgh Against Apartheid</p>
+						<img src="Images/spirit.jpg" alt="Spirit Lodge">
+						<p>Spirit Lodge</p>
 					</div>
 					<div class="carousel-item">
-						<p>Pittsburgh Open Decks</p>
+						<img src="Images/hellbender.jpg" alt="Hellbender Vinyl">
+						<p>Hellbender Vinyl</p>
 					</div>
 					<div class="carousel-item">
-						<p>EDC Discord Music Night</p>
+						<img src="Images/spigolo.jpg" alt="Spigolo">
+						<p>Spigolo</p>
 					</div>
 					<div class="carousel-item">
-						<p>Techno Harbor</p>
+						<img src="Images/thisisred.jpg" alt="THIS IS RED">
+						<p>THIS IS RED</p>
 					</div>
 					<div class="carousel-item">
-						<p>Pittsburgh VegFair</p>
+						<img src="Images/theclement.jpg" alt="The Clement">
+						<p>The Clement</p>
 					</div>
 					<div class="carousel-item">
-						<p>heatsignal's FURNACE</p>
+						<img src="Images/colombino.png" alt="Colombino">
+						<p>Colombino</p>
 					</div>
 				</div>
+				
 				<div class="carousel-buttons">
 					<button class="prev">&#10094;</button>
 					<button class="next">&#10095;</button>
 				</div>
 			</div>
+		
+			<!-- Events Carousel -->
+			<h2>EVENTS</h2>
+				<div class="carousel-container" id="eventsCarousel">
+					<div class="carousel-track">
+						<div class="carousel-item">
+							<p>Pittsburgh's First Coffeeshop Party</p>
+						</div>
+						<div class="carousel-item">
+							<p>Pittsburgh Against Apartheid</p>
+						</div>
+						<div class="carousel-item">
+							<p>Pittsburgh Open Decks</p>
+						</div>
+						<div class="carousel-item">
+							<p>EDC Discord Music Night</p>
+						</div>
+						<div class="carousel-item">
+							<p>Techno Harbor</p>
+						</div>
+						<div class="carousel-item">
+							<p>Pittsburgh VegFair</p>
+						</div>
+						<div class="carousel-item">
+							<p>heatsignal's FURNACE</p>
+						</div>
+					</div>
+					<div class="carousel-buttons">
+						<button class="prev">&#10094;</button>
+						<button class="next">&#10095;</button>
+					</div>
+				</div>
+		</div>
 	</section>
 
 	<section id="social">
-	
-		<h2>CONNECT</h2>
-		
-		<div class="social-icons">
-			<a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
-			<a href="https://tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
-			<a href="https://facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook-f"></i></a>
-			<a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
-			<a href="https://youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
+		<div class="container">
+			<h2>CONNECT</h2>
+			
+			<div class="social-icons">
+				<a href="https://instagram.com/champsdj_" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://tiktok.com/@champsdj" target="_blank"><i class="fab fa-tiktok"></i></a>
+				<a href="https://facebook.com/champsdeejay" target="_blank"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://soundcloud.com/champsdj" target="_blank"><i class="fab fa-soundcloud"></i></a>
+				<a href="https://youtube.com/@ChampsDJ" target="_blank"><i class="fab fa-youtube"></i></a>
+			</div>
 		</div>
-		
 	</section>
 
 	<section id="booking">
-		<h2>BOOKING</h2>
-		
-		<div class="booking-buttons">
-			<!-- Call Button -->
-			<button id="callButton">
-				<i class="fas fa-phone"></i> Call/Text
-			</button>
-
-			<!-- Website Button -->
-			<button onclick="window.location.href='contact.html'">
-				<i class="fas fa-globe"></i> Contact Form
-			</button>
-
-			<!-- Email Button -->
-			<button id="emailButton">
-				<i class="fas fa-envelope"></i> Email
-			</button>
+		<div class="container">
+			<h2>BOOKING</h2>
 			
-			<!-- Insta DM Button -->
-			<button id="instaButton">
-				<i class="fab fa-instagram"></i> Instagram DM
-			</button>
+			<div class="booking-buttons">
+				<!-- Call Button -->
+				<button id="callButton">
+					<i class="fas fa-phone"></i> Call/Text
+				</button>
+
+				<!-- Website Button -->
+				<button onclick="window.location.href='contact.html'">
+					<i class="fas fa-globe"></i> Contact Form
+				</button>
+
+				<!-- Email Button -->
+				<button id="emailButton">
+					<i class="fas fa-envelope"></i> Email
+				</button>
+				
+				<!-- Insta DM Button -->
+				<button onclick="window.location.href='https://www.instagram.com/champsdj_/'">
+					<i class="fab fa-instagram"></i> Instagram DM
+				</button>
+			</div>
 		</div>
 	</section>
 
@@ -1113,7 +1227,7 @@
 			const buttons = document.querySelectorAll('.video-tabs button');
 			buttons.forEach(btn => btn.classList.remove('active'));
 			if(type === 'promo') {
-			video.src = 'https://www.youtube.com/embed/esgFm1S7WbI';
+			video.src = 'https://www.youtube.com/embed/Yf8gGd-5HE8';
 			buttons[0].classList.add('active');
 			} else if(type === 'live') {
 			video.src = 'https://www.youtube.com/embed/hxUK9zJjpnc';
@@ -1242,7 +1356,7 @@
 		
 		document.getElementById('instaButton').addEventListener('click', function () {
 		  this.innerHTML = '<i class="fab fa-instagram"></i> @champsdj_';
-		  window.location.href = 'https://www.instagram.com/direct/t/17842535199022014/';
+		  window.location.href = 'https://www.instagram.com/champsdj_/';
 		});
 	</script>
 	<script>
