@@ -16,7 +16,7 @@
     <loc>https://www.champsentertainment.com/weddings.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/parties.html</loc>
@@ -28,19 +28,19 @@
     <loc>https://www.champsentertainment.com/recordings.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/rentals.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/gallery.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/music.html</loc>
@@ -52,30 +52,24 @@
     <loc>https://www.champsentertainment.com/faq.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/contact.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/reviews.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/presskit.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.champsentertainment.com/thankyou.html</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.1</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
