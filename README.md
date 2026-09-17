@@ -51,9 +51,9 @@ file with its own `<head>` (meta tags, schema.org JSON-LD, title,
 description) and repeats the same header/nav/footer markup. This means:
 
 - **Adding or changing a nav link requires editing every page individually.**
-  There are currently 19 HTML files with the site nav (12 core pages, `faq.html`
+  There are currently 20 HTML files with the site nav (12 core pages, `faq.html`
   and `404.html` as special cases with slightly different markup, plus the
-  blog landing page and posts).
+  blog landing page and 5 posts).
 - **Adding a new page** is easiest by copying an existing page closest in
   structure (e.g. copy `weddings.html` for a new service page, or an
   existing blog post for a new post) and editing the `<head>` tags, hero
@@ -94,9 +94,10 @@ page's `<body>`.
 ## The blog
 
 - `blog/index.html` is the landing page: a card grid pulling from
-  `.blog-card` / `.blog-grid` styles in the main stylesheet. Only the
-  card title, excerpt, and "Read More" link are shown — the whole card is
-  intentionally **not** a click target, only "Read More" is.
+  `.blog-card` / `.blog-grid` styles in the main stylesheet. Each entire
+  card is a click target (an `<a class="blog-card">` wrapping the date,
+  title, and excerpt), with "Read More →" shown as a plain-text visual
+  cue inside it rather than a separate link.
 - Each post is a standalone HTML file in `blog/`, following the same
   header/nav/footer pattern as the rest of the site (with `../` relative
   paths since it's one directory deep), plus an `Article` schema.org
