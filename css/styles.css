@@ -117,7 +117,6 @@ a:hover {
 .no-margin-top    { margin-top: 0; }
 .mb-10             { margin-bottom: 10px; }
 .mb-20             { margin-bottom: 20px; }
-.form-disclaimer   { color: grey; font-size: 11px; margin-bottom: 10px; }
 .img-fixed-800     { width: 800px; max-width: 90%; }
 .hidden-field      { display: none; }
 
@@ -397,21 +396,19 @@ a:hover {
 	min-width: 220px;
 }
 
-.contact-form .g-recaptcha {
+.contact-form .cf-turnstile {
 	margin: 0 auto;
 	display: flex;
 	justify-content: center;
-	min-height: 78px; /* reserve the widget's real rendered height up front so the
-	                     page doesn't reflow once Google's async script loads it in.
-	                     That reflow is the most likely cause of mis-taps on the
-	                     submit button on slower mobile connections. */
+	min-height: 65px; /* Turnstile's default rendered height, reserved up front so
+	                     the page doesn't reflow once the widget loads in async */
 }
 
 @media (max-width: 340px) {
-	.contact-form .g-recaptcha {
+	.contact-form .cf-turnstile {
 		transform: scale(0.85);
 		transform-origin: top center;
-		min-height: 66px; /* 78px scaled to match, keeps the reserved space accurate */
+		min-height: 55px;
 	}
 }
 
