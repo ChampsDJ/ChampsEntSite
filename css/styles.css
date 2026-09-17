@@ -309,7 +309,9 @@ a:hover {
 	color: #000;
 }
 
-.alt-section.in-view h2 {
+.alt-section.in-view h2,
+.alt-section.in-view h3,
+.alt-section.in-view .text-gold {
 	color: #000;
 }
 
@@ -397,6 +399,20 @@ a:hover {
 
 .contact-form .g-recaptcha {
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	min-height: 78px; /* reserve the widget's real rendered height up front so the
+	                     page doesn't reflow once Google's async script loads it in.
+	                     That reflow is the most likely cause of mis-taps on the
+	                     submit button on slower mobile connections. */
+}
+
+@media (max-width: 340px) {
+	.contact-form .g-recaptcha {
+		transform: scale(0.85);
+		transform-origin: top center;
+		min-height: 66px; /* 78px scaled to match, keeps the reserved space accurate */
+	}
 }
 
 form {
