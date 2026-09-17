@@ -163,6 +163,7 @@
 		  try {
 			const response = await fetch("https://script.google.com/macros/s/AKfycbxRJBqtspBEPQTuLFhV_zrZlzPaG3lff3VLwBjNMoZQ26c-bmPI5UI9YHJnrs0Y4oqh/exec", {
 			  method: "POST",
+			  mode: "no-cors",
 			  body: formData
 			});
 
