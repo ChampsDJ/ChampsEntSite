@@ -355,27 +355,6 @@ still undecided.
       champsentertainment.com link no longer needs to imply it hosts
       "Press." New footer text: **"Reviews & Bookings."**
 
-### Content already sourced
-
-**Reviews for the rebuilt Reviews page** (real Google reviews for Champs
-Entertainment LLC, collected September 2026):
-
-1. **Samantha Kummer** — ★★★★★ — *"Matt set up at a community party
-   hosted at a local climbing gym! He was easy to communicate with
-   during the coordination of the event. His music selection was fun
-   and kept the energy groovin'!"*
-2. **Edie G** (Local Guide) — ★★★★★ — *"Champs put together the most
-   incredible set for our cocktail hour and wedding reception AND was
-   an amazing MC! Professional and easy to work with. The lighting
-   really transformed our modestly decorated space and brought a lot of
-   energy when we made the transition from Dinner Time to Dancing Time.
-   We got a ton of compliments on the music selection throughout the
-   event and Champs had me out on the dance floor most of the
-   night!!"* — this is the wedding-specific review.
-3. **Justice for Animals** — ★★★★★ — *"Matt was awesome! Professional
-   and can read the room. We would love to have him back! Thank you
-   Matt"* — nonprofit/organizational event.
-
 ### Remaining order of operations
 
 1. Hero video/photo swap — whenever real wedding footage/photos are
@@ -390,3 +369,41 @@ Entertainment LLC, collected September 2026):
   champsdj.com's Book section) both need updating to the new
   filename/URL.
 
+### Bug fixes and polish (September 2026, post-launch)
+
+Found and fixed after the redesign went live, reported from real
+mobile/live-site usage rather than caught in review:
+
+- **Mobile pricing card order was wrong on weddings.html.** The
+  `.featured` (People's Choice) card had `order: -1` for the mobile
+  single-column layout, but nothing accounted for the newer `.premium`
+  (Total Package) card added afterward — so on mobile the stacking
+  order came out as Most Popular, then cheapest, then most expensive,
+  which reads backwards. Fixed by giving `.premium` an explicit
+  `order: -2`, so mobile now stacks most expensive → most popular →
+  cheapest, top to bottom. Desktop was never affected (it doesn't use
+  `order` at all) and needed no change.
+- **FAQ accordion "stutter" on close, root cause found.** The old
+  implementation animated `max-height` from 0 to a fixed guessed value
+  (400px) but only listed `max-height` in the `transition` property —
+  `padding` was changing instantly, unanimated. That mismatch is what
+  produced the visible snap/stutter partway through closing. Rebuilt
+  using the `grid-template-rows: 0fr → 1fr` technique instead of a
+  guessed max-height: it animates the answer's *actual* content height
+  directly, so there's no fixed number to get wrong and no possible
+  mismatch between properties. Required adding one wrapper div
+  (`.faq-answer-inner`) inside each of the 11 FAQ answers to hold the
+  padding separately from the grid track that's animating.
+- **"How to book & next steps" trimmed on weddings, recordings, and
+  rentals** — each went from 3 paragraphs (with a lot of near-identical
+  wording about consultation calls and contracts) down to one tighter
+  paragraph covering the same real steps: fill out the contact form,
+  expect a quote and a call, sign a contract to lock in the date.
+  **events.html doesn't have this section at all**, so nothing to trim
+  there.
+- **Map-pin icon swapped for a check-circle** in every "Why choose
+  Champs Entertainment" bullet list (weddings, events, recordings,
+  rentals — 15 instances total). A location pin never made sense
+  semantically for bullets like "Professional Expertise" or
+  "Flexibility"; `fa-circle-check` reads as a clean benefits-list icon
+  instead.

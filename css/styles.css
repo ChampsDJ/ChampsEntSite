@@ -900,6 +900,9 @@ section {
 	.pricing-grid.pricing-grid-2 {
 		grid-template-columns: 1fr;
 	}
+	.pricing-card.premium {
+		order: -2;
+	}
 	.pricing-card.featured {
 		order: -1;
 	}
@@ -1072,14 +1075,22 @@ section {
 }
 
 .faq-answer {
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height 0.3s ease;
-	padding: 0 22px;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
 }
 
 .faq-item.open .faq-answer {
-	max-height: 400px;
+	grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+	overflow: hidden;
+	padding: 0 22px;
+	transition: padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer-inner {
 	padding: 4px 22px 20px;
 }
 
