@@ -158,15 +158,25 @@ favor of a calm, static section rhythm; a real pricing-card, review-card,
 FAQ-accordion, and quote-callout component system replaced plain
 emoji-bulleted text; the typeface changed from Nunito to a Bricolage
 Grotesque/Public Sans pairing; and body text alignment shifted from
-centered to left for anything content-heavy. See **Branding Kit**
-below for the resulting design reference, and **Website Redesign
-Project** for what's still open.
+centered to left for anything content-heavy. Finally, all-caps
+headings across every page (including the FAQ question text) were
+converted to sentence case, matching the Branding Kit's casing rule;
+nav links, buttons, and labels were deliberately left in caps, as
+that rule intends. The About page's closing heading was also trimmed
+from "More than just music - an unforgettable experience!" to "More
+than just music" to cut a repeated word, and the Total Package tier on
+the Weddings page got a glowing "Deluxe" treatment using the
+`--gold-bright` token. See **Branding Kit** below for the resulting
+design reference, and **Website Redesign Project** for what's still
+open.
 
 ## Branding Kit
 
 A reference for colors, type, spacing, and component patterns — built
 directly from `css/styles.css`. Use this instead of re-deriving design
-decisions from scratch each time.
+decisions from scratch each time. **This documents champsentertainment.com
+only.** champsdj.com is being deliberately left alone for now — that
+site gets its own pass once the business-site work here is finished.
 
 **Sister brand:** champsdj.com is Champs' separate artist-facing site
 (mixes, releases, live sets). The two intentionally share design DNA
@@ -183,7 +193,7 @@ Single dark theme — this brand does not have a light mode.
 | `--bg` | `#0a0a08` | Page background |
 | `--bg-raised` | `#131310` | Card/panel background (pricing cards, review cards, FAQ items, contact form, highlight cards) |
 | `--gold` | `#C8A700` | Primary accent — headlines, links, active nav, button borders, card borders. **This exact value matches the logo image assets.** Do not substitute champsdj.com's gold (`#d8bb1b`) — they're deliberately different. |
-| `--gold-bright` | `#e8c400` | Reserved for future hover/active states, not yet wired into production CSS |
+| `--gold-bright` | `#e8c400` | The "premium tier" glow — used on the `.pricing-card.premium` variant (currently the Total Package tier on weddings.html) to make the highest-priced option visually stand out with a glow effect and a "Deluxe" badge, distinct from the plain gold `.featured` badge used for "Most Popular." |
 | `--ink` | `#f5f2e6` | Primary text — a soft off-white, not pure `#fff` |
 | `--ink-dim` | `#b8b39f` | Secondary/muted text — captions, review locations, form disclaimers |
 | `--line` | `#2a2a20` | Borders and section dividers |
@@ -278,8 +288,10 @@ A small, deliberate scale rather than one-off pixel values:
 All defined in `css/styles.css`, all built on the tokens above:
 
 - **Pricing card** (`.pricing-card` / `.pricing-grid`) — name, price,
-  feature checklist, CTA. Supports a `.featured` variant with a gold
-  badge, and a `.pricing-grid-2` variant for 2-item layouts.
+  feature checklist, CTA. Supports a `.featured` variant (plain gold
+  border + "Most Popular" badge) and a `.premium` variant (glowing
+  `--gold-bright` border + "Deluxe" badge, for the highest-priced tier),
+  plus a `.pricing-grid-2` variant for 2-item layouts.
 - **Review card** (`.review-card` / `.review-grid`) — large gold star
   rating, name, location, quote with a gold left-border accent.
 - **FAQ accordion** (`.faq-item` / `.faq-question` / `.faq-answer`) —
@@ -302,14 +314,12 @@ Logo images live in `Images/` in this repo
 (`Champs_Ent_Logo_Gold_social2_transparent.png` and variants). No
 separate asset library exists yet — this is the single source.
 
-### Not yet decided
+### Icons
 
-- Whether `--gold-bright` (`#e8c400`) actually gets used anywhere, or
-  stays reserved
-- A formal icon set (currently Font Awesome via CDN, not an owned
-  icon library)
-- Any of this applied to champsdj.com itself — this section documents
-  champsentertainment.com only
+Font Awesome, loaded via CDN — not a custom/owned icon set. Decided:
+staying with Font Awesome. It's the standard, low-cost choice for a
+business at this scale; commissioning custom icons would add real
+cost and complexity for very little practical benefit here.
 
 ## Website Redesign Project (planning as of September 2026)
 
@@ -328,22 +338,6 @@ still undecided.
       undercutting the "this is a real professional" trust the rest of
       the site is building. A single strong real photo (not necessarily
       video) is an acceptable lower-effort placeholder once available.
-
-### champsentertainment.com — visual redesign
-
-- [ ] **Convert all ALL-CAPS heading text to sentence case** across all
-      18 pages — roughly 80–100 individual heading strings, hardcoded
-      directly in each page's HTML (not CSS `text-transform`, confirmed
-      by checking `css/styles.css`). **Includes the FAQ question text**
-      inside each `.faq-question` button — explicitly in scope, not an
-      exception. Not started yet; sizeable enough to deserve its own
-      pass rather than being rushed alongside other work.
-- [ ] *(Open question, not yet decided)* Should the About page go
-      further into a full blog-post-style structure (a dateline, a
-      hero-subtitle tagline, etc.)? The section color-flash removal
-      already gets most of the way to "reads like a blog post" on its
-      own — worth deciding after seeing the current version live
-      whether it's worth pushing further.
 
 ### champsdj.com — changes (lower priority; business site work comes first)
 
@@ -384,11 +378,9 @@ Entertainment LLC, collected September 2026):
 
 ### Remaining order of operations
 
-1. All-caps → sentence case conversion (including FAQ questions)
-2. Decide on the About page blog-template question above
-3. Hero video/photo swap — whenever real wedding footage/photos are
+1. Hero video/photo swap — whenever real wedding footage/photos are
    available
-4. champsdj.com Friends section replacement + footer copy fix
+2. champsdj.com Friends section replacement + footer copy fix
    (lower priority, business site comes first)
 
 ### Outstanding notes and open questions
@@ -397,10 +389,4 @@ Entertainment LLC, collected September 2026):
   `presskit.html`'s redirect target (and the direct link from
   champsdj.com's Book section) both need updating to the new
   filename/URL.
-- **About page structure:** see the open question above under visual
-  redesign — not yet decided whether to push further into a full
-  blog-post layout.
-- **`--gold-bright` (`#e8c400`):** reserved in the Branding Kit but not
-  used anywhere in production CSS yet — undecided whether it ever
-  needs a purpose or should just stay reserved.
 

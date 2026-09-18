@@ -802,6 +802,11 @@ section {
 	border-color: var(--gold);
 }
 
+.pricing-card.premium {
+	border-color: var(--gold-bright);
+	box-shadow: 0 0 24px rgba(232, 196, 0, 0.35), 0 0 48px rgba(232, 196, 0, 0.15);
+}
+
 .pricing-card-badge {
 	position: absolute;
 	top: -14px;
@@ -816,6 +821,11 @@ section {
 	border-radius: 999px;
 	text-transform: uppercase;
 	white-space: nowrap;
+}
+
+.pricing-card-badge.premium {
+	background: var(--gold-bright);
+	box-shadow: 0 0 12px rgba(232, 196, 0, 0.6);
 }
 
 .pricing-card-name {
