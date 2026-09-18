@@ -145,73 +145,181 @@ sync between pages over time. It was consolidated into the single
 (now gone) was an earlier, unrelated proof-of-concept and is not part of
 this history.
 
+In September 2026, the site went through a full content and visual
+redesign. On the content side: champsentertainment.com was split from
+champsdj.com (the separate DJ/artist site) into a dedicated business
+brand — the Music page was cut, the Parties page became Events, the
+video gallery became "Event Highlights" with club/rave content
+removed, the About page was reframed around booking rather than DJ
+history, the press kit page became a redirect to the PDF, and the
+Reviews page was rebuilt with real client testimonials. On the visual
+side: the alternating black/gold scroll-flash was removed sitewide in
+favor of a calm, static section rhythm; a real pricing-card, review-card,
+FAQ-accordion, and quote-callout component system replaced plain
+emoji-bulleted text; the typeface changed from Nunito to a Bricolage
+Grotesque/Public Sans pairing; and body text alignment shifted from
+centered to left for anything content-heavy. See **Branding Kit**
+below for the resulting design reference, and **Website Redesign
+Project** for what's still open.
+
+## Branding Kit
+
+A reference for colors, type, spacing, and component patterns — built
+directly from `css/styles.css`. Use this instead of re-deriving design
+decisions from scratch each time.
+
+**Sister brand:** champsdj.com is Champs' separate artist-facing site
+(mixes, releases, live sets). The two intentionally share design DNA
+(dark backgrounds, a gold accent, a real card system, deliberate type
+pairing) without being visually identical — champsdj.com is more
+energetic and nightlife-coded; this brand is calmer and more premium.
+
+### Color
+
+Single dark theme — this brand does not have a light mode.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--bg` | `#0a0a08` | Page background |
+| `--bg-raised` | `#131310` | Card/panel background (pricing cards, review cards, FAQ items, contact form, highlight cards) |
+| `--gold` | `#C8A700` | Primary accent — headlines, links, active nav, button borders, card borders. **This exact value matches the logo image assets.** Do not substitute champsdj.com's gold (`#d8bb1b`) — they're deliberately different. |
+| `--gold-bright` | `#e8c400` | Reserved for future hover/active states, not yet wired into production CSS |
+| `--ink` | `#f5f2e6` | Primary text — a soft off-white, not pure `#fff` |
+| `--ink-dim` | `#b8b39f` | Secondary/muted text — captions, review locations, form disclaimers |
+| `--line` | `#2a2a20` | Borders and section dividers |
+
+A note on why sections don't flash gold anymore: the original site
+alternated section backgrounds to solid gold on scroll. That's gone —
+sections now use a single consistent `--bg`, separated by a subtle
+`--line`-colored top border. If a color accent between sections is
+ever wanted again, use `--bg-raised` for a raised-panel feel instead
+of a jarring color swap.
+
+### Typography
+
+Two typefaces, both loaded from Google Fonts (see the single `<link>`
+in every page's `<head>`):
+
+- **Bricolage Grotesque** (weights 600–800) — the display face. Used
+  for `h1`, `h2`, `h3`, and short punchy UI moments (pricing card
+  names, quote-callout text).
+- **Public Sans** (weights 400–600) — the body face. Used for
+  paragraphs, list items, form fields, review quotes, FAQ answers —
+  anything meant to be read rather than glanced at.
+
+Why this pairing: Bricolage Grotesque has real character and
+confidence without being playful (unlike the old Nunito, which read
+soft and bubbly at large bold sizes — close enough to Comic Sans MS
+that it undermined the "premium wedding business" positioning). Public
+Sans is clean and highly legible at paragraph size without being a
+generic default. Together they lean toward the same confident-modern
+register as champsdj.com's Archivo Black/Oswald pairing, using
+entirely different actual typefaces — the two sites read as siblings,
+not clones.
+
+**Casing:** headlines are sentence case, not ALL CAPS — "Wedding
+packages," not "WEDDING PACKAGES." All-caps is reserved for small
+structural UI text where it adds crispness without hurting legibility:
+nav links, buttons, eyebrow/label text (e.g. a pricing card's "MOST
+POPULAR" badge). At headline size, all-caps just shouts and is
+measurably slower to read (capital letters remove the
+ascender/descender shape cues your brain uses for fast word
+recognition). *(Site-wide headline casing conversion, including FAQ
+question text, is still pending — see Website Redesign Project
+below.)*
+
+**Type scale:**
+
+| Style | Font | Size | Weight |
+|---|---|---|---|
+| Hero headline (h1) | Bricolage Grotesque | 50px | 800 |
+| Section headline (h2) | Bricolage Grotesque | 32px | 700 |
+| Subsection (h3) | Bricolage Grotesque | 24px | 700 |
+| Paragraph | Public Sans | 18px | 400 |
+| Small/caption | Public Sans | 14px | 400 |
+| Eyebrow label | Public Sans | 13px | 600 |
+
+### Alignment
+
+The rule: **content-heavy text is left-aligned; short copy stays
+centered.**
+
+- Left-align: paragraphs of prose (About page narrative, service
+  descriptions), FAQ answers, review quotes, list items.
+- Stay centered: hero taglines, the homepage's DJ quote-callouts,
+  short CTAs/buttons, card names inside a centered card grid.
+
+A consistent left edge is what your eye anchors to across multiple
+lines — centered paragraphs make your eye hunt for the start of each
+new line, which gets fatiguing past a sentence or two. Short, punchy
+text (a headline, a button, a pull-quote) doesn't have that problem,
+and centering it is a legitimate way to create visual focus rather
+than a default applied out of habit everywhere.
+
+### Spacing & radius
+
+A small, deliberate scale rather than one-off pixel values:
+
+| Token | Value | Usage |
+|---|---|---|
+| `space-1` | 8px | Tight internal gaps (icon-to-text, list item padding) |
+| `space-2` | 16px | Component-internal spacing (card gaps, form field gaps) |
+| `space-3` | 24px | Card padding, grid gaps between cards |
+| `space-4` | 40px | Spacing between related content blocks within a section |
+| `space-5` | 56px | Section padding (top/bottom) — the rhythm between major page sections |
+
+| Token | Value | Usage |
+|---|---|---|
+| `radius-sm` | 8px | Buttons, FAQ accordion items |
+| `radius-md` | 12px | Cards: pricing cards, review cards, blog cards, highlight cards, contact form card |
+
+### Component patterns
+
+All defined in `css/styles.css`, all built on the tokens above:
+
+- **Pricing card** (`.pricing-card` / `.pricing-grid`) — name, price,
+  feature checklist, CTA. Supports a `.featured` variant with a gold
+  badge, and a `.pricing-grid-2` variant for 2-item layouts.
+- **Review card** (`.review-card` / `.review-grid`) — large gold star
+  rating, name, location, quote with a gold left-border accent.
+- **FAQ accordion** (`.faq-item` / `.faq-question` / `.faq-answer`) —
+  gold-bordered, question background flips to solid gold with black
+  text when expanded, answer stays in the card's normal dark coloring,
+  chevron rotates 180° on open/close.
+- **Quote callout** (`.quote-callout`) — bordered top/bottom divider
+  for the homepage's DJ quotes.
+- **Blog card** (`.blog-card` / `.blog-grid`) — the blog landing
+  page's post cards.
+- **Check list** (`.check-list`) — plain checkmark list, replacing
+  emoji ✅ bullets.
+- **Highlight card** (`.highlight-card`) — wraps each Event Highlights
+  entry.
+- **Contact card** (`.contact-card`) — wraps the contact form.
+
+### Assets
+
+Logo images live in `Images/` in this repo
+(`Champs_Ent_Logo_Gold_social2_transparent.png` and variants). No
+separate asset library exists yet — this is the single source.
+
+### Not yet decided
+
+- Whether `--gold-bright` (`#e8c400`) actually gets used anywhere, or
+  stays reserved
+- A formal icon set (currently Font Awesome via CDN, not an owned
+  icon library)
+- Any of this applied to champsdj.com itself — this section documents
+  champsentertainment.com only
+
 ## Website Redesign Project (planning as of September 2026)
 
-### Why
-
-The site originally had to serve two identities at once: Champs
-Entertainment the bookable business, and Champs the DJ/producer. Now
-that **champsdj.com** exists as its own site dedicated to the DJ/artist
-side (mixes, releases, socials, live sets), champsentertainment.com no
-longer needs to carry that weight. The two sites are being repositioned
-as **sister sites** with a clean split:
-
-- **champsentertainment.com** — the business. Weddings, corporate/community
-  events, rentals, recordings. The goal on every page is "will this help
-  someone decide to book."
-- **champsdj.com** — the artist. Mixes, releases, live sets, socials,
-  club/festival bookings. The goal is showcasing the music and the
-  performer.
-
-They should feel like two coordinated sibling brands, not two unrelated
-projects. champsdj.com (built later) already has a stronger visual
-system than champsentertainment.com currently does — real CSS custom
-properties, a disciplined type pairing (Archivo Black / Oswald / Inter),
-a consistent card-grid pattern, a scrolling ticker, animated EQ bars.
-**The champsentertainment.com visual redesign should use champsdj.com as
-a jumping-off point**: borrow the underlying bones (card system, type
-discipline, real design tokens) while giving champsentertainment.com its
-own more premium/elegant tone, distinct from champsdj.com's more
-energetic, nightlife-coded feel.
+Everything below is what's still open. Settled work is summarized in
+**History** above and reflected in **Branding Kit**; this list only
+shows unfinished checklist items, unresolved questions, and anything
+still undecided.
 
 ### champsentertainment.com — content changes
 
-- [x] **Cut the Music/Mixes page entirely.** Someone shopping for a
-      wedding DJ is deciding on trust, not taste — they're not
-      auditioning tracks the way a club booker would. Fold 1–2 short
-      embedded clips directly into the Weddings/Events pages instead
-      (as supporting proof, not a destination), and link out to
-      champsdj.com for anyone who wants the full music/mix experience.
-- [x] **Retool the video/gallery page → rename to "Event Highlights."**
-      Populate with wedding/corporate footage only (first dances,
-      reception floors, the VegFest gig) — cut club/rave clips
-      entirely, that content lives on champsdj.com now. **Blocked on
-      the actual set/highlight links/clips being provided to feature**
-      — page structure can be built ahead of that, content slotted in
-      once provided.
-- [x] **Rename Parties → Events.** Broaden framing past "party" to
-      include corporate and community work (coffee shop gigs, VegFest),
-      not just nightlife-adjacent parties.
-- [x] **Retool the About page copy** away from "cool gigs Champs has
-      played" and toward "why book Champs Entertainment" — business-
-      first framing, not DJ-persona framing. Add a line/section linking
-      out to champsdj.com for anyone curious about the club sets and
-      original music side (see cross-linking below).
-- [x] **Press kit page (`presskit.html`): turn into a redirect, don't
-      delete.** It's already indexed by Google. Point the redirect
-      directly at the PDF (`files/Champs_PressKit2026.pdf`) rather than
-      leaving a dead page. **Note for 2027:** when a new press kit PDF
-      is generated, the redirect target (and the direct link from
-      champsdj.com's Book section) both need updating to the new
-      filename/URL.
-- [x] **Reviews page rebuild.** Drop the old Google-auto-import +
-      Peerspace/Instagram sections structure. Replace with 3 real,
-      hand-picked reviews (sourced below), presented well rather than
-      padded to look like more than it is.
-- [x] **Cross-link to champsdj.com.** Currently one-directional
-      (champsdj.com links to champsentertainment.com, nothing points
-      back). Add a line in the About page: something like "Curious
-      about Champs' club sets and original music? Visit champsdj.com."
 - [ ] **Hero video swap (wedding footage instead of club footage) —
       SHELVED for now**, pending real photo/video being available from an
       actual wedding he's played. Decision made: keep current club
@@ -221,24 +329,21 @@ energetic, nightlife-coded feel.
       the site is building. A single strong real photo (not necessarily
       video) is an acceptable lower-effort placeholder once available.
 
-### champsentertainment.com — visual redesign (once content changes above are done)
+### champsentertainment.com — visual redesign
 
-- [x] Stop center-aligning everything by default (called out
-      specifically: the Weddings pricing section currently uses emoji
-      as bullet markers, which don't align consistently across
-      fonts/OS and reads amateurish).
-- [x] **Weddings page: convert pricing from emoji-bulleted text into
-      proper pricing panels/cards** — one card per tier (Party Starter /
-      People's Choice / Total Package), each with name, price range, and
-      a clean feature list. Easier to compare, easier to scan, looks
-      intentional instead of accidental.
-- [x] **FAQ page: convert from alternating black/gold sections into an
-      accordion.** Short Q&A content in the current alternating-section
-      layout produces a rapid zebra-stripe effect with nothing to anchor
-      the eye. Collapsed-by-default accordion solves the striping and
-      makes the page feel shorter/less overwhelming at a glance.
-- [x] Pull visual/structural inspiration from champsdj.com's existing
-      design system (see "Why" above) rather than starting from zero.
+- [ ] **Convert all ALL-CAPS heading text to sentence case** across all
+      18 pages — roughly 80–100 individual heading strings, hardcoded
+      directly in each page's HTML (not CSS `text-transform`, confirmed
+      by checking `css/styles.css`). **Includes the FAQ question text**
+      inside each `.faq-question` button — explicitly in scope, not an
+      exception. Not started yet; sizeable enough to deserve its own
+      pass rather than being rushed alongside other work.
+- [ ] *(Open question, not yet decided)* Should the About page go
+      further into a full blog-post-style structure (a dateline, a
+      hero-subtitle tagline, etc.)? The section color-flash removal
+      already gets most of the way to "reads like a blog post" on its
+      own — worth deciding after seeing the current version live
+      whether it's worth pushing further.
 
 ### champsdj.com — changes (lower priority; business site work comes first)
 
@@ -277,371 +382,25 @@ Entertainment LLC, collected September 2026):
    and can read the room. We would love to have him back! Thank you
    Matt"* — nonprofit/organizational event.
 
-### Suggested order of operations
+### Remaining order of operations
 
-1. Content decisions (this list) — **done**
-2. champsentertainment.com content changes (cut Music page, retool
-   Gallery → Event Highlights structure, rename Parties → Events,
-   retool About copy, presskit.html → redirect, add cross-link to
-   champsdj.com) — **done, September 2026**
-3. Reviews page rebuild using the sourced reviews above — **done,
-   September 2026**
-4. champsentertainment.com visual redesign (pricing cards, FAQ
-   accordion, general de-centering, drawing from champsdj.com's design
-   system) — **done, September 2026**
-5. Hero video/photo swap — whenever real wedding footage/photos are
+1. All-caps → sentence case conversion (including FAQ questions)
+2. Decide on the About page blog-template question above
+3. Hero video/photo swap — whenever real wedding footage/photos are
    available
-6. champsdj.com Friends section replacement + footer copy fix
-      (lower priority, business site comes first)
+4. champsdj.com Friends section replacement + footer copy fix
+   (lower priority, business site comes first)
 
-### Notes from executing steps 2 & 3
+### Outstanding notes and open questions
 
-- `events.html` is a new file (renamed from `parties.html`).
-  `parties.html` now redirects to it, matching the existing
-  `media.html`/`services.html` redirect-stub pattern, to preserve any
-  existing links/SEO equity rather than leaving a dead page.
-- `music.html` now redirects to `https://champsdj.com/#mixes` — the
-  wedding-appropriate mix embed (SoundCloud playlist) that used to live
-  there is now embedded directly in `weddings.html` instead, per the
-  "fold 1-2 clips into the Weddings/Events pages" plan.
-- `presskit.html` now redirects straight to the PDF, as planned.
-- Gallery page ("Event Highlights") kept 5 of its original 11 video
-  sections (Yinzers Fake Wedding, Venango Pride, Spigolo, the DJs
-  Against Apartheid fundraiser, Colombino) and cut the 6 club/rave/
-  DJ-persona ones. This wasn't actually blocked on new content the way
-  originally expected — the existing gallery already had enough
-  wedding/corporate/community-appropriate material to retool with
-  immediately. More clips can still be added later.
-- Found and removed a dead `fancybox` lightbox library (CSS + 2 script
-  tags) on the old gallery page that was loading but never actually
-  used anywhere in the markup.
-- The About page rewrite kept the inclusivity statement and the
-  wedding-availability messaging near-verbatim (genuinely good content,
-  no reason to touch it), and kept the "MY EXPERIENCE" bullet list
-  structure, just swapped out the EDC Discord Music Night LIVE / Ibiza
-  Stardust Radio residency / Pittsburgh Open Decks bullets for
-  business-relevant ones (wedding/event booking history, production
-  capabilities).
-- Reviews page now uses a real card grid (`.review-card` /
-  `.review-grid` in `css/styles.css`) instead of the old plain-text
-  layout with manual `</br>` line breaks.
+- **2027 reminder:** when a new press kit PDF is generated,
+  `presskit.html`'s redirect target (and the direct link from
+  champsdj.com's Book section) both need updating to the new
+  filename/URL.
+- **About page structure:** see the open question above under visual
+  redesign — not yet decided whether to push further into a full
+  blog-post layout.
+- **`--gold-bright` (`#e8c400`):** reserved in the Branding Kit but not
+  used anywhere in production CSS yet — undecided whether it ever
+  needs a purpose or should just stay reserved.
 
-### Notes from executing step 4 (visual redesign)
-
-**The scroll color-flash is completely gone.** `.alt-section` and
-`.alt-dark` are still used as class names in the markup (to avoid
-touching every page's HTML), but their CSS meaning changed entirely:
-sections are now static, with a subtle `var(--line)` top border for
-rhythm instead of flashing gold on scroll. This one CSS change fixed
-the "black and yellow striping" complaint sitewide, including on
-`about.html` and every blog post, without editing those files
-individually.
-
-**New design tokens, borrowed from champsdj.com.** `css/styles.css`'s
-`:root` now uses the same token *names* as champsdj.com
-(`--bg`, `--bg-raised`, `--ink`, `--ink-dim`, `--line`), and the same
-*values* for all of them except `--gold`, which stays this site's own
-`#C8A700` to match the existing logo image assets rather than
-champsdj.com's slightly different gold. This is the actual mechanism
-behind "use champsdj.com as a jumping-off point for the redesign" —
-shared bones, distinct brand color.
-
-**A real bug this caused, found and fixed:** `.text-dark` (used for a
-few bullet-point icons on `about.html` and `rentals.html`) was
-originally black-on-black-by-default, meant to only become visible
-once the old gold flash triggered. Removing the flash would have made
-those icons permanently invisible. Fixed by switching them to
-`.text-gold`, matching the identical icon pattern already used
-correctly elsewhere (weddings.html, events.html).
-
-**New reusable components added to `css/styles.css`:**
-- `.pricing-card` / `.pricing-grid` (with a `.featured` badge variant
-  and a `.pricing-grid-2` variant for 2-item layouts) — used on
-  weddings, events, recordings, and rentals
-- `.check-list` — a plain CSS checkmark list, replacing emoji ✅
-  bullets sitewide
-- `.faq-item` / `.faq-question` / `.faq-answer` — the FAQ accordion
-- `.quote-callout` — the DJ-quote "section divider" treatment on
-  index.html
-- `.highlight-card` — wraps each entry on the Event Highlights page
-- `.contact-card` — wraps the contact form
-
-**Pricing pages (weddings/events/recordings/rentals):** all four
-converted from emoji-bulleted text dumps into pricing cards, per your
-"these four were basically copy-pasted from weddings.html so keep
-that shared vibe" note. Weddings' "People's Choice" tier got the
-`.featured` badge since Champs' own copy already calls it the
-middle-and-most-popular option. Rentals got the specific
-Audio/Speakers, Lighting, and "DJ Gear & Mixers" categories you asked
-for (Pioneer DJ controllers landed in the last one since they're DJ
-gear, not literally mixers). Also fixed while proofreading: "Audio
-Records" → "Audio Recorder" (Zoom H1), a dropped word in rentals.html
-("accommodate your any reasonable" → "accommodate any reasonable"),
-and two other small grammar fixes on recordings.html.
-
-**Reviews page:** stars went from 15px to 28px with letter-spacing so
-they actually read as a rating at a glance, reviewer names went from
-plain bold text to 22px/800-weight, and the "Wedding / Community Event
-/ Nonprofit Event" category labels are gone entirely — just name, then
-location on the line below, as asked. Also added a subtle gold
-left-border on the quote text itself for a touch of editorial polish.
-
-**FAQ accordion:** built exactly as described — collapsed by default,
-gold border around each item, question background flips to solid gold
-with black text when expanded, the answer stays in the collapsed
-question's normal dark coloring, and the chevron icon rotates 180° on
-open/close. All 11 existing questions carried over with their original
-answers untouched.
-
-**About page:** reordered per your note — welcome line, photo, "My
-name is Matthew Burns..."/thank-you, *then* the inclusivity and
-wedding-availability paragraphs. Content itself wasn't touched, only
-the order. Didn't do a full structural rebuild into the literal blog
-template (dateline, hero-subtitle tagline, etc.) since the section
-color-flash removal already gets most of the way to "reads like a
-blog post" on its own — flagging this as an easy follow-up if you want
-it to go further once you've seen the current version live.
-
-**Index page quotes:** the four DJ quotes (Carl Cox, Steve Aoki,
-Fatboy Slim, Mix Master Mike) were previously marked up as `<h2>`
-tags, which is why they looked identical to actual section headings
-instead of standing out as dividers. Converted to a proper
-`.quote-callout` component: bordered top/bottom, larger italic gold
-text, attribution on its own line.
-
-**Event Highlights (gallery.html):** the 5 remaining entries (after
-the club/rave cut in step 2) each now sit in their own bordered card
-instead of plain stacked text with a jarring alt-section wrapper
-around some of them. The old `.alt-section.alt-dark` wrappers on 3 of
-the 5 entries were removed entirely in favor of the card treatment,
-since a card and a full-bleed section flash don't layer well visually.
-
-**Contact page:** the form now sits inside a `.contact-card` (dark
-raised background, bordered, capped width) instead of floating
-directly on the page background, consistent with every other card on
-the site now.
-
-**404 page:** rewritten with a wedding pun theme per your request —
-"LEFT AT THE ALTAR" as the headline, "This page never made it down the
-aisle," cold-feet/open-bar jokes, and a "Take Me Back to the Dance
-Floor" button home. Title/OG/Twitter meta tags updated to match; the
-page is still `noindex` as before.
-
-**thankyou.html:** no changes needed — it never used the alt-section
-pattern, so it was already visually consistent with the rest of the
-redesign once the CSS foundation changed.
-
-**Blog posts:** no changes needed either. They already used the card
-system on the landing page and the same `.alt-section` markup as every
-other page in their body content, so the CSS fix alone cleaned them up
-completely — verified this directly (grepped all 5 posts + the landing
-page for leftover `bottom-cta`/`in-view`/`text-dark` references: zero
-found).
-
-**What's still open from the original ask:** the hero video swap
-(shelved, waiting on real wedding footage — unrelated to this pass)
-and everything on the champsdj.com side (Friends section replacement,
-footer copy fix) — both lower priority per your own ordering, and
-untouched this session.
-
-### Branding Kit
-
-A reference for colors, type, spacing, and component patterns — built
-directly from `css/styles.css`. Use this instead of re-deriving design
-decisions from scratch each time.
-
-**Sister brand:** champsdj.com is Champs' separate artist-facing site
-(mixes, releases, live sets). The two intentionally share design DNA
-(dark backgrounds, a gold accent, a real card system, deliberate type
-pairing) without being visually identical — champsdj.com is more
-energetic and nightlife-coded; this brand is calmer and more premium.
-
-#### Color
-
-Single dark theme — this brand does not have a light mode.
-
-| Token | Value | Usage |
-|---|---|---|
-| `--bg` | `#0a0a08` | Page background |
-| `--bg-raised` | `#131310` | Card/panel background (pricing cards, review cards, FAQ items, contact form, highlight cards) |
-| `--gold` | `#C8A700` | Primary accent — headlines, links, active nav, button borders, card borders. **This exact value matches the logo image assets.** Do not substitute champsdj.com's gold (`#d8bb1b`) — they're deliberately different. |
-| `--gold-bright` | `#e8c400` | Reserved for future hover/active states, not yet wired into production CSS |
-| `--ink` | `#f5f2e6` | Primary text — a soft off-white, not pure `#fff` |
-| `--ink-dim` | `#b8b39f` | Secondary/muted text — captions, review locations, form disclaimers |
-| `--line` | `#2a2a20` | Borders and section dividers |
-
-A note on why sections don't flash gold anymore: the original site
-alternated section backgrounds to solid gold on scroll. That's gone —
-sections now use a single consistent `--bg`, separated by a subtle
-`--line`-colored top border. If a color accent between sections is
-ever wanted again, use `--bg-raised` for a raised-panel feel instead
-of a jarring color swap.
-
-#### Typography
-
-Two typefaces, both loaded from Google Fonts (see the single `<link>`
-in every page's `<head>`):
-
-- **Bricolage Grotesque** (weights 600–800) — the display face. Used
-  for `h1`, `h2`, `h3`, and short punchy UI moments (pricing card
-  names, quote-callout text).
-- **Public Sans** (weights 400–600) — the body face. Used for
-  paragraphs, list items, form fields, review quotes, FAQ answers —
-  anything meant to be read rather than glanced at.
-
-Why this pairing: Bricolage Grotesque has real character and
-confidence without being playful (unlike the old Nunito, which read
-soft and bubbly at large bold sizes — close enough to Comic Sans MS
-that it undermined the "premium wedding business" positioning). Public
-Sans is clean and highly legible at paragraph size without being a
-generic default. Together they lean toward the same confident-modern
-register as champsdj.com's Archivo Black/Oswald pairing, using
-entirely different actual typefaces — the two sites read as siblings,
-not clones.
-
-**Casing:** headlines are sentence case, not ALL CAPS — "Wedding
-packages," not "WEDDING PACKAGES." All-caps is reserved for small
-structural UI text where it adds crispness without hurting legibility:
-nav links, buttons, eyebrow/label text (e.g. a pricing card's "MOST
-POPULAR" badge). At headline size, all-caps just shouts and is
-measurably slower to read (capital letters remove the
-ascender/descender shape cues your brain uses for fast word
-recognition). *(Site-wide headline casing conversion, including FAQ
-question text, is still pending — see the outstanding-work note
-below.)*
-
-**Type scale:**
-
-| Style | Font | Size | Weight |
-|---|---|---|---|
-| Hero headline (h1) | Bricolage Grotesque | 50px | 800 |
-| Section headline (h2) | Bricolage Grotesque | 32px | 700 |
-| Subsection (h3) | Bricolage Grotesque | 24px | 700 |
-| Paragraph | Public Sans | 18px | 400 |
-| Small/caption | Public Sans | 14px | 400 |
-| Eyebrow label | Public Sans | 13px | 600 |
-
-#### Alignment
-
-The rule: **content-heavy text is left-aligned; short copy stays
-centered.**
-
-- Left-align: paragraphs of prose (About page narrative, service
-  descriptions), FAQ answers, review quotes, list items.
-- Stay centered: hero taglines, the homepage's DJ quote-callouts,
-  short CTAs/buttons, card names inside a centered card grid.
-
-A consistent left edge is what your eye anchors to across multiple
-lines — centered paragraphs make your eye hunt for the start of each
-new line, which gets fatiguing past a sentence or two. Short, punchy
-text (a headline, a button, a pull-quote) doesn't have that problem,
-and centering it is a legitimate way to create visual focus rather
-than a default applied out of habit everywhere.
-
-#### Spacing & radius
-
-A small, deliberate scale rather than one-off pixel values:
-
-| Token | Value | Usage |
-|---|---|---|
-| `space-1` | 8px | Tight internal gaps (icon-to-text, list item padding) |
-| `space-2` | 16px | Component-internal spacing (card gaps, form field gaps) |
-| `space-3` | 24px | Card padding, grid gaps between cards |
-| `space-4` | 40px | Spacing between related content blocks within a section |
-| `space-5` | 56px | Section padding (top/bottom) — the rhythm between major page sections |
-
-| Token | Value | Usage |
-|---|---|---|
-| `radius-sm` | 8px | Buttons, FAQ accordion items |
-| `radius-md` | 12px | Cards: pricing cards, review cards, blog cards, highlight cards, contact form card |
-
-#### Component patterns
-
-All defined in `css/styles.css`, all built on the tokens above:
-
-- **Pricing card** (`.pricing-card` / `.pricing-grid`) — name, price,
-  feature checklist, CTA. Supports a `.featured` variant with a gold
-  badge, and a `.pricing-grid-2` variant for 2-item layouts.
-- **Review card** (`.review-card` / `.review-grid`) — large gold star
-  rating, name, location, quote with a gold left-border accent.
-- **FAQ accordion** (`.faq-item` / `.faq-question` / `.faq-answer`) —
-  gold-bordered, question background flips to solid gold with black
-  text when expanded, answer stays in the card's normal dark coloring,
-  chevron rotates 180° on open/close.
-- **Quote callout** (`.quote-callout`) — bordered top/bottom divider
-  for the homepage's DJ quotes.
-- **Blog card** (`.blog-card` / `.blog-grid`) — the blog landing
-  page's post cards.
-- **Check list** (`.check-list`) — plain checkmark list, replacing
-  emoji ✅ bullets.
-- **Highlight card** (`.highlight-card`) — wraps each Event Highlights
-  entry.
-- **Contact card** (`.contact-card`) — wraps the contact form.
-
-#### Assets
-
-Logo images live in `Images/` in this repo
-(`Champs_Ent_Logo_Gold_social2_transparent.png` and variants). No
-separate asset library exists yet — this is the single source.
-
-#### Not yet decided
-
-- Whether `--gold-bright` (`#e8c400`) actually gets used anywhere, or
-  stays reserved
-- A formal icon set (currently Font Awesome via CDN, not an owned
-  icon library)
-- Any of this applied to champsdj.com itself — this section documents
-  champsentertainment.com only
-
-### Notes from executing the typography & alignment follow-up (September 2026)
-
-Before this pass, every page loaded Nunito for both headings and body
-text, and paragraphs were force-centered by two separate `@media`
-rules in `css/styles.css` (one for desktop, one for mobile) — that
-turned out to be the actual mechanism behind the "everything feels
-centered" complaint, not something scattered page-by-page.
-
-**Typography, Option C from a 4-way comparison the site owner
-reviewed:**
-- Headings (`h1`/`h2`/`h3`) → **Bricolage Grotesque** (weights
-  600–800)
-- Body text → **Public Sans** (weights 400–600)
-- Both loaded via a single Google Fonts `<link>`, swapped in across
-  all 18 pages
-- Chosen over Nunito specifically because Nunito reads bubbly/
-  Comic-Sans-adjacent at large bold sizes — the opposite of the
-  "premium wedding business" positioning. Chosen over pairings closer
-  to champsdj.com's exact Archivo Black/Oswald because the goal was
-  shared *design DNA* between the sister sites, not a copy — Bricolage
-  Grotesque is a different display face with a similarly confident,
-  modern register.
-
-**Alignment:** the rule that's now documented in the Design System —
-content-heavy text (paragraphs, FAQ answers, review quotes, list
-items) is left-aligned; short copy (hero taglines, the homepage DJ
-quote-callouts, CTAs) stays centered. Implemented by changing the base
-`p` rule in both media queries from `text-align: center` to
-`text-align: left`, then adding explicit `text-align: center` back
-onto the specific short elements (`.hero-subtitle`, `.after-hero p`)
-that needed to stay centered despite the new default.
-
-**A bug introduced and caught in the same pass:** the font `<link>`
-swap was first written with a shell-escaping mistake that put literal
-backslashes into the URL (`wght@600;700;800\&family=...` instead of
-`\&` → `&`), which would have silently broken font loading on every
-page. Caught by grepping the actual file output rather than trusting
-the script that wrote it, fixed, and re-verified clean across all 18
-files.
-
-**Still outstanding:** the ALL-CAPS heading text itself (e.g. "WEDDING
-PACKAGES") is hardcoded directly in each page's HTML, not applied via
-CSS `text-transform` — confirmed by checking for `text-transform` in
-`css/styles.css` and finding only one unrelated rule (the pricing
-card's "MOST POPULAR" badge). Converting to sentence case therefore
-means rewriting roughly 80–100 individual heading strings by hand
-across all 18 pages, not a CSS-only change. **This includes the FAQ
-question text specifically** — currently all-caps inside each
-`.faq-question` button, confirmed as in-scope for the same pass rather
-than an exception. Deliberately not started in the same session as
-the font/alignment work to avoid a half-done conversion if the session
-ran out mid-pass — picking this up fresh is the plan.
