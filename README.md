@@ -139,36 +139,19 @@ much easier.
 ## History
 
 The site originally had CSS duplicated across a `<style>` block in every
-individual HTML file (~700–900 lines each), which had drifted out of
-sync between pages over time. It was consolidated into the single
-`css/styles.css` file described above. The old `css/styles.css` file
-(now gone) was an earlier, unrelated proof-of-concept and is not part of
-this history.
+individual HTML file, which had drifted out of sync between pages over
+time. It was consolidated into the single `css/styles.css` file
+described above.
 
 In September 2026, the site went through a full content and visual
-redesign. On the content side: champsentertainment.com was split from
-champsdj.com (the separate DJ/artist site) into a dedicated business
-brand — the Music page was cut, the Parties page became Events, the
-video gallery became "Event Highlights" with club/rave content
-removed, the About page was reframed around booking rather than DJ
-history, the press kit page became a redirect to the PDF, and the
-Reviews page was rebuilt with real client testimonials. On the visual
-side: the alternating black/gold scroll-flash was removed sitewide in
-favor of a calm, static section rhythm; a real pricing-card, review-card,
-FAQ-accordion, and quote-callout component system replaced plain
-emoji-bulleted text; the typeface changed from Nunito to a Bricolage
-Grotesque/Public Sans pairing; and body text alignment shifted from
-centered to left for anything content-heavy. Finally, all-caps
-headings across every page (including the FAQ question text) were
-converted to sentence case, matching the Branding Kit's casing rule;
-nav links, buttons, and labels were deliberately left in caps, as
-that rule intends. The About page's closing heading was also trimmed
-from "More than just music - an unforgettable experience!" to "More
-than just music" to cut a repeated word, and the Total Package tier on
-the Weddings page got a glowing "Deluxe" treatment using the
-`--gold-bright` token. See **Branding Kit** below for the resulting
-design reference, and **Website Redesign Project** for what's still
-open.
+redesign: champsentertainment.com was split from champsdj.com into a
+dedicated business-facing brand, several pages were cut, renamed, or
+reframed around booking rather than the DJ persona, and the visual
+design was overhauled — a real component system replaced ad-hoc
+emoji-bulleted text, the color/type/spacing system was formalized, and
+the site moved from all-caps everywhere to a deliberate casing rule.
+See **Branding Kit** below for the resulting design reference, and
+**Website Redesign Project** for what's still open.
 
 ## Branding Kit
 
@@ -339,28 +322,10 @@ still undecided.
       the site is building. A single strong real photo (not necessarily
       video) is an acceptable lower-effort placeholder once available.
 
-### champsdj.com — changes (lower priority; business site work comes first)
-
-- [ ] **Replace the "Friends" section** (currently EDC Discord
-      community content — off-brand once champsdj.com is purely the
-      Champs artist brand) **with two new sections**:
-  - "Recent Sets" recap feed — short recap items (photo + one line +
-    video link) for notable past gigs. Can cross-link to
-    champsentertainment.com blog posts that cover the same event (e.g.
-    the heatsignal FURNACE recap).
-  - "As Heard At" — a compact credibility strip of venues/events played.
-- [ ] **Footer copy fix:** currently reads "Reviews, Bookings & Press."
-      Once the press kit lives entirely on champsdj.com's own Book
-      section (already does — it links to the PDF directly), the
-      champsentertainment.com link no longer needs to imply it hosts
-      "Press." New footer text: **"Reviews & Bookings."**
-
 ### Remaining order of operations
 
 1. Hero video/photo swap — whenever real wedding footage/photos are
    available
-2. champsdj.com Friends section replacement + footer copy fix
-   (lower priority, business site comes first)
 
 ### Outstanding notes and open questions
 
@@ -369,41 +334,3 @@ still undecided.
   champsdj.com's Book section) both need updating to the new
   filename/URL.
 
-### Bug fixes and polish (September 2026, post-launch)
-
-Found and fixed after the redesign went live, reported from real
-mobile/live-site usage rather than caught in review:
-
-- **Mobile pricing card order was wrong on weddings.html.** The
-  `.featured` (People's Choice) card had `order: -1` for the mobile
-  single-column layout, but nothing accounted for the newer `.premium`
-  (Total Package) card added afterward — so on mobile the stacking
-  order came out as Most Popular, then cheapest, then most expensive,
-  which reads backwards. Fixed by giving `.premium` an explicit
-  `order: -2`, so mobile now stacks most expensive → most popular →
-  cheapest, top to bottom. Desktop was never affected (it doesn't use
-  `order` at all) and needed no change.
-- **FAQ accordion "stutter" on close, root cause found.** The old
-  implementation animated `max-height` from 0 to a fixed guessed value
-  (400px) but only listed `max-height` in the `transition` property —
-  `padding` was changing instantly, unanimated. That mismatch is what
-  produced the visible snap/stutter partway through closing. Rebuilt
-  using the `grid-template-rows: 0fr → 1fr` technique instead of a
-  guessed max-height: it animates the answer's *actual* content height
-  directly, so there's no fixed number to get wrong and no possible
-  mismatch between properties. Required adding one wrapper div
-  (`.faq-answer-inner`) inside each of the 11 FAQ answers to hold the
-  padding separately from the grid track that's animating.
-- **"How to book & next steps" trimmed on weddings, recordings, and
-  rentals** — each went from 3 paragraphs (with a lot of near-identical
-  wording about consultation calls and contracts) down to one tighter
-  paragraph covering the same real steps: fill out the contact form,
-  expect a quote and a call, sign a contract to lock in the date.
-  **events.html doesn't have this section at all**, so nothing to trim
-  there.
-- **Map-pin icon swapped for a check-circle** in every "Why choose
-  Champs Entertainment" bullet list (weddings, events, recordings,
-  rentals — 15 instances total). A location pin never made sense
-  semantically for bullets like "Professional Expertise" or
-  "Flexibility"; `fa-circle-check` reads as a clean benefits-list icon
-  instead.
