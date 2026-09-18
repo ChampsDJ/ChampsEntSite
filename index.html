@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<link rel="canonical" href="https://www.champsentertainment.com/">
 	<link rel="stylesheet" href="css/styles.css">
@@ -67,12 +67,7 @@
 
 						<a href="reviews.html">REVIEWS</a>
 						
-						<div class="nav-item has-submenu">
-							<a href="#" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
-								<div class="submenu">
-									<a href="gallery.html">EVENT HIGHLIGHTS</a>
-								</div>
-						</div>
+						<a href="gallery.html">HIGHLIGHTS</a>
 						
 						<a href="faq.html">FAQ</a>
 						<a href="blog/index.html">BLOG</a>
@@ -113,7 +108,10 @@
 		<div class="container">
 			<h2>ENTERTAINMENT EXPERIENCES</h2>
 			
-			<h2><i>“People don’t remember the songs you played, they remember how you made them feel.”</br>– Carl Cox</i></h2>
+			<div class="quote-callout">
+			<p>“People don’t remember the songs you played, they remember how you made them feel.”</p>
+			<cite>— Carl Cox</cite>
+		</div>
 			
 			<p>Can I let you in on a secret? When you hire someone to soundtrack your event, you're not just booking entertainment, you're designing the feeling of the most important day of your life. I understand that.</p>
 			<p>When potential clients reach out to me, they usually start by asking about music, which makes sense, music is what people tend to think about when thinking about a DJ.
@@ -125,7 +123,10 @@
 	<div class="container">
 		<h2>AN EXPERIENCE BUILT AROUND YOUR VIBE</h2>
 		
-		<h2><i>"A DJ is there to give people what they want. You have to feel what the crowd wants and do your best to provide it for them."</br>– Steve Aoki</i></h2>
+		<div class="quote-callout">
+			<p>"A DJ is there to give people what they want. You have to feel what the crowd wants and do your best to provide it for them."</p>
+			<cite>— Steve Aoki</cite>
+		</div>
 		
 		<p>Every event has a rhythm and vibe, it's my job to protect it.</p>
 		<p class="no-margin-bottom">I won't just be dropping tracks, I will be:</p>
@@ -144,7 +145,10 @@
 		<div class="container">
 			<h2>A PLANNING & TEAM-FIRST APPROACH</h2>
 			
-			<h2><i>"The DJ booth is not a place for personal taste, it’s where you take people on a journey."</br>– Fatboy Slim</i></h2>
+			<div class="quote-callout">
+			<p>"The DJ booth is not a place for personal taste, it’s where you take people on a journey."</p>
+			<cite>— Fatboy Slim</cite>
+		</div>
 			
 			<p>I don’t believe in cookie-cutter events.</p>
 			<p>Before we ever talk about music genres or lighting options, I want to understand:</p>
@@ -163,7 +167,10 @@
 	<div class="container">
 		<h2>CALM, PROFESSIONAL, PREPARED</h2>
 		
-		<h2><i>"I try to DJ like I'm playing a live instrument. I try to bring the energy and excitement of playing an instrument to what I do as a DJ."</br>– Mix Master Mike</i></h2>
+		<div class="quote-callout">
+			<p>"I try to DJ like I'm playing a live instrument. I try to bring the energy and excitement of playing an instrument to what I do as a DJ."</p>
+			<cite>— Mix Master Mike</cite>
+		</div>
 		
 		<p>Your event should feel exciting, not stressful.</p>
 		<p>I pride myself on being the steady presence clients can rely on. Someone who shows up prepared, communicates clearly, and adapts quickly when plans change.</p>
@@ -179,9 +186,6 @@
 		</div>
 	</section>
 	
-	<div class="bottom-cta">
-		<a class="contact-btn" href="contact.html">CONTACT</a>
-	</div>
 	
 	<script>
 		function toggleMenu() {
@@ -196,17 +200,6 @@
 			const parent = e.target.closest('.has-submenu');
 			parent.classList.toggle('open');
 		}
-	</script>
-	<script>
-		const sections = document.querySelectorAll('.alt-section');
-
-		const io = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  entry.target.classList.toggle('in-view', entry.isIntersecting);
-		});
-		}, { threshold: 0.35 });
-
-		sections.forEach(s => io.observe(s));
 	</script>
 	
 	<footer class="site-footer">
@@ -223,9 +216,10 @@
 		<div class="footer-right">
 			<div class="footer-links">
 				<a href="about.html">ABOUT</a>
-				<a href="weddings.html">WEDDINGS</a>
-				<a href="gallery.html">EVENT HIGHLIGHTS</a>
-				<a href="events.html">EVENTS</a>
+				<a href="reviews.html">REVIEWS</a>
+				<a href="gallery.html">HIGHLIGHTS</a>
+				<a href="faq.html">FAQ</a>
+				<a href="blog/index.html">BLOG</a>
 				<a href="contact.html">CONTACT</a>
 			</div>
 

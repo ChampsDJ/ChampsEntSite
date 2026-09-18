@@ -223,21 +223,21 @@ energetic, nightlife-coded feel.
 
 ### champsentertainment.com — visual redesign (once content changes above are done)
 
-- [ ] Stop center-aligning everything by default (called out
+- [x] Stop center-aligning everything by default (called out
       specifically: the Weddings pricing section currently uses emoji
       as bullet markers, which don't align consistently across
       fonts/OS and reads amateurish).
-- [ ] **Weddings page: convert pricing from emoji-bulleted text into
+- [x] **Weddings page: convert pricing from emoji-bulleted text into
       proper pricing panels/cards** — one card per tier (Party Starter /
       People's Choice / Total Package), each with name, price range, and
       a clean feature list. Easier to compare, easier to scan, looks
       intentional instead of accidental.
-- [ ] **FAQ page: convert from alternating black/gold sections into an
+- [x] **FAQ page: convert from alternating black/gold sections into an
       accordion.** Short Q&A content in the current alternating-section
       layout produces a rapid zebra-stripe effect with nothing to anchor
       the eye. Collapsed-by-default accordion solves the striping and
       makes the page feel shorter/less overwhelming at a glance.
-- [ ] Pull visual/structural inspiration from champsdj.com's existing
+- [x] Pull visual/structural inspiration from champsdj.com's existing
       design system (see "Why" above) rather than starting from zero.
 
 ### champsdj.com — changes (lower priority; business site work comes first)
@@ -288,7 +288,7 @@ Entertainment LLC, collected September 2026):
    September 2026**
 4. champsentertainment.com visual redesign (pricing cards, FAQ
    accordion, general de-centering, drawing from champsdj.com's design
-   system)
+   system) — **done, September 2026**
 5. Hero video/photo swap — whenever real wedding footage/photos are
    available
 6. champsdj.com Friends section replacement + footer copy fix
@@ -325,3 +325,186 @@ Entertainment LLC, collected September 2026):
 - Reviews page now uses a real card grid (`.review-card` /
   `.review-grid` in `css/styles.css`) instead of the old plain-text
   layout with manual `</br>` line breaks.
+
+### Notes from executing step 4 (visual redesign)
+
+**The scroll color-flash is completely gone.** `.alt-section` and
+`.alt-dark` are still used as class names in the markup (to avoid
+touching every page's HTML), but their CSS meaning changed entirely:
+sections are now static, with a subtle `var(--line)` top border for
+rhythm instead of flashing gold on scroll. This one CSS change fixed
+the "black and yellow striping" complaint sitewide, including on
+`about.html` and every blog post, without editing those files
+individually.
+
+**New design tokens, borrowed from champsdj.com.** `css/styles.css`'s
+`:root` now uses the same token *names* as champsdj.com
+(`--bg`, `--bg-raised`, `--ink`, `--ink-dim`, `--line`), and the same
+*values* for all of them except `--gold`, which stays this site's own
+`#C8A700` to match the existing logo image assets rather than
+champsdj.com's slightly different gold. This is the actual mechanism
+behind "use champsdj.com as a jumping-off point for the redesign" —
+shared bones, distinct brand color.
+
+**A real bug this caused, found and fixed:** `.text-dark` (used for a
+few bullet-point icons on `about.html` and `rentals.html`) was
+originally black-on-black-by-default, meant to only become visible
+once the old gold flash triggered. Removing the flash would have made
+those icons permanently invisible. Fixed by switching them to
+`.text-gold`, matching the identical icon pattern already used
+correctly elsewhere (weddings.html, events.html).
+
+**New reusable components added to `css/styles.css`:**
+- `.pricing-card` / `.pricing-grid` (with a `.featured` badge variant
+  and a `.pricing-grid-2` variant for 2-item layouts) — used on
+  weddings, events, recordings, and rentals
+- `.check-list` — a plain CSS checkmark list, replacing emoji ✅
+  bullets sitewide
+- `.faq-item` / `.faq-question` / `.faq-answer` — the FAQ accordion
+- `.quote-callout` — the DJ-quote "section divider" treatment on
+  index.html
+- `.highlight-card` — wraps each entry on the Event Highlights page
+- `.contact-card` — wraps the contact form
+
+**Pricing pages (weddings/events/recordings/rentals):** all four
+converted from emoji-bulleted text dumps into pricing cards, per your
+"these four were basically copy-pasted from weddings.html so keep
+that shared vibe" note. Weddings' "People's Choice" tier got the
+`.featured` badge since Champs' own copy already calls it the
+middle-and-most-popular option. Rentals got the specific
+Audio/Speakers, Lighting, and "DJ Gear & Mixers" categories you asked
+for (Pioneer DJ controllers landed in the last one since they're DJ
+gear, not literally mixers). Also fixed while proofreading: "Audio
+Records" → "Audio Recorder" (Zoom H1), a dropped word in rentals.html
+("accommodate your any reasonable" → "accommodate any reasonable"),
+and two other small grammar fixes on recordings.html.
+
+**Reviews page:** stars went from 15px to 28px with letter-spacing so
+they actually read as a rating at a glance, reviewer names went from
+plain bold text to 22px/800-weight, and the "Wedding / Community Event
+/ Nonprofit Event" category labels are gone entirely — just name, then
+location on the line below, as asked. Also added a subtle gold
+left-border on the quote text itself for a touch of editorial polish.
+
+**FAQ accordion:** built exactly as described — collapsed by default,
+gold border around each item, question background flips to solid gold
+with black text when expanded, the answer stays in the collapsed
+question's normal dark coloring, and the chevron icon rotates 180° on
+open/close. All 11 existing questions carried over with their original
+answers untouched.
+
+**About page:** reordered per your note — welcome line, photo, "My
+name is Matthew Burns..."/thank-you, *then* the inclusivity and
+wedding-availability paragraphs. Content itself wasn't touched, only
+the order. Didn't do a full structural rebuild into the literal blog
+template (dateline, hero-subtitle tagline, etc.) since the section
+color-flash removal already gets most of the way to "reads like a
+blog post" on its own — flagging this as an easy follow-up if you want
+it to go further once you've seen the current version live.
+
+**Index page quotes:** the four DJ quotes (Carl Cox, Steve Aoki,
+Fatboy Slim, Mix Master Mike) were previously marked up as `<h2>`
+tags, which is why they looked identical to actual section headings
+instead of standing out as dividers. Converted to a proper
+`.quote-callout` component: bordered top/bottom, larger italic gold
+text, attribution on its own line.
+
+**Event Highlights (gallery.html):** the 5 remaining entries (after
+the club/rave cut in step 2) each now sit in their own bordered card
+instead of plain stacked text with a jarring alt-section wrapper
+around some of them. The old `.alt-section.alt-dark` wrappers on 3 of
+the 5 entries were removed entirely in favor of the card treatment,
+since a card and a full-bleed section flash don't layer well visually.
+
+**Contact page:** the form now sits inside a `.contact-card` (dark
+raised background, bordered, capped width) instead of floating
+directly on the page background, consistent with every other card on
+the site now.
+
+**404 page:** rewritten with a wedding pun theme per your request —
+"LEFT AT THE ALTAR" as the headline, "This page never made it down the
+aisle," cold-feet/open-bar jokes, and a "Take Me Back to the Dance
+Floor" button home. Title/OG/Twitter meta tags updated to match; the
+page is still `noindex` as before.
+
+**thankyou.html:** no changes needed — it never used the alt-section
+pattern, so it was already visually consistent with the rest of the
+redesign once the CSS foundation changed.
+
+**Blog posts:** no changes needed either. They already used the card
+system on the landing page and the same `.alt-section` markup as every
+other page in their body content, so the CSS fix alone cleaned them up
+completely — verified this directly (grepped all 5 posts + the landing
+page for leftover `bottom-cta`/`in-view`/`text-dark` references: zero
+found).
+
+**What's still open from the original ask:** the hero video swap
+(shelved, waiting on real wedding footage — unrelated to this pass)
+and everything on the champsdj.com side (Friends section replacement,
+footer copy fix) — both lower priority per your own ordering, and
+untouched this session.
+
+### Branding kit
+
+The site now has a real Design System artifact documenting colors,
+type, spacing, radius, and every component pattern in production,
+built directly from `css/styles.css`. It lives at:
+
+**https://claude.ai/artifact/XCZ6qkvqCjrzPdMpKYMP4e**
+
+This is a live claude.ai artifact, not a file in this repo — open the
+link to read it. It's the reference to point at for future design
+decisions rather than re-deriving them from scratch each time.
+
+### Notes from executing the typography & alignment follow-up (September 2026)
+
+Before this pass, every page loaded Nunito for both headings and body
+text, and paragraphs were force-centered by two separate `@media`
+rules in `css/styles.css` (one for desktop, one for mobile) — that
+turned out to be the actual mechanism behind the "everything feels
+centered" complaint, not something scattered page-by-page.
+
+**Typography, Option C from a 4-way comparison the site owner
+reviewed:**
+- Headings (`h1`/`h2`/`h3`) → **Bricolage Grotesque** (weights
+  600–800)
+- Body text → **Public Sans** (weights 400–600)
+- Both loaded via a single Google Fonts `<link>`, swapped in across
+  all 18 pages
+- Chosen over Nunito specifically because Nunito reads bubbly/
+  Comic-Sans-adjacent at large bold sizes — the opposite of the
+  "premium wedding business" positioning. Chosen over pairings closer
+  to champsdj.com's exact Archivo Black/Oswald because the goal was
+  shared *design DNA* between the sister sites, not a copy — Bricolage
+  Grotesque is a different display face with a similarly confident,
+  modern register.
+
+**Alignment:** the rule that's now documented in the Design System —
+content-heavy text (paragraphs, FAQ answers, review quotes, list
+items) is left-aligned; short copy (hero taglines, the homepage DJ
+quote-callouts, CTAs) stays centered. Implemented by changing the base
+`p` rule in both media queries from `text-align: center` to
+`text-align: left`, then adding explicit `text-align: center` back
+onto the specific short elements (`.hero-subtitle`, `.after-hero p`)
+that needed to stay centered despite the new default.
+
+**A bug introduced and caught in the same pass:** the font `<link>`
+swap was first written with a shell-escaping mistake that put literal
+backslashes into the URL (`wght@600;700;800\&family=...` instead of
+`\&` → `&`), which would have silently broken font loading on every
+page. Caught by grepping the actual file output rather than trusting
+the script that wrote it, fixed, and re-verified clean across all 18
+files.
+
+**Still outstanding:** the ALL-CAPS heading text itself (e.g. "WEDDING
+PACKAGES") is hardcoded directly in each page's HTML, not applied via
+CSS `text-transform` — confirmed by checking for `text-transform` in
+`css/styles.css` and finding only one unrelated rule (the pricing
+card's "MOST POPULAR" badge). Converting to sentence case therefore
+means rewriting roughly 80–100 individual heading strings by hand
+across all 18 pages, not a CSS-only change. **This includes the FAQ
+question text specifically** — currently all-caps inside each
+`.faq-question` button, confirmed as in-scope for the same pass rather
+than an exception. Deliberately not started in the same session as
+the font/alignment work to avoid a half-done conversion if the session
+ran out mid-pass — picking this up fresh is the plan.

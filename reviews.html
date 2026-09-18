@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<link rel="canonical" href="https://www.champsentertainment.com/reviews.html">
 	<link rel="stylesheet" href="css/styles.css">
@@ -67,12 +67,7 @@
 
 						<a href="reviews.html" class="active">REVIEWS</a>
 						
-						<div class="nav-item has-submenu">
-							<a href="#" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
-								<div class="submenu">
-									<a href="gallery.html">EVENT HIGHLIGHTS</a>
-								</div>
-						</div>
+						<a href="gallery.html">HIGHLIGHTS</a>
 						
 						<a href="faq.html">FAQ</a>
 						<a href="blog/index.html">BLOG</a>
@@ -105,21 +100,21 @@
 				<div class="stars">★★★★★</div>
 				<p class="review-card-quote">"Champs put together the most incredible set for our cocktail hour and wedding reception AND was an amazing MC! Professional and easy to work with. The lighting really transformed our modestly decorated space and brought a lot of energy when we made the transition from Dinner Time to Dancing Time. We got a ton of compliments on the music selection throughout the event and Champs had me out on the dance floor most of the night!!"</p>
 				<span class="review-card-name">Edie G.</span>
-				<span class="review-card-context">Wedding, Pittsburgh, PA</span>
+				<span class="review-card-context">Pittsburgh, PA</span>
 			</div>
 
 			<div class="review-card">
 				<div class="stars">★★★★★</div>
 				<p class="review-card-quote">"Matt set up at a community party hosted at a local climbing gym! He was easy to communicate with during the coordination of the event. His music selection was fun and kept the energy groovin'!"</p>
 				<span class="review-card-name">Samantha Kummer</span>
-				<span class="review-card-context">Community Event, Pittsburgh, PA</span>
+				<span class="review-card-context">Pittsburgh, PA</span>
 			</div>
 
 			<div class="review-card">
 				<div class="stars">★★★★★</div>
 				<p class="review-card-quote">"Matt was awesome! Professional and can read the room. We would love to have him back! Thank you Matt."</p>
 				<span class="review-card-name">Justice for Animals</span>
-				<span class="review-card-context">Nonprofit Event, Pittsburgh, PA</span>
+				<span class="review-card-context">Pittsburgh, PA</span>
 			</div>
 		</div>
 
@@ -134,9 +129,6 @@
 		</div>
 	</div>
 
-	<div class="bottom-cta">
-		<a class="contact-btn" href="contact.html">CONTACT</a>
-	</div>
 
 	<script>
 		function toggleMenu() {
@@ -151,17 +143,6 @@
 			const parent = e.target.closest('.has-submenu');
 			parent.classList.toggle('open');
 		}
-	</script>
-	<script>
-		const sections = document.querySelectorAll('.alt-section');
-
-		const io = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  entry.target.classList.toggle('in-view', entry.isIntersecting);
-		});
-		}, { threshold: 0.35 });
-
-		sections.forEach(s => io.observe(s));
 	</script>
 	
 	<footer class="site-footer">
@@ -178,9 +159,10 @@
 		<div class="footer-right">
 			<div class="footer-links">
 				<a href="about.html">ABOUT</a>
-				<a href="weddings.html">WEDDINGS</a>
-				<a href="gallery.html">EVENT HIGHLIGHTS</a>
-				<a href="events.html">EVENTS</a>
+				<a href="reviews.html">REVIEWS</a>
+				<a href="gallery.html">HIGHLIGHTS</a>
+				<a href="faq.html">FAQ</a>
+				<a href="blog/index.html">BLOG</a>
 				<a href="contact.html">CONTACT</a>
 			</div>
 

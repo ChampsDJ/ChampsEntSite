@@ -35,7 +35,7 @@
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<link rel="canonical" href="https://www.champsentertainment.com/faq.html">
 	<link rel="stylesheet" href="css/styles.css">
@@ -66,12 +66,7 @@
 
 						<a href="reviews.html">REVIEWS</a>
 						
-						<div class="nav-item has-submenu">
-							<a href="#" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
-								<div class="submenu">
-									<a href="gallery.html">EVENT HIGHLIGHTS</a>
-								</div>
-						</div>
+						<a href="gallery.html">HIGHLIGHTS</a>
 						
 						<a href="faq.html" class="active">FAQ</a>
 						<a href="blog/index.html">BLOG</a>
@@ -99,128 +94,119 @@
     
 
 	<div class="container">
-		<div class="faq-question">
-			<h2>WHAT GENRES OF MUSIC DO YOU PLAY?</h2>
-		</div>
-		<div class="faq-answer">
-			<p>Our music library spans house, trance, techno, dubstep, drum & bass, hip-hop, rock, Top 40, and beyond. We program each event around your guests and adjust in real time to keep the floor full.</p>
-		</div>
-	</div>	
+		<div class="faq-list">
 
-	
-    <section class="alt-section alt-dark">
-		<div class="container">
-			<div class="faq-question">
-				<h2>CAN WE GIVE YOU SONGS WE WANT PLAYED?</h2>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>WHAT GENRES OF MUSIC DO YOU PLAY?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Our music library spans house, trance, techno, dubstep, drum & bass, hip-hop, rock, Top 40, and beyond. We program each event around your guests and adjust in real time to keep the floor full.</p>
+				</div>
 			</div>
-			
-			<div class="faq-answer">
-				<p>Of course. Share your must-plays, favorites, and do-not-play list. We’ll build them into a set that feels natural and keeps the momentum up.</p>
-			</div>
-		</div>
-    </section>
 
-	<div class="container">
-        <div class="faq-question">
-			<h2>DO YOU TAKE REQUESTS FROM GUESTS?</h2>
-		</div>
-		
-        <div class="faq-answer">
-            <p>Yes, unless you prefer otherwise. We filter requests through your vision for the night and the energy on the floor.</p>
-        </div>
-	</div>	
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>CAN WE GIVE YOU SONGS WE WANT PLAYED?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Of course. Share your must-plays, favorites, and do-not-play list. We'll build them into a set that feels natural and keeps the momentum up.</p>
+				</div>
+			</div>
 
-	<section class="alt-section alt-dark">
-		<div class="container">
-			<div class="faq-question">
-				<h2>CAN YOU MIX DIFFERENT STYLES FOR A DIVERSE CROWD?</h2>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>DO YOU TAKE REQUESTS FROM GUESTS?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Yes, unless you prefer otherwise. We filter requests through your vision for the night and the energy on the floor.</p>
+				</div>
 			</div>
-			
-			<div class="faq-answer">
-				<p>Yes. Blending generations and genres smoothly is a core part of what we do.</p>
-			</div>
-		</div>
-	</section>
 
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>CAN YOU MIX DIFFERENT STYLES FOR A DIVERSE CROWD?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Yes. Blending generations and genres smoothly is a core part of what we do.</p>
+				</div>
+			</div>
 
-	<div class="container">
-		<div class="faq-question">
-			<h2>DO YOU PROVIDE SOUND AND LIGHTING?</h2>
-		</div>
-		
-		<div class="faq-answer">
-			<p>We arrive with professional-grade audio and can design lighting to match the size and style of your venue.</p>
-		</div>
-	</div>
-	
-	<section class="alt-section alt-dark">
-		<div class="container">
-			<div class="faq-question">
-				<h2>HOW DO YOU HANDLE ANNOUNCEMENTS AND EVENT FLOW?</h2>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>DO YOU PROVIDE SOUND AND LIGHTING?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>We arrive with professional-grade audio and can design lighting to match the size and style of your venue.</p>
+				</div>
 			</div>
-			
-			<div class="faq-answer">
-				<p>We provide polished MC support when needed and can be as visible or as minimal on the microphone as you prefer. Wireless microphones are available for toasts and speeches.</p>
-			</div>
-		</div>
-    </section>
 
-	<div class="container">
-		<div class="faq-question">
-			<h2>HOW EARLY DO YOU ARRIVE?</h2>
-		</div>
-		
-		<div class="faq-answer">
-			<p>Typically 2 to 3 hours before guest arrival. This allows time for setup, testing, and coordination with planners and venue staff.</p>
-		</div>
-	</div>
-	
-	<section class="alt-section alt-dark">
-		<div class="container">
-			<div class="faq-question">
-				<h2>WHAT HAPPENS IF EQUIPMENT FAILS?</h2>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>HOW DO YOU HANDLE ANNOUNCEMENTS AND EVENT FLOW?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>We provide polished MC support when needed and can be as visible or as minimal on the microphone as you prefer. Wireless microphones are available for toasts and speeches.</p>
+				</div>
 			</div>
-			
-			<div class="faq-answer">
-				<p>We bring backup systems and test everything before the event begins, ensuring continuous music.</p>
-			</div>
-		</div>
-    </section>
 
-	<div class="container">
-        <div class="faq-question">
-			<h2>CAN YOU STAY LONGER IF THE PARTY IS GOING STRONG?</h2>
-		</div>
-		
-        <div class="faq-answer">
-            <p>If the venue allows it, we can extend for an additional fee. You can decide ahead of time or during the event. If you decide during the event, payment must be made before extra time begins.</p>
-        </div>
-	</div>
-
-	<section class="alt-section alt-dark">
-		<div class="container">
-			<div class="faq-question">
-				<h2>WHAT DO YOU WEAR?</h2>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>HOW EARLY DO YOU ARRIVE?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Typically 2 to 3 hours before guest arrival. This allows time for setup, testing, and coordination with planners and venue staff.</p>
+				</div>
 			</div>
-			
-			<div class="faq-answer">
-				<p>We dress to match the occasion. Formal for weddings and corporate events, refined and stylish for parties. Specific requests are always welcome. If you have a dress code, we’ll follow it.</p>
-			</div>
-		</div>
-	</section>
-    
-	<div class="container">
-        <div class="faq-question">
-			<h2>WHAT SECURES OUR DATE?</h2>
-		</div>
-		
-        <div class="faq-answer">
-            <p>Your event is confirmed once the contract is signed and the deposit is received. The remaining balance is due 30 days prior.</p>
-        </div>
-	</div>
 
-    <div class="bottom-cta">
-		<a class="contact-btn" href="contact.html">CONTACT</a>
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>WHAT HAPPENS IF EQUIPMENT FAILS?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>We bring backup systems and test everything before the event begins, ensuring continuous music.</p>
+				</div>
+			</div>
+
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>CAN YOU STAY LONGER IF THE PARTY IS GOING STRONG?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>If the venue allows it, we can extend for an additional fee. You can decide ahead of time or during the event. If you decide during the event, payment must be made before extra time begins.</p>
+				</div>
+			</div>
+
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>WHAT DO YOU WEAR?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>We dress to match the occasion. Formal for weddings and corporate events, refined and stylish for parties. Specific requests are always welcome. If you have a dress code, we'll follow it.</p>
+				</div>
+			</div>
+
+			<div class="faq-item">
+				<button class="faq-question" onclick="toggleFaq(this)">
+					<span>WHAT SECURES OUR DATE?</span>
+					<i class="fas fa-chevron-down faq-caret"></i>
+				</button>
+				<div class="faq-answer">
+					<p>Your event is confirmed once the contract is signed and the deposit is received. The remaining balance is due 30 days prior.</p>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 	<script>
@@ -238,15 +224,10 @@
 		}
 	</script>
 	<script>
-		const sections = document.querySelectorAll('.alt-section');
-
-		const io = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  entry.target.classList.toggle('in-view', entry.isIntersecting);
-		});
-		}, { threshold: 0.35 });
-
-		sections.forEach(s => io.observe(s));
+		function toggleFaq(btn) {
+			const item = btn.closest('.faq-item');
+			item.classList.toggle('open');
+		}
 	</script>
 	
 	<footer class="site-footer">
@@ -263,9 +244,10 @@
 		<div class="footer-right">
 			<div class="footer-links">
 				<a href="about.html">ABOUT</a>
-				<a href="weddings.html">WEDDINGS</a>
-				<a href="events.html">EVENTS</a>
-				<a href="gallery.html">EVENT HIGHLIGHTS</a>
+				<a href="reviews.html">REVIEWS</a>
+				<a href="gallery.html">HIGHLIGHTS</a>
+				<a href="faq.html">FAQ</a>
+				<a href="blog/index.html">BLOG</a>
 				<a href="contact.html">CONTACT</a>
 			</div>
 

@@ -47,7 +47,7 @@
     <link rel="icon" type="image/png" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
 	<link rel="icon" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png" type="image/x-icon">
 	<link rel="apple-touch-icon" sizes="180x180" href="https://www.champsentertainment.com/Images/Champs_Ent_Logo_White_pfp_gold.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 	<link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -75,12 +75,7 @@
 
 						<a href="../reviews.html">REVIEWS</a>
 
-						<div class="nav-item has-submenu">
-							<a href="#" class="services-link" onclick="toggleSubmenu(event)">MEDIA</a>
-								<div class="submenu">
-									<a href="../gallery.html">EVENT HIGHLIGHTS</a>
-								</div>
-						</div>
+						<a href="../gallery.html">HIGHLIGHTS</a>
 
 						<a href="../faq.html">FAQ</a>
 						<a href="../blog/index.html" class="active">BLOG</a>
@@ -168,9 +163,6 @@
 		<p>We're happy to answer every question on this list, in detail, before you book anything. See our <a href="../weddings.html">wedding packages</a> or reach out to start the conversation.</p>
 	</div>
 
-	<div class="bottom-cta">
-		<a class="contact-btn" href="../contact.html">GET A CUSTOM QUOTE</a>
-	</div>
 
 	<script>
 		function toggleMenu() {
@@ -184,15 +176,6 @@
 			const parent = e.target.closest('.has-submenu');
 			parent.classList.toggle('open');
 		}
-	</script>
-	<script>
-		const sections = document.querySelectorAll('.alt-section');
-		const io = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-		  entry.target.classList.toggle('in-view', entry.isIntersecting);
-		});
-		}, { threshold: 0.35 });
-		sections.forEach(s => io.observe(s));
 	</script>
 
 	<footer class="site-footer">
@@ -209,9 +192,10 @@
 		<div class="footer-right">
 			<div class="footer-links">
 				<a href="../about.html">ABOUT</a>
-				<a href="../weddings.html">WEDDINGS</a>
-				<a href="../gallery.html">EVENT HIGHLIGHTS</a>
-				<a href="../events.html">EVENTS</a>
+				<a href="../reviews.html">REVIEWS</a>
+				<a href="../gallery.html">HIGHLIGHTS</a>
+				<a href="../faq.html">FAQ</a>
+				<a href="../blog/index.html">BLOG</a>
 				<a href="../contact.html">CONTACT</a>
 			</div>
 
