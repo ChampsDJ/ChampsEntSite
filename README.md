@@ -444,17 +444,154 @@ and everything on the champsdj.com side (Friends section replacement,
 footer copy fix) — both lower priority per your own ordering, and
 untouched this session.
 
-### Branding kit
+### Branding Kit
 
-The site now has a real Design System artifact documenting colors,
-type, spacing, radius, and every component pattern in production,
-built directly from `css/styles.css`. It lives at:
+A reference for colors, type, spacing, and component patterns — built
+directly from `css/styles.css`. Use this instead of re-deriving design
+decisions from scratch each time.
 
-**https://claude.ai/artifact/XCZ6qkvqCjrzPdMpKYMP4e**
+**Sister brand:** champsdj.com is Champs' separate artist-facing site
+(mixes, releases, live sets). The two intentionally share design DNA
+(dark backgrounds, a gold accent, a real card system, deliberate type
+pairing) without being visually identical — champsdj.com is more
+energetic and nightlife-coded; this brand is calmer and more premium.
 
-This is a live claude.ai artifact, not a file in this repo — open the
-link to read it. It's the reference to point at for future design
-decisions rather than re-deriving them from scratch each time.
+#### Color
+
+Single dark theme — this brand does not have a light mode.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--bg` | `#0a0a08` | Page background |
+| `--bg-raised` | `#131310` | Card/panel background (pricing cards, review cards, FAQ items, contact form, highlight cards) |
+| `--gold` | `#C8A700` | Primary accent — headlines, links, active nav, button borders, card borders. **This exact value matches the logo image assets.** Do not substitute champsdj.com's gold (`#d8bb1b`) — they're deliberately different. |
+| `--gold-bright` | `#e8c400` | Reserved for future hover/active states, not yet wired into production CSS |
+| `--ink` | `#f5f2e6` | Primary text — a soft off-white, not pure `#fff` |
+| `--ink-dim` | `#b8b39f` | Secondary/muted text — captions, review locations, form disclaimers |
+| `--line` | `#2a2a20` | Borders and section dividers |
+
+A note on why sections don't flash gold anymore: the original site
+alternated section backgrounds to solid gold on scroll. That's gone —
+sections now use a single consistent `--bg`, separated by a subtle
+`--line`-colored top border. If a color accent between sections is
+ever wanted again, use `--bg-raised` for a raised-panel feel instead
+of a jarring color swap.
+
+#### Typography
+
+Two typefaces, both loaded from Google Fonts (see the single `<link>`
+in every page's `<head>`):
+
+- **Bricolage Grotesque** (weights 600–800) — the display face. Used
+  for `h1`, `h2`, `h3`, and short punchy UI moments (pricing card
+  names, quote-callout text).
+- **Public Sans** (weights 400–600) — the body face. Used for
+  paragraphs, list items, form fields, review quotes, FAQ answers —
+  anything meant to be read rather than glanced at.
+
+Why this pairing: Bricolage Grotesque has real character and
+confidence without being playful (unlike the old Nunito, which read
+soft and bubbly at large bold sizes — close enough to Comic Sans MS
+that it undermined the "premium wedding business" positioning). Public
+Sans is clean and highly legible at paragraph size without being a
+generic default. Together they lean toward the same confident-modern
+register as champsdj.com's Archivo Black/Oswald pairing, using
+entirely different actual typefaces — the two sites read as siblings,
+not clones.
+
+**Casing:** headlines are sentence case, not ALL CAPS — "Wedding
+packages," not "WEDDING PACKAGES." All-caps is reserved for small
+structural UI text where it adds crispness without hurting legibility:
+nav links, buttons, eyebrow/label text (e.g. a pricing card's "MOST
+POPULAR" badge). At headline size, all-caps just shouts and is
+measurably slower to read (capital letters remove the
+ascender/descender shape cues your brain uses for fast word
+recognition). *(Site-wide headline casing conversion, including FAQ
+question text, is still pending — see the outstanding-work note
+below.)*
+
+**Type scale:**
+
+| Style | Font | Size | Weight |
+|---|---|---|---|
+| Hero headline (h1) | Bricolage Grotesque | 50px | 800 |
+| Section headline (h2) | Bricolage Grotesque | 32px | 700 |
+| Subsection (h3) | Bricolage Grotesque | 24px | 700 |
+| Paragraph | Public Sans | 18px | 400 |
+| Small/caption | Public Sans | 14px | 400 |
+| Eyebrow label | Public Sans | 13px | 600 |
+
+#### Alignment
+
+The rule: **content-heavy text is left-aligned; short copy stays
+centered.**
+
+- Left-align: paragraphs of prose (About page narrative, service
+  descriptions), FAQ answers, review quotes, list items.
+- Stay centered: hero taglines, the homepage's DJ quote-callouts,
+  short CTAs/buttons, card names inside a centered card grid.
+
+A consistent left edge is what your eye anchors to across multiple
+lines — centered paragraphs make your eye hunt for the start of each
+new line, which gets fatiguing past a sentence or two. Short, punchy
+text (a headline, a button, a pull-quote) doesn't have that problem,
+and centering it is a legitimate way to create visual focus rather
+than a default applied out of habit everywhere.
+
+#### Spacing & radius
+
+A small, deliberate scale rather than one-off pixel values:
+
+| Token | Value | Usage |
+|---|---|---|
+| `space-1` | 8px | Tight internal gaps (icon-to-text, list item padding) |
+| `space-2` | 16px | Component-internal spacing (card gaps, form field gaps) |
+| `space-3` | 24px | Card padding, grid gaps between cards |
+| `space-4` | 40px | Spacing between related content blocks within a section |
+| `space-5` | 56px | Section padding (top/bottom) — the rhythm between major page sections |
+
+| Token | Value | Usage |
+|---|---|---|
+| `radius-sm` | 8px | Buttons, FAQ accordion items |
+| `radius-md` | 12px | Cards: pricing cards, review cards, blog cards, highlight cards, contact form card |
+
+#### Component patterns
+
+All defined in `css/styles.css`, all built on the tokens above:
+
+- **Pricing card** (`.pricing-card` / `.pricing-grid`) — name, price,
+  feature checklist, CTA. Supports a `.featured` variant with a gold
+  badge, and a `.pricing-grid-2` variant for 2-item layouts.
+- **Review card** (`.review-card` / `.review-grid`) — large gold star
+  rating, name, location, quote with a gold left-border accent.
+- **FAQ accordion** (`.faq-item` / `.faq-question` / `.faq-answer`) —
+  gold-bordered, question background flips to solid gold with black
+  text when expanded, answer stays in the card's normal dark coloring,
+  chevron rotates 180° on open/close.
+- **Quote callout** (`.quote-callout`) — bordered top/bottom divider
+  for the homepage's DJ quotes.
+- **Blog card** (`.blog-card` / `.blog-grid`) — the blog landing
+  page's post cards.
+- **Check list** (`.check-list`) — plain checkmark list, replacing
+  emoji ✅ bullets.
+- **Highlight card** (`.highlight-card`) — wraps each Event Highlights
+  entry.
+- **Contact card** (`.contact-card`) — wraps the contact form.
+
+#### Assets
+
+Logo images live in `Images/` in this repo
+(`Champs_Ent_Logo_Gold_social2_transparent.png` and variants). No
+separate asset library exists yet — this is the single source.
+
+#### Not yet decided
+
+- Whether `--gold-bright` (`#e8c400`) actually gets used anywhere, or
+  stays reserved
+- A formal icon set (currently Font Awesome via CDN, not an owned
+  icon library)
+- Any of this applied to champsdj.com itself — this section documents
+  champsentertainment.com only
 
 ### Notes from executing the typography & alignment follow-up (September 2026)
 
