@@ -97,22 +97,29 @@ page's `<body>`.
 
 - `blog/index.html` is the landing page: a card grid pulling from
   `.blog-card` / `.blog-grid` styles in the main stylesheet. Each entire
-  card is a click target (an `<a class="blog-card">` wrapping the date,
-  title, and excerpt), with "Read More →" shown as a plain-text visual
-  cue inside it rather than a separate link.
+  card is a click target (an `<a class="blog-card">` wrapping a
+  thumbnail image, the date, title, and excerpt), with "Read More →"
+  shown as a plain-text visual cue inside it rather than a separate
+  link. The thumbnail (`.blog-card-thumb`) reuses that post's own hero
+  image at a smaller, cropped size — no separate thumbnail assets to
+  manage.
 - Each post is a standalone HTML file in `blog/`, following the same
   header/nav/footer pattern as the rest of the site (with `../` relative
   paths since it's one directory deep), plus an `Article` schema.org
   block in addition to the site's `LocalBusiness` schema.
 - **To publish a new post:** uncomment its card in `blog/index.html`
-  (posts beyond the first are currently HTML-commented out pending
+  (posts beyond the first two are currently HTML-commented out pending
   rollout), set the real publish date in both the visible "Published"
-  line and the `datePublished` field in the post's `Article` schema, and
-  add its URL to `sitemap.xml`.
+  line and the `datePublished` field in the post's `Article` schema,
+  and update that URL's `lastmod` in `sitemap.xml` (all 5 post URLs are
+  already listed there regardless of live status — see note below).
 - Posts currently written but not yet live: `wedding-dj-vs-spotify-playlist.html`,
   `questions-to-ask-before-booking-a-dj.html`,
-  `best-pittsburgh-wedding-venues.html`,
-  `behind-the-scenes-heatsignal-furnace.html`.
+  `best-pittsburgh-wedding-venues.html`.
+- `sitemap.xml` intentionally lists all 5 post URLs even before a post
+  goes live on the landing page — since the files already exist, this
+  just gives Google a head start on crawling/indexing before the post
+  is linked from anywhere on the site.
 
 ## SEO conventions
 
