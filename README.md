@@ -18,18 +18,19 @@ as-is. Hosted on GitHub Pages (see `CNAME`).
 ├── contact.html             Booking inquiry form
 ├── faq.html
 ├── weddings.html            Wedding packages & pricing
-├── parties.html             Parties & events (clubs, corporate, etc.)
+├── events.html              School dances, corporate, community/festival
+│                              events (renamed from parties.html, Sept 2026)
 ├── recordings.html          Recording & livestreaming services
 ├── rentals.html             Equipment rental services
-├── gallery.html             Video sets
-├── music.html                Music & mixes
+├── gallery.html             Event Highlights — wedding/corporate/community
+│                              video (renamed from a club/rave-heavy "Video
+│                              Sets" page, Sept 2026)
 ├── reviews.html
-├── presskit.html            Interactive press kit
 ├── thankyou.html            Post-contact-form confirmation (noindex)
 ├── 404.html                 Custom error page (noindex)
-├── media.html, services.html  Legacy redirect stubs (redirect to
-│                              gallery.html / weddings.html — kept for old
-│                              inbound/bookmarked links)
+├── media.html, services.html, parties.html, music.html, presskit.html
+│                              Redirect stubs (see below) — kept for old
+│                              inbound/bookmarked links, not real pages
 ├── css/
 │   └── styles.css           Single site-wide stylesheet (see below)
 ├── blog/
@@ -51,9 +52,10 @@ file with its own `<head>` (meta tags, schema.org JSON-LD, title,
 description) and repeats the same header/nav/footer markup. This means:
 
 - **Adding or changing a nav link requires editing every page individually.**
-  There are currently 20 HTML files with the site nav (12 core pages, `faq.html`
+  There are currently 18 HTML files with the site nav (11 core pages, `faq.html`
   and `404.html` as special cases with slightly different markup, plus the
-  blog landing page and 5 posts).
+  blog landing page and 5 posts). `music.html`, `presskit.html`, and
+  `parties.html` are redirect stubs, not real pages, and don't carry nav.
 - **Adding a new page** is easiest by copying an existing page closest in
   structure (e.g. copy `weddings.html` for a new service page, or an
   existing blog post for a new post) and editing the `<head>` tags, hero
@@ -174,39 +176,39 @@ energetic, nightlife-coded feel.
 
 ### champsentertainment.com — content changes
 
-- [ ] **Cut the Music/Mixes page entirely.** Someone shopping for a
+- [x] **Cut the Music/Mixes page entirely.** Someone shopping for a
       wedding DJ is deciding on trust, not taste — they're not
       auditioning tracks the way a club booker would. Fold 1–2 short
       embedded clips directly into the Weddings/Events pages instead
       (as supporting proof, not a destination), and link out to
       champsdj.com for anyone who wants the full music/mix experience.
-- [ ] **Retool the video/gallery page → rename to "Event Highlights."**
+- [x] **Retool the video/gallery page → rename to "Event Highlights."**
       Populate with wedding/corporate footage only (first dances,
       reception floors, the VegFest gig) — cut club/rave clips
       entirely, that content lives on champsdj.com now. **Blocked on
       the actual set/highlight links/clips being provided to feature**
       — page structure can be built ahead of that, content slotted in
       once provided.
-- [ ] **Rename Parties → Events.** Broaden framing past "party" to
+- [x] **Rename Parties → Events.** Broaden framing past "party" to
       include corporate and community work (coffee shop gigs, VegFest),
       not just nightlife-adjacent parties.
-- [ ] **Retool the About page copy** away from "cool gigs Champs has
+- [x] **Retool the About page copy** away from "cool gigs Champs has
       played" and toward "why book Champs Entertainment" — business-
       first framing, not DJ-persona framing. Add a line/section linking
       out to champsdj.com for anyone curious about the club sets and
       original music side (see cross-linking below).
-- [ ] **Press kit page (`presskit.html`): turn into a redirect, don't
+- [x] **Press kit page (`presskit.html`): turn into a redirect, don't
       delete.** It's already indexed by Google. Point the redirect
       directly at the PDF (`files/Champs_PressKit2026.pdf`) rather than
       leaving a dead page. **Note for 2027:** when a new press kit PDF
       is generated, the redirect target (and the direct link from
       champsdj.com's Book section) both need updating to the new
       filename/URL.
-- [ ] **Reviews page rebuild.** Drop the old Google-auto-import +
+- [x] **Reviews page rebuild.** Drop the old Google-auto-import +
       Peerspace/Instagram sections structure. Replace with 3 real,
       hand-picked reviews (sourced below), presented well rather than
       padded to look like more than it is.
-- [ ] **Cross-link to champsdj.com.** Currently one-directional
+- [x] **Cross-link to champsdj.com.** Currently one-directional
       (champsdj.com links to champsentertainment.com, nothing points
       back). Add a line in the About page: something like "Curious
       about Champs' club sets and original music? Visit champsdj.com."
@@ -281,8 +283,9 @@ Entertainment LLC, collected September 2026):
 2. champsentertainment.com content changes (cut Music page, retool
    Gallery → Event Highlights structure, rename Parties → Events,
    retool About copy, presskit.html → redirect, add cross-link to
-   champsdj.com)
-3. Reviews page rebuild using the sourced reviews above
+   champsdj.com) — **done, September 2026**
+3. Reviews page rebuild using the sourced reviews above — **done,
+   September 2026**
 4. champsentertainment.com visual redesign (pricing cards, FAQ
    accordion, general de-centering, drawing from champsdj.com's design
    system)
@@ -290,3 +293,35 @@ Entertainment LLC, collected September 2026):
    available
 6. champsdj.com Friends section replacement + footer copy fix
       (lower priority, business site comes first)
+
+### Notes from executing steps 2 & 3
+
+- `events.html` is a new file (renamed from `parties.html`).
+  `parties.html` now redirects to it, matching the existing
+  `media.html`/`services.html` redirect-stub pattern, to preserve any
+  existing links/SEO equity rather than leaving a dead page.
+- `music.html` now redirects to `https://champsdj.com/#mixes` — the
+  wedding-appropriate mix embed (SoundCloud playlist) that used to live
+  there is now embedded directly in `weddings.html` instead, per the
+  "fold 1-2 clips into the Weddings/Events pages" plan.
+- `presskit.html` now redirects straight to the PDF, as planned.
+- Gallery page ("Event Highlights") kept 5 of its original 11 video
+  sections (Yinzers Fake Wedding, Venango Pride, Spigolo, the DJs
+  Against Apartheid fundraiser, Colombino) and cut the 6 club/rave/
+  DJ-persona ones. This wasn't actually blocked on new content the way
+  originally expected — the existing gallery already had enough
+  wedding/corporate/community-appropriate material to retool with
+  immediately. More clips can still be added later.
+- Found and removed a dead `fancybox` lightbox library (CSS + 2 script
+  tags) on the old gallery page that was loading but never actually
+  used anywhere in the markup.
+- The About page rewrite kept the inclusivity statement and the
+  wedding-availability messaging near-verbatim (genuinely good content,
+  no reason to touch it), and kept the "MY EXPERIENCE" bullet list
+  structure, just swapped out the EDC Discord Music Night LIVE / Ibiza
+  Stardust Radio residency / Pittsburgh Open Decks bullets for
+  business-relevant ones (wedding/event booking history, production
+  capabilities).
+- Reviews page now uses a real card grid (`.review-card` /
+  `.review-grid` in `css/styles.css`) instead of the old plain-text
+  layout with manual `</br>` line breaks.

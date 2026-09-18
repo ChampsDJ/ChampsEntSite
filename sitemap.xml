@@ -19,8 +19,8 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.champsentertainment.com/parties.html</loc>
-    <lastmod>2026-02-15</lastmod>
+    <loc>https://www.champsentertainment.com/events.html</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -43,12 +43,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.champsentertainment.com/music.html</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.champsentertainment.com/faq.html</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -65,12 +59,6 @@
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.champsentertainment.com/presskit.html</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.champsentertainment.com/blog/</loc>
