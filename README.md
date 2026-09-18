@@ -142,3 +142,151 @@ sync between pages over time. It was consolidated into the single
 `css/styles.css` file described above. The old `css/styles.css` file
 (now gone) was an earlier, unrelated proof-of-concept and is not part of
 this history.
+
+## Website Redesign Project (planning as of September 2026)
+
+### Why
+
+The site originally had to serve two identities at once: Champs
+Entertainment the bookable business, and Champs the DJ/producer. Now
+that **champsdj.com** exists as its own site dedicated to the DJ/artist
+side (mixes, releases, socials, live sets), champsentertainment.com no
+longer needs to carry that weight. The two sites are being repositioned
+as **sister sites** with a clean split:
+
+- **champsentertainment.com** — the business. Weddings, corporate/community
+  events, rentals, recordings. The goal on every page is "will this help
+  someone decide to book."
+- **champsdj.com** — the artist. Mixes, releases, live sets, socials,
+  club/festival bookings. The goal is showcasing the music and the
+  performer.
+
+They should feel like two coordinated sibling brands, not two unrelated
+projects. champsdj.com (built later) already has a stronger visual
+system than champsentertainment.com currently does — real CSS custom
+properties, a disciplined type pairing (Archivo Black / Oswald / Inter),
+a consistent card-grid pattern, a scrolling ticker, animated EQ bars.
+**The champsentertainment.com visual redesign should use champsdj.com as
+a jumping-off point**: borrow the underlying bones (card system, type
+discipline, real design tokens) while giving champsentertainment.com its
+own more premium/elegant tone, distinct from champsdj.com's more
+energetic, nightlife-coded feel.
+
+### champsentertainment.com — content changes
+
+- [ ] **Cut the Music/Mixes page entirely.** Someone shopping for a
+      wedding DJ is deciding on trust, not taste — they're not
+      auditioning tracks the way a club booker would. Fold 1–2 short
+      embedded clips directly into the Weddings/Events pages instead
+      (as supporting proof, not a destination), and link out to
+      champsdj.com for anyone who wants the full music/mix experience.
+- [ ] **Retool the video/gallery page → rename to "Event Highlights."**
+      Populate with wedding/corporate footage only (first dances,
+      reception floors, the VegFest gig) — cut club/rave clips
+      entirely, that content lives on champsdj.com now. **Blocked on
+      the actual set/highlight links/clips being provided to feature**
+      — page structure can be built ahead of that, content slotted in
+      once provided.
+- [ ] **Rename Parties → Events.** Broaden framing past "party" to
+      include corporate and community work (coffee shop gigs, VegFest),
+      not just nightlife-adjacent parties.
+- [ ] **Retool the About page copy** away from "cool gigs Champs has
+      played" and toward "why book Champs Entertainment" — business-
+      first framing, not DJ-persona framing. Add a line/section linking
+      out to champsdj.com for anyone curious about the club sets and
+      original music side (see cross-linking below).
+- [ ] **Press kit page (`presskit.html`): turn into a redirect, don't
+      delete.** It's already indexed by Google. Point the redirect
+      directly at the PDF (`files/Champs_PressKit2026.pdf`) rather than
+      leaving a dead page. **Note for 2027:** when a new press kit PDF
+      is generated, the redirect target (and the direct link from
+      champsdj.com's Book section) both need updating to the new
+      filename/URL.
+- [ ] **Reviews page rebuild.** Drop the old Google-auto-import +
+      Peerspace/Instagram sections structure. Replace with 3 real,
+      hand-picked reviews (sourced below), presented well rather than
+      padded to look like more than it is.
+- [ ] **Cross-link to champsdj.com.** Currently one-directional
+      (champsdj.com links to champsentertainment.com, nothing points
+      back). Add a line in the About page: something like "Curious
+      about Champs' club sets and original music? Visit champsdj.com."
+- [ ] **Hero video swap (wedding footage instead of club footage) —
+      SHELVED for now**, pending real photo/video being available from an
+      actual wedding he's played. Decision made: keep current club
+      footage as placeholder in the meantime rather than substitute
+      generic stock wedding footage — recognizable stock footage risks
+      undercutting the "this is a real professional" trust the rest of
+      the site is building. A single strong real photo (not necessarily
+      video) is an acceptable lower-effort placeholder once available.
+
+### champsentertainment.com — visual redesign (once content changes above are done)
+
+- [ ] Stop center-aligning everything by default (called out
+      specifically: the Weddings pricing section currently uses emoji
+      as bullet markers, which don't align consistently across
+      fonts/OS and reads amateurish).
+- [ ] **Weddings page: convert pricing from emoji-bulleted text into
+      proper pricing panels/cards** — one card per tier (Party Starter /
+      People's Choice / Total Package), each with name, price range, and
+      a clean feature list. Easier to compare, easier to scan, looks
+      intentional instead of accidental.
+- [ ] **FAQ page: convert from alternating black/gold sections into an
+      accordion.** Short Q&A content in the current alternating-section
+      layout produces a rapid zebra-stripe effect with nothing to anchor
+      the eye. Collapsed-by-default accordion solves the striping and
+      makes the page feel shorter/less overwhelming at a glance.
+- [ ] Pull visual/structural inspiration from champsdj.com's existing
+      design system (see "Why" above) rather than starting from zero.
+
+### champsdj.com — changes (lower priority; business site work comes first)
+
+- [ ] **Replace the "Friends" section** (currently EDC Discord
+      community content — off-brand once champsdj.com is purely the
+      Champs artist brand) **with two new sections**:
+  - "Recent Sets" recap feed — short recap items (photo + one line +
+    video link) for notable past gigs. Can cross-link to
+    champsentertainment.com blog posts that cover the same event (e.g.
+    the heatsignal FURNACE recap).
+  - "As Heard At" — a compact credibility strip of venues/events played.
+- [ ] **Footer copy fix:** currently reads "Reviews, Bookings & Press."
+      Once the press kit lives entirely on champsdj.com's own Book
+      section (already does — it links to the PDF directly), the
+      champsentertainment.com link no longer needs to imply it hosts
+      "Press." New footer text: **"Reviews & Bookings."**
+
+### Content already sourced
+
+**Reviews for the rebuilt Reviews page** (real Google reviews for Champs
+Entertainment LLC, collected September 2026):
+
+1. **Samantha Kummer** — ★★★★★ — *"Matt set up at a community party
+   hosted at a local climbing gym! He was easy to communicate with
+   during the coordination of the event. His music selection was fun
+   and kept the energy groovin'!"*
+2. **Edie G** (Local Guide) — ★★★★★ — *"Champs put together the most
+   incredible set for our cocktail hour and wedding reception AND was
+   an amazing MC! Professional and easy to work with. The lighting
+   really transformed our modestly decorated space and brought a lot of
+   energy when we made the transition from Dinner Time to Dancing Time.
+   We got a ton of compliments on the music selection throughout the
+   event and Champs had me out on the dance floor most of the
+   night!!"* — this is the wedding-specific review.
+3. **Justice for Animals** — ★★★★★ — *"Matt was awesome! Professional
+   and can read the room. We would love to have him back! Thank you
+   Matt"* — nonprofit/organizational event.
+
+### Suggested order of operations
+
+1. Content decisions (this list) — **done**
+2. champsentertainment.com content changes (cut Music page, retool
+   Gallery → Event Highlights structure, rename Parties → Events,
+   retool About copy, presskit.html → redirect, add cross-link to
+   champsdj.com)
+3. Reviews page rebuild using the sourced reviews above
+4. champsentertainment.com visual redesign (pricing cards, FAQ
+   accordion, general de-centering, drawing from champsdj.com's design
+   system)
+5. Hero video/photo swap — whenever real wedding footage/photos are
+   available
+6. champsdj.com Friends section replacement + footer copy fix
+      (lower priority, business site comes first)
